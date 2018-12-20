@@ -2,7 +2,7 @@ package com.bridgelabz.functionalprograms;
 import java.util.Scanner;
 import java.util.Random;
 
-public class FunctionalUtility {
+public class FunctionalUtility <E> {
 
 	public void checkConcate(String s) {
 		if(s.length()<3)
@@ -108,4 +108,35 @@ else
 			
 	}
 	
+	public int getcouponNumber(int n) {
+		boolean[] isCollected=new boolean[n];
+		int count=0;
+		int distinct=0;
+		while(distinct<n)
+		{
+			Random r=new Random();
+			int value=r.nextInt(n);
+			count++;
+			if(isCollected[value]==false)
+			{
+				distinct++;
+				System.out.println(distinct);
+				isCollected[value]=true;
+			}
+		}
+		return count;
+	}
+	public void displayarray(E[][] garray,int m,int n)
+	{
+		for(int i=0;i<m;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				System.out.println(garray[i][j]+" ");
+			}
+
+	}	
+	
 }	
+} 
+	

@@ -5,6 +5,7 @@ class Gambler {
 
 	public static void main(String[] args) {
 	FunctionalUtility fu=new FunctionalUtility();
+	fu.Gambler();
 
 	}
 
