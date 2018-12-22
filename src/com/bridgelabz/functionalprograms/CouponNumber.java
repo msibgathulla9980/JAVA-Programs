@@ -1,7 +1,8 @@
-package com.bridgelabz.util;
+package com.bridgelabz.functionalprograms;
 
-import com.bridgelabz.functionalprograms.*;
 import java.util.Scanner;
+
+import com.bridgelabz.utility.*;
 
 public class CouponNumber {
 

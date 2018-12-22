@@ -1,7 +1,9 @@
-package com.bridgelabz.util;
+package com.bridgelabz.functionalprograms;
 import java.util.Scanner;
-import java.util.Arrays;
-import com.bridgelabz.functionalprograms.FunctionalUtility; 
+
+import com.bridgelabz.utility.FunctionalUtility;
+
+import java.util.Arrays; 
 class WindChill {
 
 	public static void main(String[] args) {

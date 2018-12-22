@@ -1,16 +1,17 @@
 package com.bridgelabz.AlgorithmPrograms;
-
 import java.util.Scanner;
 
 import com.bridgelabz.utility.AlgorithmUtility;
 
-public class Prime {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+public class MonthlyPayment {
 
 	public static void main(String[] args) {
-		
-		Scanner sc=new Scanner(System.in);
 		AlgorithmUtility au=new AlgorithmUtility();
-		au.Prime();
+		au.monthlyPayment();
+
 	}
 
 }

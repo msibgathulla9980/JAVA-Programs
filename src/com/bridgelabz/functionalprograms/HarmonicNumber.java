@@ -1,6 +1,7 @@
-package com.bridgelabz.util;
-import com.bridgelabz.functionalprograms.*;
+package com.bridgelabz.functionalprograms;
 import java.util.Scanner;
+
+import com.bridgelabz.utility.*;
 
 public class HarmonicNumber {
 

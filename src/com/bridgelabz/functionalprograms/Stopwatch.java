@@ -1,7 +1,9 @@
-package com.bridgelabz.util;
+package com.bridgelabz.functionalprograms;
 import java.util.Scanner;
+
+import com.bridgelabz.utility.FunctionalUtility;
+
 import java.util.Arrays;
-import com.bridgelabz.functionalprograms.FunctionalUtility;
 
 
 public class Stopwatch { 

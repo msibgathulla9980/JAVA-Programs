@@ -1,6 +1,7 @@
-package com.bridgelabz.util;
+package com.bridgelabz.functionalprograms;
 import java.util.Scanner;
-import com.bridgelabz.functionalprograms.FunctionalUtility;
+
+import com.bridgelabz.utility.FunctionalUtility;
 public class ReplaceString {
 
 	public static void main(String[] args) {

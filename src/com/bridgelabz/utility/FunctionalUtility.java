@@ -1,14 +1,14 @@
-package com.bridgelabz.functionalprograms;
+package com.bridgelabz.utility;
 
 import java.util.Scanner;
 
-import com.bridgelabz.util.Stopwatch;
+import com.bridgelabz.functionalprograms.Stopwatch;
 
 import java.util.Arrays;
 import java.util.Random;
 
-public class FunctionalUtility {
-////////////////////////////
+public class FunctionalUtility<E> {
+	////////////////////////////
 	public void checkConcate(String s) {
 		if (s.length() < 3)
 			System.out.println("Enter the name with atleast 3 characters");
@@ -16,7 +16,7 @@ public class FunctionalUtility {
 			System.out.println("Hi, " + s + " How are you?");
 
 	}
-////////////////////////////////////
+	////////////////////////////////////
 	public void getCount(int count) {
 		int head = 0, tail = 0;
 		int c = count;
@@ -33,7 +33,7 @@ public class FunctionalUtility {
 		System.out.println("perc of Head" + head * 100 / c);
 		System.out.println("perc of Tail" + tail * 100 / c);
 	}
-///////////////////////////////////////
+	///////////////////////////////////////
 	public void getLeap(int x) {
 		if (x % 4 == 0 || x % 400 == 0 && x % 100 == 0) {
 			System.out.println("It is a leap year");
@@ -41,7 +41,7 @@ public class FunctionalUtility {
 			System.out.println("It is not leap year");
 		}
 	}
-//////////////////////////////////////
+	//////////////////////////////////////
 	public double getHarmonicNumber(int n) {
 		double sum = 0.0;
 		if (n == 1)
@@ -53,7 +53,7 @@ public class FunctionalUtility {
 			return sum;
 		}
 	}
-////////////////////////////////
+	////////////////////////////////
 	public void getPrime() {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
@@ -71,7 +71,7 @@ public class FunctionalUtility {
 
 		}
 	}
-/////////////////////////////////////
+	/////////////////////////////////////
 	public void Gambler() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the stake:");
@@ -102,7 +102,7 @@ public class FunctionalUtility {
 		System.out.println("Percent Of Games lost:" + 100 * loose / no_of_times);
 
 	}
-////////////////////////////////////
+	////////////////////////////////////
 	public int getcouponNumber(int n) {
 		boolean[] isCollected = new boolean[n];
 		int count = 0;
@@ -119,15 +119,19 @@ public class FunctionalUtility {
 		}
 		return count;
 	}
-	/*
-	 * public void displayarray(E[][] garray,int m,int n) { for(int i=0;i<m;i++)
-	 * { for(int j=0;j<n;j++) { System.out.println(garray[i][j]+" "); }
-	 * 
-	 * }
-	 * 
-	 * }
-	 */
-//////////////////////////////////
+
+	public void displayarray(E[][] garray,int m,int n) 
+	{ for(int i=0;i<m;i++)
+	{ for(int j=0;j<n;j++)
+	{ 
+		System.out.print(garray[i][j]+"");
+
+	}
+	System.out.println();}
+
+	}
+
+	//////////////////////////////////
 	public void Triplet(int[] arr, int n) {
 		boolean flag=false;
 		for(int i=0;i<n;i++)
@@ -152,49 +156,49 @@ public class FunctionalUtility {
 	}
 	////////////////////////////////
 	public void Distance(){
-	 int x,y;
-	 
-     double dis;
+		int x,y;
 
-     Scanner sc=new Scanner(System.in);
+		double dis;
 
-     System.out.println("enter x point");
+		Scanner sc=new Scanner(System.in);
 
-         x=sc.nextInt();
+		System.out.println("enter x point");
 
-         System.out.println("enter y point");
+		x=sc.nextInt();
 
-         y=sc.nextInt();
-	    
- dis=Math.sqrt(x*x+y*y);
- System.out.println("distancebetween"+"("+x+","+y+")="+dis);
-}
+		System.out.println("enter y point");
+
+		y=sc.nextInt();
+
+		dis=Math.sqrt(x*x+y*y);
+		System.out.println("distancebetween"+"("+x+","+y+")="+dis);
+	}
 	///////////////////////////////
 	public void combString(String s) {
-	    char[] a = new char[s.length()];
-	    //String temp = "";
-	    for(int i = 0; i < s.length(); i++) {
-	        a[i] = s.charAt(i);
-	    }
-	    for(int i = 0; i < s.length(); i++) {
-	        String temp = "" + a[i];    
+		char[] a = new char[s.length()];
+		//String temp = "";
+		for(int i = 0; i < s.length(); i++) {
+			a[i] = s.charAt(i);
+		}
+		for(int i = 0; i < s.length(); i++) {
+			String temp = "" + a[i];    
 
-	        for(int j = 0; j < s.length();j++) {
-	            //int k = j;
-	            if(i != j) {
-	                System.out.println(j);
-	                temp += s.substring(0,j) + s.substring(j+1,s.length());
-	            }               
-	        }
-	        System.out.println(temp);
-	    }
+			for(int j = 0; j < s.length();j++) {
+				//int k = j;
+				if(i != j) {
+					System.out.println(j);
+					temp += s.substring(0,j) + s.substring(j+1,s.length());
+				}               
+			}
+			System.out.println(temp);
+		}
 	}
 	/////////////////////////////////////
 	long starttime=0;
 	long endtime=0;
 	long elapsedtime=0;
-	
-	
+
+
 	public void start(){
 		starttime= System.currentTimeMillis();
 		System.out.println("Start time "+starttime);
@@ -217,30 +221,30 @@ public class FunctionalUtility {
 		int b=sc.nextInt();
 		System.out.println("Enter the value of c:");
 		int c=sc.nextInt();
-		
+
 		double delta;
 		delta=b*b-4*a*c;
 		double rootx1=(-b+Math.sqrt(delta))/(2*a);
 		double rootx2=(-b-Math.sqrt(delta))/(2*a);
-		
+
 		System.out.println("Root of x1 :"+rootx1);
 		System.out.println("Root of x2 :"+rootx2);
-		
+
 	}
-/////////////////////////////	
+	/////////////////////////////	
 	public void windChill()
 	{
 		Scanner sc=new Scanner(System.in);
-	System.out.println("Enter the value of t in Fahrenheit:");
-	double t=sc.nextDouble();
-	System.out.println("Enter tMathhe value of v in miles/hr:");
-	double v=sc.nextDouble();
-	double w= 35.74+0.6215*t+(0.4275-35.75)*Math.pow(v,0.16);
-	
-	if (t>50||v>120&&v<3)
-		System.out.println("The entered values are not valid, Please enter the values of t<50 and V between 2 and 120 ");
-	else
-	System.out.println("The Effective Temperature is"+w);
-}
+		System.out.println("Enter the value of t in Fahrenheit:");
+		double t=sc.nextDouble();
+		System.out.println("Enter tMathhe value of v in miles/hr:");
+		double v=sc.nextDouble();
+		double w= 35.74+0.6215*t+(0.4275-35.75)*Math.pow(v,0.16);
+
+		if (t>50||v>120&&v<3)
+			System.out.println("The entered values are not valid, Please enter the values of t<50 and V between 2 and 120 ");
+		else
+			System.out.println("The Effective Temperature is"+w);
 	}
-/////////////////////////////////
+	}
+	/////////////////////////////////

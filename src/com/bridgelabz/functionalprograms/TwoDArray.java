@@ -1,8 +1,8 @@
-package com.bridgelabz.util;
+package com.bridgelabz.functionalprograms;
 
 import java.util.Scanner;
 
-import com.bridgelabz.functionalprograms.FunctionalUtility;
+import com.bridgelabz.utility.FunctionalUtility;
 
 public class TwoDArray {
 
@@ -28,7 +28,7 @@ case 1:
 			
 		}
 	}
-		//fu.displayarray(array,m,n);
+	fu.displayarray(array,m,n);
 		break;
 
 case 2:
@@ -41,7 +41,7 @@ case 2:
 			
 		}
 	}
-		//fu.displayarray(darray,m,n);
+		fu.displayarray(darray,m,n);
 		break;
 	
 
@@ -55,7 +55,7 @@ case 2:
 				
 			}
 		}
-			//fu.displayarray(barray,m,n);
+			fu.displayarray(barray,m,n);
 			break;
 
 		default: System.out.println("Select one among the three");
