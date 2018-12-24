@@ -237,7 +237,7 @@ public class FunctionalUtility<E> {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the value of t in Fahrenheit:");
 		double t=sc.nextDouble();
-		System.out.println("Enter tMathhe value of v in miles/hr:");
+		System.out.println("Enter the value of v in miles/hr:");
 		double v=sc.nextDouble();
 		double w= 35.74+0.6215*t+(0.4275-35.75)*Math.pow(v,0.16);
 

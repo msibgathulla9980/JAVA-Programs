@@ -49,7 +49,7 @@ public class AlgorithmUtility {
 	}
 
 	////////////////////////////
-	public void src() throws FileNotFoundException{
+	public void binSrcFile() throws FileNotFoundException{
 		String word = ""; int val = 0;
 		while(!word.matches("quit"))
 		{
@@ -72,7 +72,6 @@ public class AlgorithmUtility {
 				else
 				{
 					val = 0;
-					continue;
 				}
 			}
 			if(val == 0)
@@ -273,65 +272,250 @@ public class AlgorithmUtility {
 		}
 	}
 
-	public void Binsrcforint(int a[], int key){
-		int low=0,high=a.length;
-		int mid=0;
-		while(low<=high){
-			 mid=(low+high)/2;
-			if(a[mid]==key){
-				System.out.println(mid);
-				
-			}
-			 if(a[mid]<key)
-			{
-				low=mid+1;
-			
-			}
-			else
-			{
-				high=mid-1;
-			}
-		}
-		
-
-	}
-}
-	/*public void binarySearchforstr(String[] a, String x) {
+	//Binary Search
+	public void Binsrcforint(int[] inputArr, int key) {
 		int low = 0;
-		int high = a.length - 1;
-		int mid;
-
+		int high = inputArr.length - 1;
 		while (low <= high) {
-			mid = (low + high) / 2;
-
-			if (a[mid].compareTo(x) < 0) {
-				low = mid + 1;
-			} else if (a[mid].compareTo(x) > 0) {
+			int mid = (low + high) / 2;
+			if (key == inputArr[mid]) {
+				System.out.println("Element is found at index" +mid);
+			}
+			if (key < inputArr[mid]) {
 				high = mid - 1;
 			} else {
-				System.out.println("Element is found at index"+mid);
+				low = mid + 1;
 			}
+		}
+		System.out.println("Element not found");
+
+	}
+
+	///Binary Search for string
+
+	public void binarySearchforstr(String[] a, String x) {
+		int low = 0;
+		int high = a.length - 1;
+		int mid; 
+		mid = (low + high) / 2;
+
+		while (low <= high) {
+
+			if (a[mid].compareToIgnoreCase(x) < 0) {
+				low = mid + 1;
+				System.out.println("Element is found at index" +low);
+			} else if (a[mid].compareToIgnoreCase(x) > 0) {
+				high = mid - 1;
+				System.out.println("Element is found at index" +high);
+			} else {
+				System.out.println("Element is found at index" +mid);
+			}
+			break;
 		}
 		mid = (low + high) / 2;
 
 
 	}
-	/*
-	public void insertionSort(){
-		int arr[],n = 0,key;
+
+
+	/**
+	 * @param arr
+	 * @param n
+	 */
+	public void insertionSort(int arr[],int n)
+	{
+		int key;
 		for(int i=1;i<n;i++)
 		{
 			key=arr[i];
 			int j=i-1;
-			while( j>=0 && arr[j]>key)
+			while(j>=0 && (arr[j]>key))
 			{
 				arr[j+1]=arr[j];
-				j=j-1;
-			}
-			arr[j+1]=key;
+				j=j-1;//j--
 
+				arr[j+1]=key;
+			}
 		}
-	}*/
+		for(int j=0;j<n;j++)
+		{
+			System.out.print(arr[j]);
+			System.out.println(" ");
+		}
+	}
+
+
+
+	public void bubbleSort(int arr[], int n)
+	{
+
+		for (int i =0; i < n-1; i++)
+			for (int j = 0; j < n-i-1; j++)
+				if (arr[j] > arr[j+1])
+				{
+					// swap temp and arr[i]
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+
+
+		/* Prints the array */
+
+		for (int i=0; i<n; ++i)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+	}
+
+	//Merges two subarrays of arr[]. 
+	// First subarray is arr[l..m] 
+	// Second subarray is arr[m+1..r] 
+	public static void mergeForstring(String arr[],int n) 
+	{ 
+	}
+
+	// Merges two subarrays of arr[]. 
+	// First subarray is arr[l..m] 
+	// Second subarray is arr[m+1..r] 
+	static void merge(String arr[], int l, int m, int r) 
+	{ 
+		// Find sizes of two subarrays to be merged 
+		int n1 = m - l + 1; 
+		int n2 = r - m; 
+
+		/* Create temp arrays */
+		String L[] = new String [n1]; 
+		String R[] = new String [n2]; 
+
+		/*Copy data to temp arrays*/
+		for (int i=0; i<n1; ++i) 
+			L[i] = arr[l + i]; 
+		for (int j=0; j<n2; ++j) 
+			R[j] = arr[m + 1+ j]; 
+
+
+		/* Merge the temp arrays */
+
+		// Initial indexes of first and second subarrays 
+		int i = 0, j = 0; 
+
+		// Initial index of merged subarry array 
+		int k = l; 
+		while (i < n1 && j < n2) 
+		{ 
+			if (L[i].compareToIgnoreCase(R[j])<=0) 
+			{ 
+				arr[k] = L[i]; 
+				i++; 
+			} 
+			else
+			{ 
+				arr[k] = R[j]; 
+				j++; 
+			} 
+			k++; 
+		} 
+
+		/* Copy remaining elements of L[] if any */
+		while (i < n1) 
+		{ 
+			arr[k] = L[i]; 
+			i++; 
+			k++; 
+		} 
+
+		/* Copy remaining elements of R[] if any */
+		while (j < n2) 
+		{ 
+			arr[k] = R[j]; 
+			j++; 
+			k++; 
+		} 
+	} 
+
+	// Main function that sorts arr[l..r] using 
+	// merge() 
+	public static void sort(String arr[], int l, int r) 
+	{ 
+		if (l < r) 
+		{ 
+			// Find the middle point 
+			int m = (l+r)/2; 
+
+			// Sort first and second halves 
+			sort(arr, l, m); 
+			sort(arr , m+1, r); 
+
+			// Merge the sorted halves 
+			merge(arr, l, m, r); 
+		} 
+	} 
+
+	/* A utility function to print array of size n */
+	public static void printArray(String arr[]) 
+	{ 
+		int n = arr.length; 
+		for (int i=0; i<n; ++i) 
+			System.out.print(arr[i] + " "); 
+		System.out.println(); 
+	} 
+	// Driver method 
+	/* Purpose: Takes a numbers (N), asks you to think of a number between 0 and N-1, where N = 2^n, and always guesses the answer with n questions.
+	 */
+	
+
+	
+		static int range,count,lower,upper,middle;
+		static String input;
+
+		public  static void binarySearch(int lower,int upper,int middle,int count,String input,int n)
+		{
+			
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Is your number:"+middle);
+			System.out.println();
+			System.out.println("Enter your answer in 'yes' or 'high' or 'low'");
+			input=sc.nextLine();
+			
+			do
+			{
+				if (input.equals("high"))
+				{
+					lower= middle;
+					count++;
+				}
+				else if (input.equals("yes"))
+				{
+					System.out.println("The number you thought was: "+middle);
+					int no=count+1;
+					System.out.println("It takes "+no+" times to find your exact number");
+					break;
+				}
+				else if(input.equals("low"))
+				{
+					upper=middle;
+					count++;
+				}
+				if(count<n)
+				{
+					middle=(lower+ upper+1)/2;
+					System.out.println("Is your number "+middle+":");
+					input=sc.nextLine();
+				}
+			}
+			while(lower<=upper);
+			if (count>n)
+			{
+				System.out.println("Number not found");
+			}
+			else
+			{
+				System.exit(0);
+			}
+
+	}
+}
+
 
 
 

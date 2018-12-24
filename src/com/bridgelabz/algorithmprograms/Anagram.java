@@ -1,4 +1,4 @@
-package com.bridgelabz.AlgorithmPrograms;
+package com.bridgelabz.algorithmprograms;
 import java.util.Scanner;
 
 import com.bridgelabz.utility.AlgorithmUtility;
