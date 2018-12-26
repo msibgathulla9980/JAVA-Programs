@@ -12,20 +12,95 @@ import java.util.Arrays;
 
 public class AlgorithmUtility {
 	/////////////////////////////////////////
-	public void Anagram(String str1, String str2) {
-		if (str1.length() != str2.length()) {
-			System.out.println("Str1 and Str2 are not Anagrams");
+	/**
+	 * Function to check the two strings are anagrams or not
+	 * 
+	 * @param s1 the first string to check
+	 * @param s2 the second string to check
+	 * @return true if its string and vice-versa
+	 */
+	public static boolean anagram(String s1, String s2) {
+		if (s1.length() != s2.length()) {
+			return false;
 		}
-		char[] char1 = str1.toLowerCase().toCharArray();
-		char[] char2 = str2.toLowerCase().toCharArray();
-		Arrays.sort(char1);
-		Arrays.sort(char2);
-		if (char1 == char2) {
-			System.out.println("Str1 and Str2 are Anagrams");
-		} else {
-			System.out.println("Str1 and Str2 are not Anagrams");
+		int[] s1count = count(s1);
+		int[] s2count = count(s2);
+		for (int i = 0; i < s2count.length; i++) {
+			if (s2count[i] != s1count[i]) {
+				return false;
+			}
 		}
-
+		return true;
+	}
+	public static boolean isAnagram(String s1, String s2)
+    {
+        //Removing all white spaces from s1 and s2
+        String copyOfs1 = s1.replaceAll("\\s", "");
+        String copyOfs2 = s2.replaceAll("\\s", "");
+        
+        //Initially setting status as true
+        boolean status = true;
+ 
+		if(copyOfs1.length() != copyOfs2.length())
+		{
+		    //Setting status as false if copyOfs1 and copyOfs2 doesn't have same length
+		    status = false;
+		}
+		else
+		{
+		    //Changing the case of characters of both copyOfs1 and copyOfs2 and converting them to char array
+		    char[] s1Array = copyOfs1.toLowerCase().toCharArray();
+		    char[] s2Array = copyOfs2.toLowerCase().toCharArray();
+		    
+		    //Sorting both s1Array and s2Array
+		    Arrays.sort(s1Array);
+		    Arrays.sort(s2Array);
+		    
+		    //Checking whether s1Array and s2Array are equal
+		    status = Arrays.equals(s1Array, s2Array);
+		}
+		
+        //Output
+		if(status)
+		{
+		    System.out.println(s1+" and "+s2+" are Anagrams");
+		}
+		else
+		{
+			System.out.println(s1+" and "+s2+" are not Anagrams");
+		}
+		return status;
+    }
+	/**
+	 * Function to count the characters in a string alphabaticlally and return array
+	 * of the count of each alphabet
+	 * 
+	 * @param s the string given to count
+	 * @return the array for counted characters
+	 */
+	public static int[] count(String s) {
+		s = s.toLowerCase();
+		int[] c = new int[25];
+		for (int i = 0; i < s.length(); i++) {
+			c[s.charAt(i) - 97]++;
+		}
+		return c;
+	}
+	/**
+	 * Function to count the value in given integer be place
+	 * 
+	 * @param n the integer value to count
+	 * @return the integer array for the count value
+	 */
+	public static int[] count(int n) {
+		int[] count = new int[10];
+		int temp = n;
+		while (temp != 0) {
+			int r = temp % 10;
+			count[r]++;
+			temp = temp / 10;
+		}
+		return count;
 	}
 
 	//////////////////////////////////
@@ -83,6 +158,9 @@ public class AlgorithmUtility {
 		}  
 	}
 
+	/**
+	 * 
+	 */
 	public void vendingMachine(){
 
 
@@ -154,68 +232,24 @@ public class AlgorithmUtility {
 		} 
 
 	}
-	public void dayofweek(){
+	/**
+	 * @param m month
+	 * @param d day
+	 * @param y year
+	 * @return
+	 */
+	public static int dayofweek(int m,int d, int y){
 
 
-		Scanner scanner = new Scanner(System.in);
-
-		while(true) {
-			System.out.println("Enter The Month");
-			int m = scanner.nextInt();
-			if (m < 1 || m > 12) {
-				System.out.println("Months are between 1 and 12");
-				break;
-			}
-
-			System.out.println("Enter The Day");
-			int d = scanner.nextInt();
-			if (d < 1 || d > 31) {
-				System.out.println("Days are between 1 and 31");
-				break;
-			}
-
-			System.out.println("Enter The Year");
-			int y = scanner.nextInt();
-			if (y < -10000 || y > 10000) {
-				System.out.println("Years are between -10000 and 10000");
-				break;
-			}
-
+		
 			int y0 = y - (14 - m) / 12;
 			int x = y0 + y0/4 - y0/100 +y0/400;
 			int m0 = m + 12 * ((14 - m) / 12) - 2;
 			int d0 = (d + x + 31 * m0 / 12) % 7;  
-			while(d0<7){
-
-				switch(d0){
-				case 0:
-					System.out.println("The day of the week is Sunday");
-					break;
-				case 1:	
-					System.out.println("The day of the week is Monday");
-					break;
-				case 2:
-					System.out.println("The day of the week is Tuesday");
-					break;
-				case 3:
-					System.out.println("The day of the week is Wednesday");
-					break;
-				case 4:
-					System.out.println("The day of the week is Thursday");
-					break;
-				case 5:
-					System.out.println("The day of the week is Friday");
-					break;
-				case 6:
-					System.out.println("The day of the week is Saturday");
-					break;
-				default:
-					System.out.println("Invalid input");
-				}
-				break;
-			}
+			return d0;
 		}
-	}
+			
+	
 	public void temperatureConversion(){
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter the Temperature In Fahrenheit: ");
@@ -267,7 +301,7 @@ public class AlgorithmUtility {
 			n = n / 2;
 			i++;
 		}
-		for (int j=i-1;j>=0;j--){
+		for (int j=7;j>=0;j--){
 			System.out.println(bin[j]);
 		}
 	}
@@ -278,16 +312,20 @@ public class AlgorithmUtility {
 		int high = inputArr.length - 1;
 		while (low <= high) {
 			int mid = (low + high) / 2;
+	
 			if (key == inputArr[mid]) {
 				System.out.println("Element is found at index" +mid);
 			}
+			else{
+				System.out.println("Element not found");
+				break;
+				}
 			if (key < inputArr[mid]) {
 				high = mid - 1;
 			} else {
 				low = mid + 1;
 			}
 		}
-		System.out.println("Element not found");
 
 	}
 
@@ -514,13 +552,70 @@ public class AlgorithmUtility {
 			}
 
 	}
+
+
+
+
+public static int swapNibbles(int x) 
+{ 
+return ((x & 0x0F) << 4 | (x & 0xF0) >> 4); 
+} 
+
+
+
+	
+	public static boolean isPowerOfTwo(int number) {
+
+	    if (number % 2 != 0) {
+	      return false;
+	    } else {
+
+	      for (int i = 0; i <= number; i++) {
+
+	        if (Math.pow(2, i) == number) return true;
+	      }
+	    }
+	    return false;
+	  }
+
+    
+    
+  
+public static void toBinaryfornibble(int n){
+	int i=0;
+	int[] bin=new int[100];
+	Scanner sc = new Scanner(System.in);
+	while(n > 0)
+	{
+		bin[i] = n % 2;
+		n = n / 2;
+		i++;
+	}
+	System.out.println("The Swapped Nibble in Binary is: ");
+	for (int j=0;j<=7;j++){
+		System.out.print(+bin[j]);
+		
+	}
+	System.out.println();
 }
-
-
-
-
-
-
-
+static int i;
+static int j;
+public static boolean PrimeFirst(int num){
+	int temp;
+	boolean isPrime=true;
+	for(int i=2;i<=num/2;i++)
+	{
+           temp=num%i;
+	   if(temp==0)
+	   {
+	      isPrime=false;
+	      break;
+	   }
+	}
+	//If isPrime is true then the number is prime else not
+	return isPrime;
+	
+   }
+}
 
 

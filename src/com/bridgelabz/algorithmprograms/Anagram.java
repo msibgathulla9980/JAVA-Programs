@@ -14,8 +14,7 @@ public class Anagram {
 		String str1=sc.nextLine();
 		System.out.println("Enter Str2:");
 		String str2=sc.nextLine();
-		AlgorithmUtility au=new AlgorithmUtility();
-		au.Anagram(str1,str2);
+		AlgorithmUtility.isAnagram(str1,str2);
 
 
 

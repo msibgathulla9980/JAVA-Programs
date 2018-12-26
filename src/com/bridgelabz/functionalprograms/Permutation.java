@@ -8,12 +8,14 @@ import java.util.Arrays;
 public class Permutation {
 
 	public static void main(String[] args) {
-Scanner sc=new Scanner(System.in);
-System.out.println("Enter the String");
-String str=sc.nextLine();
-FunctionalUtility fu = new FunctionalUtility();
-fu.combString(str);
+		try (Scanner s = new Scanner(System.in);) {
+			System.out.println("enter a string");
+			String s1 = s.nextLine();
+			FunctionalUtility.permutIteration(s1);
 
+		} catch (Exception e) {
+			System.out.println("enter correct input");
+		}
 	}
 
 }

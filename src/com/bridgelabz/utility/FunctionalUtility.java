@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.bridgelabz.functionalprograms.Stopwatch;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -245,6 +246,242 @@ public class FunctionalUtility<E> {
 			System.out.println("The entered values are not valid, Please enter the values of t<50 and V between 2 and 120 ");
 		else
 			System.out.println("The Effective Temperature is"+w);
-	}
+	
 	}
 	/////////////////////////////////
+
+
+static int player = 0;
+static int[][] BOARD = new int[3][3];
+static boolean isEmpty = true;
+
+public static void initBoard() {
+	System.out.println("TIC TAC TOE GAME\nComputer is o\nPlayer  is x ");
+	for (int i = 0; i < BOARD.length; i++) {
+		for (int j = 0; j < BOARD[i].length; j++) {
+			BOARD[i][j] = -10;
+		}
+	}
+	System.out.println("Board is this :");
+	dispBoard();
+}
+
+public static void dispBoard() {
+	int count = 0;
+	for (int i = 0; i < BOARD.length; i++) {
+		System.out.println("---------------");
+		System.out.print("||");
+		for (int j = 0; j < BOARD[i].length; j++) {
+			if (BOARD[i][j] == 0) {
+				count++;
+				System.out.print(" o |");
+			} else if (BOARD[i][j] == 1) {
+				count++;
+				System.out.print(" x |");
+			} else
+				System.out.print("   |");
+		}
+		System.out.println("|");
+	}
+	if (count == 9) {
+		isEmpty = false;
+	}
+	System.out.println("---------------");
+}
+/*
+ * static void putVal(int i, int j, int player) { if if (player % 2 == 0) {
+ * BOARD[i][j] = 0; } else BOARD[i][j] = 1; }
+ */
+
+public static void putVal() {
+	int i;
+	int j;
+	if (player % 2 == 1) {
+		i = (int) (Math.random() * 10) % 3;
+		j = (int) (Math.random() * 10) % 3;
+	} else {
+		Scanner s = new Scanner(System.in);
+		System.out.println("enter value of x and y by space");
+		i = s.nextInt();
+		j = s.nextInt();
+	}
+	if (BOARD[i][j] == -10) {
+		if (player % 2 == 0) {
+			BOARD[i][j] = 0;
+		} else {
+			BOARD[i][j] = 1;
+			System.out.println("Coumputer Choosing " + i + " " + j);
+		}
+	} else
+		putVal();
+
+}
+
+public static boolean win() {
+	return ((BOARD[0][0] + BOARD[0][1] + BOARD[0][2] == player * 3)
+			|| (BOARD[1][0] + BOARD[1][1] + BOARD[1][2] == player * 3)
+			|| (BOARD[2][0] + BOARD[2][1] + BOARD[2][2] == player * 3)
+			|| (BOARD[0][0] + BOARD[1][0] + BOARD[2][0] == player * 3)
+			|| (BOARD[0][1] + BOARD[1][1] + BOARD[2][1] == player * 3)
+			|| (BOARD[0][2] + BOARD[1][2] + BOARD[2][2] == player * 3)
+			|| (BOARD[0][0] + BOARD[1][1] + BOARD[2][2] == player * 3)
+			|| (BOARD[2][0] + BOARD[1][1] + BOARD[0][2] == player * 3));
+}
+
+public static void play() {
+	initBoard();
+	while (isEmpty) {
+		System.out.println("Players turn");
+		putVal();
+		dispBoard();
+		if (win()) {
+			System.out.println("Player won");
+			return;
+		}
+		player = 1;
+		System.out.println("Computers turn");
+		putVal();
+		dispBoard();
+		if (win()) {
+			System.out.println("Computer won");
+			return;
+		}
+		player = 0;
+	}
+}
+public static String[] permutIteration(String s2) {
+	ArrayList<String> arl = new ArrayList<>();
+	for (int i = 0; i < s2.length(); i++) {
+		for (int j = 0; j < s2.length(); j++) {
+			String s1 = s2;
+			System.out.println(i + " " + j);
+			System.out.println(swap(s1, i, j));
+			// arl.add(swap(s1, i, j));
+		}
+	}
+	return arl.toArray(new String[arl.size()]);
+}
+
+public static String swap(String s1, int i, int j) {
+
+	char[] ch = s1.toCharArray();
+	char temp;
+	temp = ch[i];
+	ch[i] = ch[j];
+	ch[j] = temp;
+	return new String(ch);
+}
+
+/**
+ * Function helping prime() to check if prime is pallindrome and print it
+ */
+public static void primePallindrome() {
+	System.out.println();
+	boolean b;
+	for (int j = 2; j <= 1000; j++) {
+		b = true;
+		for (int i = 2; i < j / 2; i++) {
+			if (j % i == 0) {
+				b = false;
+				break;
+			}
+		}
+		if (b && isPallindrome(j))
+			System.out.print(j + " ");
+	}
+}
+
+/**
+ * Function to check if no is anagram or not
+ */
+public static void primeAnagrams() {
+	ArrayList<Integer> ar = new ArrayList<Integer>();
+	System.out.println();
+	boolean b;
+	for (int j = 2; j <= 1000; j++) {
+		b = true;
+		for (int i = 2; i < j / 2; i++) {
+			if (j % i == 0) {
+				b = false;
+				break;
+			}
+		}
+		if (b)
+			ar.add(j);
+	}
+	for (int i = 0; i < ar.size(); i++) {
+		for (int j = i + 1; j < ar.size(); j++) {
+			if (anagram(ar.get(i), ar.get(j))) {
+				System.out.println(ar.get(i) + "  " + ar.get(j));
+			}
+		}
+	}
+}
+/**
+ * Function to find the is pallindrome or not
+ * 
+ * @param n the integer which to check for pallindrome
+ * @return true if its pallindrome or false if its not
+ */
+public static boolean isPallindrome(int n) {
+	int temp = n;
+	int sum = 0;
+	while (temp != 0) {
+		int r = temp % 10;
+		sum = sum * 10 + r;
+		temp = temp / 10;
+	}
+	if (sum == n) {
+		return true;
+	}
+	return false;
+}
+/**
+ * to check the values are anagrams or not
+ * 
+ * @param n1
+ * @param n2
+ * @return
+ */
+public static boolean anagram(int n1, int n2) {
+	int[] n1count = count(n1);
+	int[] n2count = count(n2);
+	for (int i = 0; i < n2count.length; i++) {
+		if (n1count[i] != n2count[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+/**
+ * Function to count the value in given integer be place
+ * 
+ * @param n the integer value to count
+ * @return the integer array for the count value
+ */
+public static int[] count(int n) {
+	int[] count = new int[10];
+	int temp = n;
+	while (temp != 0) {
+		int r = temp % 10;
+		count[r]++;
+		temp = temp / 10;
+	}
+	return count;
+}
+/**
+ * function to check if given no is prime or not
+ * 
+ * @param n thenumber which to check for prime
+ * @return true if prime false if not
+ */
+public static boolean isPrime() {
+	int n =1000;
+	for (int i = 2; i < n / 2; i++) {
+		if (i % n == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+}
