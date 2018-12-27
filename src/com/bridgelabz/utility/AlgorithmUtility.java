@@ -1,16 +1,19 @@
 package com.bridgelabz.utility;
-
 import java.util.Scanner;
+import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
-
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class AlgorithmUtility {
+public class AlgorithmUtility<Double> {
 	/////////////////////////////////////////
 	/**
 	 * Function to check the two strings are anagrams or not
@@ -32,6 +35,7 @@ public class AlgorithmUtility {
 		}
 		return true;
 	}
+	//Function to check Anagram for the given two strings.
 	public static boolean isAnagram(String s1, String s2)
     {
         //Removing all white spaces from s1 and s2
@@ -103,7 +107,7 @@ public class AlgorithmUtility {
 		return count;
 	}
 
-	//////////////////////////////////
+	//////////////////////////////////Function to compute prime numbers
 	public void Prime() {
 		for (int i = 1; i <= 1000; i++) {
 
@@ -123,7 +127,7 @@ public class AlgorithmUtility {
 
 	}
 
-	////////////////////////////
+	////////////////////////////Function to search using File input
 	public void binSrcFile() throws FileNotFoundException{
 		String word = ""; int val = 0;
 		while(!word.matches("quit"))
@@ -233,6 +237,7 @@ public class AlgorithmUtility {
 
 	}
 	/**
+	 * Function to compute the DayOfTheWeek
 	 * @param m month
 	 * @param d day
 	 * @param y year
@@ -248,8 +253,8 @@ public class AlgorithmUtility {
 			int d0 = (d + x + 31 * m0 / 12) % 7;  
 			return d0;
 		}
-			
-	
+		
+	//Function to Compute Temperature conversion
 	public void temperatureConversion(){
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter the Temperature In Fahrenheit: ");
@@ -261,6 +266,7 @@ public class AlgorithmUtility {
 		double ctof=(c*9/5)+32;
 		System.out.println("The temperature in Fahrenheit is "+ctof);
 	}
+	//Function To Compute Monthly Payment
 	public void monthlyPayment(){
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter The Principal Amount: ");
@@ -276,7 +282,7 @@ public class AlgorithmUtility {
 		System.out.println("The Monthly Payment is: " +payment);
 
 	}
-
+//Function To Compute The Square Root
 	public void sqrt(){
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter the Value to find the sqrtroot: ");
@@ -289,6 +295,7 @@ public class AlgorithmUtility {
 		System.out.println("The sqrt is : "+t);
 
 	}
+	//Function that converts from decimal to Binary
 	public void toBinary(){
 		int i=0;
 		int[] bin=new int[100];
@@ -306,7 +313,7 @@ public class AlgorithmUtility {
 		}
 	}
 
-	//Binary Search
+	//Binary Search function
 	public void Binsrcforint(int[] inputArr, int key) {
 		int low = 0;
 		int high = inputArr.length - 1;
@@ -329,7 +336,7 @@ public class AlgorithmUtility {
 
 	}
 
-	///Binary Search for string
+	///Binary Search Method for string
 
 	public void binarySearchforstr(String[] a, String x) {
 		int low = 0;
@@ -357,6 +364,7 @@ public class AlgorithmUtility {
 
 
 	/**
+	 * Function To compute Insertion Sort 
 	 * @param arr
 	 * @param n
 	 */
@@ -555,7 +563,7 @@ public class AlgorithmUtility {
 
 
 
-
+//Function to Swap the Nibbles from left and from Right
 public static int swapNibbles(int x) 
 { 
 return ((x & 0x0F) << 4 | (x & 0xF0) >> 4); 
@@ -563,7 +571,7 @@ return ((x & 0x0F) << 4 | (x & 0xF0) >> 4);
 
 
 
-	
+	//Function to Check Whether the Swapped Nibble in Decimal Is a Power Of Two.
 	public static boolean isPowerOfTwo(int number) {
 
 	    if (number % 2 != 0) {
@@ -580,7 +588,7 @@ return ((x & 0x0F) << 4 | (x & 0xF0) >> 4);
 
     
     
-  
+ //Function to converts swapped nibble to binary 
 public static void toBinaryfornibble(int n){
 	int i=0;
 	int[] bin=new int[100];
@@ -616,6 +624,113 @@ public static boolean PrimeFirst(int num){
 	return isPrime;
 	
    }
+static Scanner scanner=new Scanner(System.in);
+public static int userInteger()
+{
+	
+		return scanner.nextInt();
+
+	
+}
+
+//for timer start and stop
+public static double startTimerFunc()
+{
+  double d=System.nanoTime();
+  return d;
+}
+public static double stopTimerFunc()
+{
+  double d1=System.nanoTime();
+  return d1;
+}
+public static double elapsedTime(double stopTime,double startTime)
+{
+  
+  double timeElapsed=stopTime-startTime;
+  return timeElapsed;
+}
+public static List<Double> listCall(List<Double> timeList)
+{
+ Collections.sort(timeList);    
+ return timeList;
+}
+public static Map<String,Double> mapCall(Map<String,Double > map)
+{
+  Map<String, Double> sortedMap = new LinkedHashMap<>();
+   map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+   .forEachOrdered(x -> sortedMap.put(x.getKey(), x.getValue()));
+   return sortedMap;
 }
 
 
+
+////
+//insertion sort
+public static void insertionSort(String array[], int f)
+{
+  String temp="";
+  for(int i=0;i<f;i++)
+  {
+      for(int j=i+1;j<f;j++)
+      {
+          if(array[i].compareToIgnoreCase(array[j])>0)
+          {
+              temp = array[i];
+              array[i]=array[j];
+              array[j]=temp;
+          }
+      }
+  }
+}    
+//bubble sort for both integers and strings
+/**
+* @param array
+* @param f
+* @return
+*/
+public static String[] bubbleSortString1(String array[],int f)
+{
+  for(int i=0;i<f;i++)
+  {
+      for( int j=1;j<f;j++)
+      {
+          if(array[j-1].compareToIgnoreCase(array[j])>0)
+          {
+              String temp=array[j-1];
+              array[j-1]=array[j];
+              array[j]=temp;
+          }
+      }
+  }
+return array;
+}
+//binary search
+/**
+* @param str
+* @param key
+* @return
+*/
+public static int binarySearch(String str[],String key)
+{
+  int first=0;
+  int last=str.length-1;
+  int middle=(first+last)/2;
+  while(first<=last)
+  {
+      if(str[middle].compareToIgnoreCase(key)<0)
+          first=middle+1;
+      else if(str[middle].compareToIgnoreCase(key)==0)
+      {
+          return middle;
+      }
+      else 
+          last=middle-1;
+      middle=(first+last)/2;
+  }
+  return -1;
+}
+
+
+
+}

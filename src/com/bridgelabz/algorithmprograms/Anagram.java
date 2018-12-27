@@ -1,3 +1,14 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin PrimeChecker.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Anagram n
+ *  
+ *  Purpose: Determines The Two Strings are Anagram or not
+ *  @author  BridgeLabz
+ *  @version 1.0
+ *  @since   26-12-2018
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.algorithmprograms;
 import java.util.Scanner;
 

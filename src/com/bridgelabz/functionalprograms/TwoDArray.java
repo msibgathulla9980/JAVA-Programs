@@ -1,3 +1,14 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin PrimeChecker.java
+ *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  
+ *  Purpose: create 2 dimensional array in memory to read in M rows and N cols.
+ *
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   26-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.functionalprograms;
 
 import java.util.Scanner;

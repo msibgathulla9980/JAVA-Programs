@@ -10,7 +10,10 @@ import java.util.Random;
 
 public class FunctionalUtility<E> {
 	////////////////////////////
-	public void checkConcate(String s) {
+	/**
+	 * @param s String as input from the user
+	 */
+	public void checkconcate(String s) {
 		if (s.length() < 3)
 			System.out.println("Enter the name with atleast 3 characters");
 		else
@@ -18,6 +21,10 @@ public class FunctionalUtility<E> {
 
 	}
 	////////////////////////////////////
+	/**
+	 * @param count- To get the count of head and tails
+	 * Function to find the Percentageof Head And Tails
+	 */
 	public void getCount(int count) {
 		int head = 0, tail = 0;
 		int c = count;
@@ -35,6 +42,9 @@ public class FunctionalUtility<E> {
 		System.out.println("perc of Tail" + tail * 100 / c);
 	}
 	///////////////////////////////////////
+	/**
+	 * @param x used to get the leap year
+	 */
 	public void getLeap(int x) {
 		if (x % 4 == 0 || x % 400 == 0 && x % 100 == 0) {
 			System.out.println("It is a leap year");
@@ -55,24 +65,39 @@ public class FunctionalUtility<E> {
 		}
 	}
 	////////////////////////////////
-	public void getPrime() {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		while (n % 2 == 0) {
-			System.out.println(2);
-			n = n / 2;
-		}
-		for (int i = 3; i <= n; i++) {
-			while (n % i == 0) {
-				System.out.print(i);
-				n = n / i;
+	/**
+	 * Finction to check if the no is prime or not
+	 * 
+	 * @param n the number to check for prime
+	 * @return true if prime and vice-versa
+	 */
+	public static boolean isPrime(int n) {
+		for (int i = 2; i <= n / 2; i++) {
+			if (n % i == 0) {
+				return false;
 			}
-			if (n > 2)
-				System.out.println(n);
+		}
+		return true;
+	}
 
+	/**
+	 * Function to find the prime factors of given no and print it
+	 * 
+	 * @param n the no for which to find the prime factors
+	 */
+	public static void primeFactors(int n) {
+		for (int i = 2; i <= n; i++) {
+			int t = n % i;
+			if (t == 0) {
+				if (isPrime(i))
+					System.out.println(i + " ");
+			}
 		}
 	}
 	/////////////////////////////////////
+	/**
+	 * Function to compute No of Wins and Loss
+	 */
 	public void Gambler() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the stake:");
@@ -104,6 +129,10 @@ public class FunctionalUtility<E> {
 
 	}
 	////////////////////////////////////
+	/**
+	 * @param n user input
+	 * @return returns the count 
+	 */
 	public int getcouponNumber(int n) {
 		boolean[] isCollected = new boolean[n];
 		int count = 0;
@@ -121,6 +150,12 @@ public class FunctionalUtility<E> {
 		return count;
 	}
 
+	/**
+	 * Print function to print 2 Dimensional Array
+	 * @param garray to display the array
+	 * @param m rows
+	 * @param n columns
+	 */
 	public void displayarray(E[][] garray,int m,int n) 
 	{ for(int i=0;i<m;i++)
 	{ for(int j=0;j<n;j++)
@@ -133,29 +168,48 @@ public class FunctionalUtility<E> {
 	}
 
 	//////////////////////////////////
-	public void Triplet(int[] arr, int n) {
-		boolean flag=false;
-		for(int i=0;i<n;i++)
-		{
-			for(int j=i+1;j<n;j++)
-			{
-				for(int k=j+1;k<n;k++)
-				{
-					if(arr[i]+arr[j]+arr[k]==0)
-					{
-						System.out.println("true");
-						flag=true;
+	/**
+	 * Function to find the triplets of the given number
+	 * @param arr array of type int
+	 * @param n no of elements in an array
+	 */
+	/*
+	 * static scanner to take input from different methods
+	 */
+	static Scanner s = new Scanner(System.in);
+
+	/**
+	 * function to check sum of triplets is 0
+	 * 
+	 * @param n the no of elements to check for for creation of array
+	 */
+	public static void sum0count(int n) {
+		int[] arr = new int[n];
+		int count = 0;
+		System.out.println("enter values");
+		// taking integer input for creating array
+		for (int i = 0; i < n; i++) {
+			arr[i] = s.nextInt();
+		}
+		// checking for triplets by loop
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = i + 1; j < arr.length; j++) {
+				for (int k = j + 1; k < arr.length; k++) {
+					if (arr[i] + arr[j] + arr[k] == 0) {
+						count++;
+						System.out.println(arr[i] + "+" + arr[j] + "+" + arr[k] + "=" + "0");
 					}
 				}
-
 			}
 		}
-		if(flag==false)
-		{
-			System.out.println("false");
-		}
+		// output
+		System.out.println("total pairs are " + count);
+
 	}
 	////////////////////////////////
+	/**
+	 * Function to calculate distance = sqrt(x*x + y*y) by using  Math.power function
+	 */
 	public void Distance(){
 		int x,y;
 
@@ -194,7 +248,8 @@ public class FunctionalUtility<E> {
 			System.out.println(temp);
 		}
 	}
-	/////////////////////////////////////
+	/*Methods to calculate the elapsed time.
+	*//////////////////////////////////////
 	long starttime=0;
 	long endtime=0;
 	long elapsedtime=0;
@@ -213,6 +268,9 @@ public class FunctionalUtility<E> {
 		System.out.println("Elapsed time ="+elapsedtime);
 	}
 	////////////////////////////////////
+	/**
+	 * Function to calculate the roots of the Quadratic Equation
+	 */
 	public void quadratic()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -233,6 +291,8 @@ public class FunctionalUtility<E> {
 
 	}
 	/////////////////////////////	
+	//Method to Compute The Effective Temperature.
+	
 	public void windChill()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -249,8 +309,8 @@ public class FunctionalUtility<E> {
 	
 	}
 	/////////////////////////////////
-
-
+/*Function to determine the Tic-Tac-Toe Game
+*/
 static int player = 0;
 static int[][] BOARD = new int[3][3];
 static boolean isEmpty = true;
@@ -349,29 +409,73 @@ public static void play() {
 		player = 0;
 	}
 }
-public static String[] permutIteration(String s2) {
-	ArrayList<String> arl = new ArrayList<>();
-	for (int i = 0; i < s2.length(); i++) {
-		for (int j = 0; j < s2.length(); j++) {
-			String s1 = s2;
-			System.out.println(i + " " + j);
-			System.out.println(swap(s1, i, j));
-			// arl.add(swap(s1, i, j));
-		}
-	}
-	return arl.toArray(new String[arl.size()]);
+//recursive combination
+public void recursion(String str,int initial,int last)
+{
+    if(initial==last)
+    {
+        System.out.println(str);
+    }
+    else
+    {
+        for(int i=initial;i<last;i++)
+        {
+            str = swap(str,initial,i); 
+            recursion(str, (initial+1), last);
+            str = swap(str,initial,i); 
+    
+        }
+    }
 }
 
-public static String swap(String s1, int i, int j) {
+/**
+ * @param s
+ */
+public static void iteration(String s)
+{
+    // create an empty ArrayList to store (partial) permutations
+    ArrayList<String> arr = new ArrayList<>();
 
-	char[] ch = s1.toCharArray();
-	char temp;
-	temp = ch[i];
-	ch[i] = ch[j];
-	ch[j] = temp;
-	return new String(ch);
+    // initialize the list with the first character of the string
+    arr.add(String.valueOf(s.charAt(0)));
+
+    // do for every character of the specified string
+    for (int i = 1; i < s.length(); i++)
+    {
+        // consider previously constructed partial permutation one by one
+
+        // (iterate backwards to avoid ConcurrentModificationException)
+        for (int j = arr.size() - 1; j >= 0 ; j--)
+        {
+            // remove current partial permutation from the ArrayList
+            String str = arr.remove(j);
+
+            // Insert next character of the specified string in all
+            // possible positions of current partial permutation. Then
+            // insert each of these newly constructed string in the list
+
+            for (int k = 0; k <= str.length(); k++)
+            {
+                // Advice: use StringBuilder for concatenation
+                arr.add(str.substring(0, k) + s.charAt(i) +
+                            str.substring(k));
+            }
+        }
+    }
+
+    System.out.println(arr);
 }
 
+public String swap(String str,int i,int j)
+{
+    char temp;
+    char [] ch=str.toCharArray();
+    temp=ch[i];
+    ch[i]=ch[j];
+    ch[j]=temp;
+    return String.valueOf(ch);
+    
+}
 /**
  * Function helping prime() to check if prime is pallindrome and print it
  */
@@ -395,7 +499,7 @@ public static void primePallindrome() {
  * Function to check if no is anagram or not
  */
 public static void primeAnagrams() {
-	ArrayList<Integer> ar = new ArrayList<Integer>();
+	ArrayList<Integer> ar = new ArrayList<>();
 	System.out.println();
 	boolean b;
 	for (int j = 2; j <= 1000; j++) {

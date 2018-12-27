@@ -2,7 +2,7 @@
  *  Compilation:  javac -d bin PrimeChecker.java
  *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
  *  
- *  Purpose: Determines the elapsed time. 
+ *  Purpose: Percentage of Head vs Tails.
  *
  *  @author  Mohammed Sibgathulla
  *  @version 1.0
@@ -12,25 +12,17 @@
 package com.bridgelabz.functionalprograms;
 import java.util.Scanner;
 
-import com.bridgelabz.utility.FunctionalUtility;
+import com.bridgelabz.utility.*;
 
-import java.util.Arrays;
+public class FlipCoin {
 
-
-public class Stopwatch { 
 	public static void main(String[] args) {
-		FunctionalUtility fu = new FunctionalUtility();
+	
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter '1' to start:");
-		long start=sc.nextLong();
-		fu.start();
-		System.out.println("Enter '0' number to end:");
-		long end=sc.nextLong();
-		fu.end();
-		System.out.println("Enter any key to display the elapsed time:");
-		long elapse=sc.nextLong();
-		fu.elapse();
+		System.out.println("Enter the number of times the coin is being flipped:");
+		int n=sc.nextInt(); 
+		FunctionalUtility fu=new FunctionalUtility();
+		fu.getCount(n);
 	}
 
-	
 }

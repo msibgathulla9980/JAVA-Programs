@@ -1,3 +1,15 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin PrimeChecker.java
+ *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  
+ *  Purpose: Program that asks you to think of a number between 0 and N-1, where N = 2^n, and always guesses the answer with n questions.
+
+ *
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   26-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
 
 import java.util.Scanner;
