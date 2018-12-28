@@ -2,7 +2,7 @@ package com.bridgelabz.utility;
 
 import java.util.Scanner;
 
-import com.bridgelabz.functionalprograms.Stopwatch;
+import com.bridgelabz.functionalprograms.StopWatch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -99,6 +99,8 @@ public class FunctionalUtility<E> {
 	 * Function to compute No of Wins and Loss
 	 */
 	public void Gambler() {
+		int t = 0;
+		do{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the stake:");
 		int stake = sc.nextInt();
@@ -127,6 +129,7 @@ public class FunctionalUtility<E> {
 		System.out.println("Percent Of Games Won:" + 100 * win / no_of_times);
 		System.out.println("Percent Of Games lost:" + 100 * loose / no_of_times);
 
+	}while(t<6);
 	}
 	////////////////////////////////////
 	/**
@@ -214,7 +217,9 @@ public class FunctionalUtility<E> {
 		int x,y;
 
 		double dis;
-
+int t=0;
+do{
+	
 		Scanner sc=new Scanner(System.in);
 
 		System.out.println("enter x point");
@@ -227,7 +232,9 @@ public class FunctionalUtility<E> {
 
 		dis=Math.sqrt(x*x+y*y);
 		System.out.println("distancebetween"+"("+x+","+y+")="+dis);
+	}while(t<6);
 	}
+
 	///////////////////////////////
 	public void combString(String s) {
 		char[] a = new char[s.length()];
@@ -325,8 +332,8 @@ public static void initBoard() {
 	System.out.println("Board is this :");
 	dispBoard();
 }
-
-public static void dispBoard() {
+//Function to display Board
+ static void dispBoard() {
 	int count = 0;
 	for (int i = 0; i < BOARD.length; i++) {
 		System.out.println("---------------");
@@ -352,7 +359,7 @@ public static void dispBoard() {
  * static void putVal(int i, int j, int player) { if if (player % 2 == 0) {
  * BOARD[i][j] = 0; } else BOARD[i][j] = 1; }
  */
-
+//Method To 
 public static void putVal() {
 	int i;
 	int j;
@@ -370,7 +377,7 @@ public static void putVal() {
 			BOARD[i][j] = 0;
 		} else {
 			BOARD[i][j] = 1;
-			System.out.println("Coumputer Choosing " + i + " " + j);
+			System.out.println("Computer is Choosing " + i + " " + j);
 		}
 	} else
 		putVal();

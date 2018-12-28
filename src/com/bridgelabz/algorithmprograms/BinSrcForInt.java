@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin BinSrcForInt.java
+ *  Execution:    java -cp bin com.bridgelabz.utilitys.BinSrcForInt
  *  
  *  Purpose: Determines Binary Search for int
  *
@@ -18,9 +18,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 
-public class Binsrcforint {
+public class BinSrcForInt {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		Scanner sc=new Scanner(System.in);
 		AlgorithmUtility au=new AlgorithmUtility();
 		System.out.println("Enter the number of elements: ");
@@ -35,6 +37,7 @@ public class Binsrcforint {
 		}
 		au.Binsrcforint(a,key);
 		
-	}
+	}while(t<6);
 
+}
 }

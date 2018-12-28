@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.ReplaceString n
+ *  Compilation:  javac -d bin ReplaceString.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.ReplaceString
  *  
  *  Purpose: Print the String with User Name.
  *
@@ -17,13 +17,15 @@ import com.bridgelabz.utility.FunctionalUtility;
 public class ReplaceString {
 
 	public static void main(String[] args) {
-		
+		int t=0;
+		do{
 System.out.println("Enter the username:");
 Scanner sc=new Scanner(System.in);
 String s=sc.nextLine();
 FunctionalUtility fu=new FunctionalUtility();
 fu.checkconcate(s);
-}
+}while(t<6);
+	}
 
 }
 

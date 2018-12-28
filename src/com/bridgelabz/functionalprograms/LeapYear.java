@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin LeapYear.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.LeapYear
  *  
  *  Purpose: Determines if it is a Leap Year
  *
@@ -18,12 +18,15 @@ import com.bridgelabz.utility.FunctionalUtility;
 public class LeapYear {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the Year");
 		int r = sc.nextInt();
 		FunctionalUtility fu = new FunctionalUtility();
 		fu.getLeap(r);
 
+	}while(t<6);
 	}
 
 }

@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin ToFindPrimeAnagram.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.ToFindPrimeAnagram
  *  
  *  Purpose: Determines the prime numbers that are Anagram and Palindrome 
 
@@ -17,8 +17,8 @@ import com.bridgelabz.utility.FunctionalUtility;
 import java.util.Arrays;
 
 public class ToFindPrimeAnagramAndPallindrome {
-
-	public static void main(String[] args) {
+		public static void main(String[] args) {
+			
 		Scanner sc=new Scanner(System.in);
 		
 		System.out.println("The Prime Nos between 0 to 1000 which are also the  Pallindrome");
@@ -26,6 +26,7 @@ public class ToFindPrimeAnagramAndPallindrome {
 		System.out.println();
 		System.out.println("The Numbers which are Prime, Pallindrome and Anagrams :");
 		FunctionalUtility.primeAnagrams();
-	}
+		
 
+		}
 }

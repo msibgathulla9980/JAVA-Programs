@@ -1,19 +1,20 @@
 package com.bridgelabz.utility;
 import java.util.Scanner;
-import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class AlgorithmUtility<Double> {
+public class AlgorithmUtility<E> {
 	/////////////////////////////////////////
 	/**
 	 * Function to check the two strings are anagrams or not
@@ -652,10 +653,14 @@ public static double elapsedTime(double stopTime,double startTime)
 }
 public static List<Double> listCall(List<Double> timeList)
 {
+	List<Double> list = new ArrayList<>(Arrays.asList(1.38, 2.56, 4.3));
  Collections.sort(timeList);    
  return timeList;
 }
-public static Map<String,Double> mapCall(Map<String,Double > map)
+
+
+
+public static Map<String,Double> mapCall(Map<String,Double> map)
 {
   Map<String, Double> sortedMap = new LinkedHashMap<>();
    map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))

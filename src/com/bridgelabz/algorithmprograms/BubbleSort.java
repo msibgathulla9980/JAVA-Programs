@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin BubbleSort.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.BubbleSort
  *  
  *  Purpose: Determines  Sorted List Using bubble Sort
  *  @author  Mohammed Sibgathulla
@@ -20,6 +20,8 @@ import java.util.Arrays;
 public class BubbleSort {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the no of Elements: ");
 		int n=sc.nextInt();
@@ -33,6 +35,7 @@ public class BubbleSort {
 		au.bubbleSort(arr,n);
 		
 		
+	}while(t<6);
 	}
 
 }

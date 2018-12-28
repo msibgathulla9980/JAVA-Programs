@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin TemperatureConversion.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.TemperatureConversion
  *  
  *  Purpose:Given the temperature in fahrenheit as input outputs the temperature in Celsius or viceversa
  *
@@ -21,10 +21,12 @@ import java.util.Arrays;
 public class TemperatureConversion {
 
 	public static void main(String[] args) {
-		
+		int t=0;
+		do{
 		AlgorithmUtility au=new AlgorithmUtility();
 		au.temperatureConversion();
 
+	}while(t<6);
 	}
 
 }

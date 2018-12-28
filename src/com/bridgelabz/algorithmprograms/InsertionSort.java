@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin InsertionSort.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.InsertionSort
  *  
  *  Purpose: Determines the Sorted List Using Insertion Sort 
 
@@ -22,6 +22,8 @@ import java.util.Arrays;
 public class InsertionSort {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		Scanner sc=new Scanner(System.in);
 		AlgorithmUtility au=new AlgorithmUtility();
 		System.out.println("Enter the number of elements: ");
@@ -34,6 +36,7 @@ public class InsertionSort {
 		}
 		au.insertionSort(a,n);
 
+	}while(t<6);
 	}
 
 }

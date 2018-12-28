@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin Nibbles.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.Nibbles
  *  
  *  Purpose: convert from Decimal to Binary,Swap nibbles,find the new number
 and Find the resultant number is the number is a power of 2.
@@ -21,6 +21,8 @@ import java.util.Arrays;
 public class Nibbles {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the number:");
 		int x=sc.nextInt();
@@ -32,10 +34,12 @@ public class Nibbles {
 	    if (number) {
 	        System.out.println("The Resultant is the Power Of 2");
 	      } else {
-	        System.out.printf("The Resultant is not the Power Of 2");
+	        System.out.println("The Resultant is not the Power Of 2");
 	      }
 	    
 	    
 	}
+	while(t<6);
+}
 
 }

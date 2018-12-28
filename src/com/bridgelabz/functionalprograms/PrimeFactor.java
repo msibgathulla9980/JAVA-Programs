@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin PrimeFactor.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.PrimeFactor
  *  
  *  Purpose: Print the prime factors of number N.
  *

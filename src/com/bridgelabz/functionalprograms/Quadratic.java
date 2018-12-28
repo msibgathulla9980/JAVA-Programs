@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin Quadratic.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.Quadratic
  *  
  *  Purpose: Determines the roots of the equation a*x*x + b*x + c. 
  *

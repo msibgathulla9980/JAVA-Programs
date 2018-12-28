@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin WindChill.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.WindChill
  *  
  *  Purpose: Determines the effective temperature using Math.pow(a, b).
  *  @author  Mohammed Sibgathulla
@@ -17,9 +17,13 @@ import java.util.Arrays;
 class WindChill {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
+		
+		
 		Scanner sc=new Scanner(System.in);
 		FunctionalUtility fu=new FunctionalUtility();
 		fu.windChill();
-	}
-
+	}while(t<6);
+}
 }

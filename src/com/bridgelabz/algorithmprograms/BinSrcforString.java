@@ -1,8 +1,9 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin BinSrcForString.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.BinSrcForString
  *  
- *  Purpose: Determines Sorted List Using Merge Sort.
+ *  Purpose: Determines Binary Search For String.
+ *
  *  @author  Mohammed Sibgathulla
  *  @version 1.0
  *  @since   26-12-2018
@@ -14,28 +15,26 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.AlgorithmUtility;
 
-
-public class MergeSortforString {
+public class BinSrcforString {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		Scanner sc=new Scanner(System.in);
 		AlgorithmUtility au=new AlgorithmUtility();
 		System.out.println("Enter the number of elements: ");
 		int n=sc.nextInt();
-	   String arr[]=new String[n];
+	   String a[]=new String[n];
+		System.out.println("Enter the value of key:");
+		String key=sc.next();
 		System.out.println("Enter The Array Elements:");
 		for(int i=0;i<n;i++)
 		{
-			arr[i]=sc.next();
+			a[i]=sc.next();
 		}
-		au.mergeForstring(arr,n);
-
-	    System.out.println("Given Array"); 
-	    AlgorithmUtility.printArray(arr);  
-	    AlgorithmUtility.sort(arr, 0, arr.length-1); 
-
-	    System.out.println("\nSorted array"); 
-	    au.printArray(arr); 
+		au.binarySearchforstr(a,key);
+		
+	}while(t<6);
 	}
 
 }

@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin VendingMachine.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.VendingMachine
  *  
  *  Purpose: Determines Two Outputs - one the number of minimum Note needed to give the change and second list of Rs Notes that would given in the Change
 
@@ -21,9 +21,12 @@ import java.util.Arrays;
 public class VendingMachine {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		AlgorithmUtility au=new AlgorithmUtility();
 		au.vendingMachine();
 
+	}while(t<6);
 	}
 
 }

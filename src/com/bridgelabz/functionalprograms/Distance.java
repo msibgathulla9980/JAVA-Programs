@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin Distance.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.Distance
  *  
  *  Purpose: Determines Euclidean distance from the point (x, y) to the origin (0, 0)..
  *
@@ -27,7 +27,7 @@ public static void main(String arg[])
 	
 	FunctionalUtility fu=new FunctionalUtility();
  	 	    	 	    fu.Distance();
-  	         
+	
  
 	}
  

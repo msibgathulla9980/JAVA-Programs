@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin DayOfWeek.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.DayOfWeek
  *  
  *  Purpose: Taked the date as input and prints the day of the week that date falls on
  *  @author  Mohammed Sibgathulla
@@ -21,6 +21,8 @@ import java.util.Arrays;
 public class DayOfWeek {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		Scanner scanner = new Scanner(System.in);
 
 		while(true) {
@@ -75,6 +77,7 @@ public class DayOfWeek {
 		}
 	
 
+	}while(t<6);
 	}
 
 }

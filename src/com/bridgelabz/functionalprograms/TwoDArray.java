@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin TwoDArray.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.TwoDArray
  *  
  *  Purpose: create 2 dimensional array in memory to read in M rows and N cols.
  *
@@ -18,6 +18,9 @@ import com.bridgelabz.utility.FunctionalUtility;
 public class TwoDArray {
 
 	public static void main(String[] args) {
+		int t=0;
+	
+		do{
 		Scanner sc=new Scanner(System.in);
 		FunctionalUtility fu=new FunctionalUtility();
 		System.out.println("Enter the no of rows:");
@@ -74,4 +77,6 @@ case 2:
 }
 
 	}
+	while(t<6);
 	}
+}

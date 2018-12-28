@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin Gambler.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.Gambler
  *  
  *  Purpose: Determines Number of Wins and Percentage of Win and Loss.
  *

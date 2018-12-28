@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin MonthlyPayment.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.MonthlyPayment
  *  
  *  Purpose: Determines monthlyPayment
  *  @author  Mohammed Sibgathulla
@@ -19,9 +19,12 @@ import java.util.Arrays;
 public class MonthlyPayment {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		AlgorithmUtility au=new AlgorithmUtility();
 		au.monthlyPayment();
 
+	}while(t<6);
 	}
 
 }

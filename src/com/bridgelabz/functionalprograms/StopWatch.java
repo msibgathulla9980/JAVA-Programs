@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin StopWatch.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.StopWatch
  *  
  *  Purpose: Determines the elapsed time. 
  *
@@ -17,8 +17,10 @@ import com.bridgelabz.utility.FunctionalUtility;
 import java.util.Arrays;
 
 
-public class Stopwatch { 
+public class StopWatch { 
 	public static void main(String[] args) {
+		int t=0;
+	do{
 		FunctionalUtility fu = new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter '1' to start:");
@@ -30,7 +32,8 @@ public class Stopwatch {
 		System.out.println("Enter any key to display the elapsed time:");
 		long elapse=sc.nextLong();
 		fu.elapse();
-	}
+	}while(t<6);
+}
 
 	
 }

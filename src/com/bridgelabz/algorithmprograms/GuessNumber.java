@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin GuessNumber.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.GuessNumber
  *  
  *  Purpose: Program that asks you to think of a number between 0 and N-1, where N = 2^n, and always guesses the answer with n questions.
 
@@ -20,6 +20,8 @@ import com.bridgelabz.utility.AlgorithmUtility;
 public class GuessNumber {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		Scanner sc=new Scanner(System.in);
 		try
 		{
@@ -33,12 +35,13 @@ public class GuessNumber {
 			int lower=0;
 			int upper=range;
 			int middle=(lower+upper/2);
-			au.binarySearch(lower,upper,middle,count,input,n);
+			au.binarySearch(lower,upper,middle,count,input,n-1);
 		}
 		catch (ArrayIndexOutOfBoundsException ae)
 		{
 			ae.printStackTrace();
 		}
+	}while(t<6);
 	}
 
 

@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
- *  Execution:    java -cp bin com.bridgelabz.util.PrimeChecker n
+ *  Compilation:  javac -d bin powerof2.java
+ *  Execution:    java -cp bin com.bridgelabz.utility.powerof2
  *  
  *  Purpose: Determines the Nth Harmonic Value.
 
@@ -21,6 +21,8 @@ import java.lang.Math.*;
 public class powerof2 {
 
 	public static void main(String[] args) {
+		int t=0;
+		do{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the power of 2:");
 		int n = sc.nextInt();
@@ -33,6 +35,7 @@ public class powerof2 {
 		} else
 			System.out.println("The value should be greater than or equal to 0");
 
+	}while(t<6);
 	}
 
 }
