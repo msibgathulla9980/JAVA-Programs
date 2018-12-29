@@ -22,7 +22,7 @@ public class UnorderedUsingFileInput {
 		 */
 		try {
 			// creating a new file
-			File f1 = new File("C:/Users/Mohammed Sibgath/Desktop");
+			File f1 = new File("C:/Users/Mohammed Sibgath/Desktop/newFile.txt");
 			UnorderedList<String> list = new UnorderedList<>();
 			Scanner sf = new Scanner(f1);
 			Scanner s = new Scanner(System.in);
@@ -66,7 +66,7 @@ public class UnorderedUsingFileInput {
 		} catch (FileNotFoundException e) {
 			System.out.println("file not found");
 		} catch (IOException e) {
-			System.out.println("io excep");
+			System.out.println("io exception");
 		}
 	}
 

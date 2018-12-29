@@ -1,13 +1,13 @@
 package customDataStruc;
 
-import org.w3c.dom.Node;
+
 
 /******************************************************************************
  * Purpose: Implementation of unordered list with its common operation
  *
  * @author Mohammed Sibgathulla
  * @version 1.0
- * @since 28-12-2018
+ * @since 09-10-2018
  *
  ******************************************************************************/
 public class UnorderedList<T> {
@@ -28,7 +28,8 @@ public class UnorderedList<T> {
 		 * last node
 		 */
 		Node n = new Node(data);
-		if (head == null) {
+		if (head == null) 
+		{
 			head = n;
 			size++;
 		} else {
@@ -65,7 +66,7 @@ public class UnorderedList<T> {
 		size -= 1;
 	}
 
-	public void removeAtLast() {
+public void removeAtLast() {
 		Node n = head;
 		Node prev = null;
 		while (n.next != null) {
@@ -207,8 +208,8 @@ public class UnorderedList<T> {
 		return (T) n.data;
 	}
 
-	/**
-	 * overriden method to give elements of list as string
+/*	*//**
+	 * overridden method to give elements of list as string
 	 */
 	@Override
 	public String toString() {
@@ -226,9 +227,10 @@ public class UnorderedList<T> {
 
 	/**
 	 * method to show the items in the list
+	 * @return 
 	 */
 	public void show() {
 		System.out.println(toString());
 	}
-
-}
+	
+	}
