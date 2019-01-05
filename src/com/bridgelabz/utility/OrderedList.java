@@ -1,45 +1,55 @@
-package customDataStruc;
-
-
+package com.bridgelabz.utility;
 
 /******************************************************************************
- * Purpose: Implementation of unordered list with its common operation
+ * Purpose: Implementation of ordered(sorted) list with its common operation
  *
  * @author Mohammed Sibgathulla
  * @version 1.0
- * @since 09-10-2018
+ * @since 02-012019
  *
  ******************************************************************************/
-public class UnorderedList<T> {
-	private Node head;
-	Node tail;
-	private int size = 0;
 
-	@SuppressWarnings("Unchecked")
+
+
+
+public class OrderedList<T extends Comparable<T>> {
+	Node head;
+	Node tail;
+	int size = 0;
 
 	/**
 	 * function to add a new item in the list and returns nothing
 	 * 
 	 * @param data the item which to be added
 	 */
+	@SuppressWarnings("unchecked")
 	public void add(T data) {
-		/*
-		 * creates an new node with data traverse list till last adds the node as the
-		 * last node
-		 */
-		Node n = new Node(data);
-		if (head == null) 
-		{
-			head = n;
-			size++;
+
+		Node n = head;
+		Node temp = new Node(data);
+		size++;
+		if (head == null) {
+			// System.out.println("1st");
+			head = temp;
+			head.next = tail;
+			tail = head;
+		} else if (data.compareTo((T) head.data) < 0) {
+			// System.out.println("2nd");
+			temp.next = head;
+			head = temp;
 		} else {
-			Node node = head;
-			while (node.next != null) {
-				node = node.next;
+			if (data.compareTo((T) tail.data) > 0) {
+				tail.next = temp;
+				tail = temp;
+				return;
 			}
-			// adds the node as last node
-			node.next = n;
-			size++;
+			Node prev = null;
+			while (data.compareTo((T) n.data) > 0 && n.next != null) {
+				prev = n;
+				n = n.next;
+			}
+			prev.next = temp;
+			temp.next = n;
 		}
 	}
 
@@ -55,28 +65,23 @@ public class UnorderedList<T> {
 			head = head.next;
 			size -= 1;
 			return;
-		}
-		while (!n.data.equals(item)) {
-			prev = n;
+		} else if (tail.data.equals(item)) {
+			while (!n.next.data.equals(tail.data)) {
+				n = n.next;
+			}
+			n.next = null;
+			tail = n;
+			return;
+		} else {
+			while (!n.data.equals(item)) {
+				prev = n;
+				n = n.next;
+			}
 			n = n.next;
+			prev.next = n;
+			n = null;
+			size -= 1;
 		}
-		n = n.next;
-		prev.next = n;
-		n = null;
-		size -= 1;
-	}
-
-public void removeAtLast() {
-		Node n = head;
-		Node prev = null;
-		while (n.next != null) {
-			prev = n;
-			n = n.next;
-		}
-		System.out.println("hheeyy");
-		// remove the node as last node
-		prev.next = null;
-		size--;
 	}
 
 	/**
@@ -87,7 +92,7 @@ public void removeAtLast() {
 	 */
 	public boolean search(T item) {
 		Node n = head;
-		while (n.next != null) {
+		while (n != null) {
 			if (n.data.equals(item)) {
 				return true;
 			}
@@ -135,52 +140,21 @@ public void removeAtLast() {
 	}
 
 	/**
-	 * Function to insert the item at given index
-	 * 
-	 * @param pos  the index at which to insert
-	 * @param item the item which to insert
-	 * @throws IndexOutOfBoundsException if index is greater than size of list or is
-	 *                                   less than 0
-	 */
-	public void insert(int pos, T item) throws IndexOutOfBoundsException {
-		if (pos > size || pos < 0) {
-			throw new IndexOutOfBoundsException();
-		}
-		int index = 0;
-		Node n = head;
-		Node node = new Node(item);
-		if (pos == 0) {
-			node.next = head;
-			head = node;
-		} else {
-			while (index != pos) {
-				n = n.next;
-			}
-			node.next = n.next;
-			n.next = node;
-		}
-		size++;
-	}
-
-	/**
 	 * function to remove the item from the last of list and return it
 	 * 
 	 * @return the last element of list after removing
 	 */
 	public T pop() {
 		Node n = head;
-		if (size == 1) {
-			head = head.next;
-			size--;
-			return (T) n.data;
-		}
+		Node prev = null;
 		while (n.next != null) {
+			prev = n;
 			n = n.next;
 		}
-		T ret = (T) n.data;
-		n = n.next;
+		prev.next = null;
+		tail = prev;
 		size -= 1;
-		return ret;
+		return (T) n.data;
 	}
 
 	/**
@@ -191,28 +165,31 @@ public void removeAtLast() {
 	 */
 	public T pop(int pos) {
 		int index = 0;
+		Node prev = null;
 		Node n = head;
 		if (pos == 0) {
 			head = head.next;
-			size--;
+			return (T) n.data;
+		} else if (pos == size - 1) {
+			return pop();
+		} else {
+			while (index != pos) {
+				prev = n;
+				n = n.next;
+				index++;
+			}
+			prev.next = n.next;
+			size -= 1;
 			return (T) n.data;
 		}
-		Node prev = null;
-		while (index != pos) {
-			prev = n;
-			n = n.next;
-			index++;
-		}
-		prev.next = n.next;
-		size -= 1;
-		return (T) n.data;
 	}
 
-/*	*//**
-	 * overridden method to give elements of list as string
+	/**
+	 * overriden method to give elents of list as string
 	 */
 	@Override
 	public String toString() {
+
 		StringBuffer s = new StringBuffer();
 		s.append("[ ");
 		Node node = head;
@@ -223,14 +200,14 @@ public void removeAtLast() {
 		}
 		s.append(" ]");
 		return s.toString();
+
 	}
 
 	/**
 	 * method to show the items in the list
-	 * @return 
 	 */
 	public void show() {
 		System.out.println(toString());
 	}
-	
-	}
+
+}

@@ -18,7 +18,7 @@ import com.bridgelabz.utility.AlgorithmUtility;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
-public class Nibbles {
+public class SwapNibbles {
 
 	public static void main(String[] args) {
 		int t=0;

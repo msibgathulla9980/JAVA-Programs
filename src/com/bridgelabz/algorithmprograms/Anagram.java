@@ -19,18 +19,34 @@ import java.util.Arrays;
 
 public class Anagram {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+    {
+		Scanner sc=new Scanner(System.in);
 		int t=0;
 		do{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter Str1:");
-		String str1=sc.nextLine();
-		System.out.println("Enter Str2:");
-		String str2=sc.nextLine();
-		AlgorithmUtility.isAnagram(str1,str2);
-	}while(t<6);
-
-
-	}
-
+        String str1, str2;
+        System.out.print("Enter First String : ");
+        str1 = sc.nextLine();
+        System.out.print("Enter Second String : ");
+        str2 = sc.nextLine();
+        int len1 = str1.length();                          //len1 holds Length of first String
+        int len2 = str2.length();
+        str2=str2.toUpperCase(); 
+        str1=str1.toUpperCase(); 
+        //len1 holds Length of first String
+        if(len1 == len2)                                   // Check for string length are equal or not
+        {
+            boolean a=AlgorithmUtility.isAnagram(str2,str1);
+            if(!a){
+                System.out.println("Strings are not Anagram to Each Other");
+            }
+            else
+                System.out.println("Strings are Anagram");
+        }
+        else
+        {
+            System.out.print("length of both Strings should be equal");//print if length ar e not equal
+        }
+		}while(t<6);
+    }
 }

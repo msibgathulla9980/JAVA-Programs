@@ -37,45 +37,23 @@ public class AlgorithmUtility<E> {
 		return true;
 	}
 	//Function to check Anagram for the given two strings.
-	public static boolean isAnagram(String s1, String s2)
-    {
-        //Removing all white spaces from s1 and s2
-        String copyOfs1 = s1.replaceAll("\\s", "");
-        String copyOfs2 = s2.replaceAll("\\s", "");
-        
-        //Initially setting status as true
-        boolean status = true;
- 
-		if(copyOfs1.length() != copyOfs2.length())
-		{
-		    //Setting status as false if copyOfs1 and copyOfs2 doesn't have same length
-		    status = false;
-		}
-		else
-		{
-		    //Changing the case of characters of both copyOfs1 and copyOfs2 and converting them to char array
-		    char[] s1Array = copyOfs1.toLowerCase().toCharArray();
-		    char[] s2Array = copyOfs2.toLowerCase().toCharArray();
-		    
-		    //Sorting both s1Array and s2Array
-		    Arrays.sort(s1Array);
-		    Arrays.sort(s2Array);
-		    
-		    //Checking whether s1Array and s2Array are equal
-		    status = Arrays.equals(s1Array, s2Array);
-		}
-		
-        //Output
-		if(status)
-		{
-		    System.out.println(s1+" and "+s2+" are Anagrams");
-		}
-		else
-		{
-			System.out.println(s1+" and "+s2+" are not Anagrams");
-		}
-		return status;
+	public static boolean isAnagram(String word, String anagram) {
+        boolean isAnagram = false;
+        if (word != null && anagram != null && word.length() == anagram.length()) {
+            char[] arr = word.toCharArray();
+            StringBuilder temp = new StringBuilder(anagram);
+            //int wordLength = FunctionalUtility.readInteger();
+            for (char ch : arr) {
+                int index = temp.indexOf("" + ch);
+                if (index != -1) {
+                    temp.deleteCharAt(index);
+                }
+            }
+            isAnagram = temp.toString().isEmpty();
+        }
+        return isAnagram;
     }
+
 	/**
 	 * Function to count the characters in a string alphabaticlally and return array
 	 * of the count of each alphabet
@@ -273,10 +251,10 @@ public class AlgorithmUtility<E> {
 		System.out.println("Enter The Principal Amount: ");
 		double p=sc.nextDouble();
 		System.out.println("Enter The Number Of Years: ");
-		int y=sc.nextInt();
+		double y=sc.nextDouble();
 		System.out.println("Enter The Percentge Of Interest: ");
 		double R=sc.nextDouble();
-		int n=12*y;
+		double n=12*y;
 		double r=R/(12*100);
 		double payment;
 		payment=p*r/(1-Math.pow(1+r, -n));
@@ -301,7 +279,7 @@ public class AlgorithmUtility<E> {
 		int i=0;
 		int[] bin=new int[100];
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter any decimal number:");
+		System.out.println("Enter the decimal number:");
 		int n = sc.nextInt();
 		while(n > 0)
 		{
@@ -309,8 +287,10 @@ public class AlgorithmUtility<E> {
 			n = n / 2;
 			i++;
 		}
+		System.out.println("The Number in Binary is: ");
 		for (int j=7;j>=0;j--){
 			System.out.println(bin[j]);
+		
 		}
 	}
 
@@ -736,6 +716,52 @@ public static int binarySearch(String str[],String key)
   return -1;
 }
 
+//anagram detection
+/**
+ * Static function to check if the two strings are anagram or not.
+ * 
+ * @param str1 the string to be checked for anagram
+ * @param str2 the string to be checked for anagram
+ * @return true if the strings are anagram else false
+ */
+public static boolean anagramDetection(String str1, String str2) {
+    char[] ch1 = str1.toLowerCase().toCharArray();
+    char[] ch2 = str2.toLowerCase().toCharArray();
+    if (ch1.length != ch2.length) {
+        return false;
+    } else {
+        ch1 = sortChar(ch1);
+        ch2 = sortChar(ch2);
+        str1 = String.valueOf(ch1);
+        str2 = String.valueOf(ch2);
+        boolean b = str1.equals(str2);
+        {
+            if (b == true)
+                return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * static method is used to sort array of characters
+ * 
+ * @param ch is the character array
+ * @return sorted character array
+ */
+public static char[] sortChar(char[] ch) {
+    char[] b = new char[ch.length];
+    for (int i = 0; i < ch.length; i++) {
+        int count = 0;
+        for (int j = 0; j < ch.length; j++) {
+            if (ch[i] < ch[j]) {
+                count++;
+            }
+        }
+        b[count] = ch[i];
+    }
+    return b;
+}
 
 
 }

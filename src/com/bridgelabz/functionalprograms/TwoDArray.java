@@ -27,8 +27,9 @@ public class TwoDArray {
 		int m=sc.nextInt();
 		System.out.println("Enter the no of cols:");
 		int n=sc.nextInt();
-		System.out.println("1.integer 2.Double 3.boolean:");
+		System.out.println("1.Integer Array 2.Double Array 3.Boolean Array:");
 		int flag=sc.nextInt();
+		System.out.println("Enter the Array Elements:");
 switch(flag)
 {
 case 1:
@@ -38,10 +39,12 @@ case 1:
 	{
 		for(int j=0;j<n;j++)
 		{
+		
 			array[i][j]=sc.nextInt();
 			
 		}
 	}
+	System.out.println("The Integer Array Entered is:");
 	fu.displayarray(array,m,n);
 		break;
 
@@ -51,10 +54,12 @@ case 2:
 	{
 		for(int j=0;j<n;j++)
 		{
+		
 			darray[i][j]=sc.nextDouble();
 			
 		}
 	}
+	System.out.println("The Double Array Entered is:");
 		fu.displayarray(darray,m,n);
 		break;
 	
@@ -65,10 +70,12 @@ case 2:
 		{
 			for(int j=0;j<n;j++)
 			{
+			
 				barray[i][j]=sc.nextBoolean();
 				
 			}
 		}
+		System.out.println("The Boolean Array Entered is:");
 			fu.displayarray(barray,m,n);
 			break;
 

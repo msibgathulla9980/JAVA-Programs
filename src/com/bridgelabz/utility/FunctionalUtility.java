@@ -6,6 +6,7 @@ import com.bridgelabz.functionalprograms.StopWatch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class FunctionalUtility<E> {
@@ -23,10 +24,10 @@ public class FunctionalUtility<E> {
 	////////////////////////////////////
 	/**
 	 * @param count- To get the count of head and tails
-	 * Function to find the Percentageof Head And Tails
+	 * Function to find the Percentage Of Head And Tails
 	 */
 	public void getCount(int count) {
-		int head = 0, tail = 0;
+		double head = 0.0; double tail = 0.0;
 		int c = count;
 		Random r = new Random();
 		while (count != 0) {
@@ -38,15 +39,15 @@ public class FunctionalUtility<E> {
 			}
 			count--;
 		}
-		System.out.println("perc of Head" + head * 100 / c);
-		System.out.println("perc of Tail" + tail * 100 / c);
+		System.out.println("perc of Head :" + head * 100 / c);
+		System.out.println("perc of Tail :" + tail * 100 / c);
 	}
 	///////////////////////////////////////
 	/**
 	 * @param x used to get the leap year
 	 */
 	public void getLeap(int x) {
-		if (x % 4 == 0 || x % 400 == 0 && x % 100 == 0) {
+		if (x % 400 == 0 && x % 100 == 0 && x % 100 == 0) {
 			System.out.println("It is a leap year");
 		} else {
 			System.out.println("It is not leap year");
@@ -102,7 +103,7 @@ public class FunctionalUtility<E> {
 		int t = 0;
 		do{
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the stake:");
+		System.out.println("Enter the stake :");
 		int stake = sc.nextInt();
 		System.out.println("Enter the Goal:");
 		int goal = sc.nextInt();
@@ -163,7 +164,7 @@ public class FunctionalUtility<E> {
 	{ for(int i=0;i<m;i++)
 	{ for(int j=0;j<n;j++)
 	{ 
-		System.out.print(garray[i][j]+"");
+		System.out.print(" "+garray[i][j]+" ");
 
 	}
 	System.out.println();}
@@ -182,33 +183,33 @@ public class FunctionalUtility<E> {
 	static Scanner s = new Scanner(System.in);
 
 	/**
-	 * function to check sum of triplets is 0
-	 * 
-	 * @param n the no of elements to check for for creation of array
-	 */
-	public static void sum0count(int n) {
-		int[] arr = new int[n];
-		int count = 0;
-		System.out.println("enter values");
-		// taking integer input for creating array
-		for (int i = 0; i < n; i++) {
-			arr[i] = s.nextInt();
-		}
-		// checking for triplets by loop
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = i + 1; j < arr.length; j++) {
-				for (int k = j + 1; k < arr.length; k++) {
-					if (arr[i] + arr[j] + arr[k] == 0) {
-						count++;
-						System.out.println(arr[i] + "+" + arr[j] + "+" + arr[k] + "=" + "0");
-					}
-				}
-			}
-		}
-		// output
-		System.out.println("total pairs are " + count);
-
-	}
+    * static function to obtain triplet integers that gives 0 upon addition
+    * 
+    * @param arr integers in an array
+    * @param length of the array
+    */
+   public static void sumOfInterger(int[] arr, int n) {
+       boolean found = false;
+       int count = 0;
+       System.out.println("The possibilities are :");
+       for (int i = 0; i < n - 2; i++) {
+           for (int j = i + 1; j < n - 1; j++) {
+               for (int k = j + 1; k < n; k++) {
+                   if (arr[i] + arr[j] + arr[k] == 0) {
+                       System.out.print(arr[i] + "+" + arr[j] + "+" + arr[k] + "=0");
+                       count++;
+                       found = true;
+                   }
+               }
+               System.out.println();
+           }    
+       }
+       System.out.println("total number of possibilities are :" + count);
+       if (found == false) {
+           System.out.println("sum of three intergers does not add up to zero");
+       }
+   } 
+  
 	////////////////////////////////
 	/**
 	 * Function to calculate distance = sqrt(x*x + y*y) by using  Math.power function
@@ -287,9 +288,11 @@ do{
 		int b=sc.nextInt();
 		System.out.println("Enter the value of c:");
 		int c=sc.nextInt();
-
 		double delta;
 		delta=b*b-4*a*c;
+		 if (delta < 0) {
+		        System.out.println("There are no real roots ");
+		 }
 		double rootx1=(-b+Math.sqrt(delta))/(2*a);
 		double rootx2=(-b-Math.sqrt(delta))/(2*a);
 
@@ -414,7 +417,9 @@ public static void play() {
 			return;
 		}
 		player = 0;
+		
 	}
+	
 }
 //recursive combination
 public void recursion(String str,int initial,int last)
@@ -441,7 +446,7 @@ public void recursion(String str,int initial,int last)
 public static void iteration(String s)
 {
     // create an empty ArrayList to store (partial) permutations
-    ArrayList<String> arr = new ArrayList<>();
+    List<String> arr = new ArrayList<>();
 
     // initialize the list with the first character of the string
     arr.add(String.valueOf(s.charAt(0)));
