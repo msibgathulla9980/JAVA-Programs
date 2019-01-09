@@ -16,7 +16,7 @@ public class UnOrderedUsingFileInput  {
         String str="C:/Users/Mohammed Sibgath/Desktop/newFile.txt";
         FileReader f=new FileReader(str);
         BufferedReader read=new BufferedReader(f);
-        FileWriter w=new FileWriter("C:/Users/Mohammed Sibgath/Desktop/newFile.txt",true);
+        FileWriter w=new FileWriter(str,true);
         BufferedWriter writer = new BufferedWriter(w);
         final String DELIMITER=" ";
         Node nd=null;
@@ -82,7 +82,7 @@ public class UnOrderedUsingFileInput  {
                   }
                   
                   
-              n++;
+              n++;	
               }while(n<30);
         
 

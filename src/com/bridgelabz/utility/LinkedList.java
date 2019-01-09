@@ -1,16 +1,19 @@
-package com.bridgelabz.datastructureprograms;
+package com.bridgelabz.utility;
+
+
+
 public class LinkedList<T> {
 
-    private Node<T> first;
-    private Node<T> last;
+    private NodeCalendar<T> first;
+    private NodeCalendar<T> last;
 
     public boolean isEmpty(){
         return first==null;
     }
-    public void add(T element) {
+    public void add(T t) {
 
-        Node<T> nd = new Node<T>();
-        nd.setValue(element);
+    	NodeCalendar<T> nd = new NodeCalendar<T>();
+        nd.setValue(t);
         if (first == null) {
             first = nd;
             last = nd;
@@ -22,7 +25,7 @@ public class LinkedList<T> {
 
     public int print() {
 
-        Node<T> tmp = first;
+    	NodeCalendar<T> tmp = first;
         int i = 0;
         while (true) {
             if (tmp == null) {
@@ -39,7 +42,7 @@ public class LinkedList<T> {
     }
     public void clear() {
 
-        Node<T> tmp = first;
+    	NodeCalendar<T> tmp = first;
         while (true) {
             if (tmp == null) {
                 break;
@@ -53,21 +56,37 @@ public class LinkedList<T> {
     }
     public void printNew() {
 
-        Node<T> tmp = first;
+    	NodeCalendar<T> tmp = first;
         while (true) {
             if (tmp == null) {
                 break;
             }
             if(tmp.getValue()!=null)
             {
-            System.out.println(tmp.getValue());
+            System.out.print(tmp.getValue()+" ");
             }
             tmp = tmp.getNextRef();
         }
     }
+    public LinkedList<Integer> getValue() {
+
+    	NodeCalendar<T> tmp = first;
+        LinkedList<Integer> node=new LinkedList<Integer>();
+        while (true) {
+            if (tmp == null) {
+                break;
+            }
+            if(tmp.getValue()!=null)
+            {
+              node.add((Integer) tmp.getValue());
+            }
+            tmp = tmp.getNextRef();
+        }
+        return node;
+    }
     public int size() {
 
-        Node<T> tmp = first;
+    	NodeCalendar<T> tmp = first;
         int i = 0;
         while (true) {
             if (tmp == null) {
@@ -83,7 +102,7 @@ public class LinkedList<T> {
     }
 
     public boolean printValue(int length, String key, LinkedList<String> li) {
-        Node<T> nd2 = first;
+    	NodeCalendar<T> nd2 = first;
         while (true) {
             if (nd2 == null) {
                 break;
@@ -101,7 +120,7 @@ public class LinkedList<T> {
         return false;
     }
     public int index(T data){
-        Node<T> curr=first;
+    	NodeCalendar<T> curr=first;
         int count=0;
         while(curr!=null){
             if((String.valueOf(curr.getValue())).compareToIgnoreCase(String.valueOf(data))==0){
@@ -111,13 +130,14 @@ public class LinkedList<T> {
             count++;
             curr=curr.getNextRef();
         }
+        assert(false);
         return 0;
     }
     
     public void remove(int index){
         if(isEmpty())
             return;
-        Node<T> temp=first;
+        NodeCalendar<T> temp=first;
         if(index==0){
             first=temp.getNextRef();
             return;
@@ -127,13 +147,13 @@ public class LinkedList<T> {
         }
         if (temp == null || temp.getNextRef() == null) 
                 return; 
-            Node<T> next = temp.getNextRef().getNextRef(); 
+        NodeCalendar<T> next = temp.getNextRef().getNextRef(); 
       
             next=temp.getNextRef();
     }
     public int [] convInteger(LinkedList<Integer> li,int len)
     {
-        Node nd2 = li.first;
+    	NodeCalendar<Integer> nd2 = li.first;
         int [] arr=new int[len];
         int i=0;
         while (true) {
@@ -165,7 +185,7 @@ public class LinkedList<T> {
     }
     
     public boolean findIntegerValue(int length, int key, LinkedList<Integer> li2) {
-        Node<T> nd2 = first;
+    	NodeCalendar<T> nd2 = first;
         while (true) {
             if (nd2 == null) {
                 break;
@@ -190,10 +210,20 @@ public class LinkedList<T> {
         return false;
     
     }
+    public boolean search(T key){
+    	NodeCalendar<T> temp=first;
+           while(temp.getNextRef()!=null){
+               if( String.valueOf(key).compareToIgnoreCase(String.valueOf(temp.getValue())) == 0){
+                   return true;
+               }
+               temp=temp.getNextRef();
+           }
+           return false;
+        }
 
     public String [] convString(LinkedList<T> li,int len)
     {
-        Node nd2 = li.first;
+    	NodeCalendar<T> nd2 = li.first;
         String [] str=new String[len];
         int i=0;
         while (true) {
@@ -211,7 +241,7 @@ public class LinkedList<T> {
     }
     public int [] convertInt(LinkedList<Integer> li,int len)
     {
-        Node nd2 = li.first;
+    	NodeCalendar<Integer> nd2 = li.first;
         int [] str=new int[len];
         int i=0;
         while (true) {
@@ -226,26 +256,5 @@ public class LinkedList<T> {
             nd2 = nd2.getNextRef();
         }
         return str;
-    }
-}
-class Node<T>  {
-    private T value;
-    private Node<T> nextRef;
-
-    public T getValue() {
-        
-        return value;
-    }
-
-    public void setValue(T value) {
-        this.value = value;
-    }
-
-    public Node<T> getNextRef() {
-        return nextRef;
-    }
-
-    public void setNextRef(Node<T> ref) {
-        this.nextRef = ref;
     }
 }

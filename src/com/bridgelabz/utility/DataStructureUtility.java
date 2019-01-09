@@ -1,5 +1,5 @@
 package com.bridgelabz.utility;
-
+import com.bridgelabz.utility.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -119,25 +119,26 @@ public class DataStructureUtility {
                 lst.add(i);}
         return lst;
         }
-	//////////
-	public static List<Integer> findPrime(int low,int high) {
-        int flag = 1;
-        int i;
-        List<Integer> arr = new ArrayList<>();
-        for (i = low; i < high; i++) {
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    flag = 0;
-                    break;
-                } else
-                    flag = 1;
-            }
-            if (flag == 1) {
-                arr.add(i);
-            }
+//////////
+public static List<Integer> findPrime(int low,int high) {
+    int flag = 1;
+    int i;
+    List<Integer> arr = new ArrayList<>();
+    for (i = low; i < high; i++) {
+        for (int j = 2; j < i; j++) {
+            if (i % j == 0) {
+                flag = 0;
+                break;
+            } else
+                flag = 1;
         }
-        return arr;
+        if (flag == 1) {
+            arr.add(i);
+        }
     }
+    return arr;
+}
+
 	//////////////
     public static Set<Integer> primeAnagram(List<Integer> primeList) {
         Set<Integer> primeAnagram = new HashSet<>();
@@ -151,6 +152,20 @@ public class DataStructureUtility {
         }
         return primeAnagram;
     }
+/////////////
+public static Stack1 primeAnagram21(List<Integer> primeList) {
+//Set<Integer> primeAnagram = new HashSet<>();
+Stack1 stack=new Stack1();
+for (int i = 0; i < primeList.size(); i++) {
+for (int j = i+1; j < primeList.size(); j++) {
+if (AlgorithmUtility.anagramDetection(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+Stack1.push(primeList.get(i));
+Stack1.push(primeList.get(j));
+}
+}
+}
+return stack;
+}
 	//////////////
 	public static void printPrimeAndAnagram(List<List<Integer>> list1)
     {
@@ -174,8 +189,8 @@ public class DataStructureUtility {
         }
     }
 	/////////////////////////// Calendar Function
-	static int[][] calendar = new int[5][7];
-	static int[] month = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	static int[][] calendar = new int[6][7];
+	static int[] month = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	public static void initCal() {
 		for (int i = 0; i < calendar.length; i++) {
 			for (int j = 0; j < calendar[i].length; j++) {
@@ -183,10 +198,19 @@ public class DataStructureUtility {
 			}
 		}
 	}
-
-	public static void display(int m) {
+  static FunctionalUtility fu=new FunctionalUtility();
+	public static void display(int m,int y) {
 		System.out.println("	Sun	Mon	Tue	Wed	Thu	Fri	Sat");
-
+		boolean x=fu.isLeap(y);
+		if(m==2)
+		{
+			if(x)
+			{
+			month[1]=29;
+			}
+			else
+				month[1]=28;
+		}
 		for (int i = 0; i < calendar.length; i++) {
 			for (int j = 0; j < calendar[i].length; j++) {
 				if (calendar[i][j] < 0 || calendar[i][j] > month[m - 1]) {
@@ -219,7 +243,7 @@ public class DataStructureUtility {
 		int d = dayOfWeek(m, y);
 		initCal();
 		putCalendar(d);
-		display(m);
+		display(m,y);
 
 	}
 
@@ -231,4 +255,50 @@ public class DataStructureUtility {
 		int d0 = (d + x + (31 * m0) / 12) % 7;
 		return d0;
 	}
+	
+	public static Queue1 primeAnagram3(List<Integer> primeList) {
+        Queue1 queue=new Queue1(1000);
+        for (int i = 0; i < primeList.size(); i++) {
+            for (int j = i+1; j < primeList.size(); j++) {
+                if (AlgorithmUtility.anagramDetection(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+                    queue.enqueue(primeList.get(i));
+                    queue.enqueue(primeList.get(j));
+                }
+            }
+        }
+        return queue;
+    }
+/////////////
+	public static Stack1 primeAnagram2(List<Integer> primeList) {
+//      Set<Integer> primeAnagram = new HashSet<>();
+      Stack1 stack=new Stack1();
+      for (int i = 0; i < primeList.size(); i++) {
+          for (int j = i+1; j < primeList.size(); j++) {
+              if (AlgorithmUtility.anagramDetection(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+                  Stack1.push(primeList.get(i));
+                  Stack1.push(primeList.get(j));
+              }
+          }
+      }
+      return stack;
+  }
+	public static int day(int month, int i, int year)
+    { 
+    int y = year - (14 - month) / 12;
+    int x = y + y/4 - y/100 + y/400;
+    int m = month + 12 * ((14 - month) / 12) - 2;
+    int d = (i + x + (31*m)/12) % 7;
+    return d;
+    }
+    
+    /**
+     * to find leap year or not
+     * @param year of integer type
+     * @return of boolean type
+     */
+    public static boolean isLeapYear(int year)
+    {
+            if  (((year % 4 == 0) && (year % 100 != 0))||year % 400 == 0) return true;
+            else return false;
+    }
 }

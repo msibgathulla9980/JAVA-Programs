@@ -581,7 +581,7 @@ public static void toBinaryfornibble(int n){
 		i++;
 	}
 	System.out.println("The Swapped Nibble in Binary is: ");
-	for (int j=0;j<=7;j++){
+	for (int j=7;j>=1;j--){
 		System.out.print(+bin[j]);
 		
 	}

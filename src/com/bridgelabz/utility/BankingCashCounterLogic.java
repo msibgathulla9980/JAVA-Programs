@@ -78,7 +78,7 @@ static class Node
     /*  Function to insert an element to the queue */
     public static void insert(int data)
     {
-        Node node = new Node(data, null);
+        Node node = new Node(data,null);
         if (rear == null)
         {
             front = node;

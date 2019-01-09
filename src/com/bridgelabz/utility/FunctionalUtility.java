@@ -53,6 +53,14 @@ public class FunctionalUtility<E> {
 			System.out.println("It is not leap year");
 		}
 	}
+	public static boolean isLeap(int x)
+	{
+		if (x % 400 == 0 && x % 100 == 0 || x % 4 == 0) 
+			return true;
+		 else 
+			return false;
+		
+	}
 	//////////////////////////////////////
 	public double getHarmonicNumber(int n) {
 		double sum = 0.0;
