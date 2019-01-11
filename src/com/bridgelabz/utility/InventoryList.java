@@ -13,7 +13,8 @@ public class InventoryList {
         return inventoryName;
     }
 
-    public void setInventoryName(String inventoryName) {
+    public void setInventoryName(String inventoryName)//used to set if the inventory name isn't present
+    {
         this.inventoryName = inventoryName;
     }
 

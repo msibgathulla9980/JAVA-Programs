@@ -1,8 +1,8 @@
 
 
 /******************************************************************************
- * *  Compilation:  javac -d bin Permutation.java
- *  Execution:    java -cp bin com.bridgelabz.utility.Permutation
+ * *  Compilation:  java c -d bin Permutation.java
+ *  Execution:    java -c p bin com.bridgelabz.utility.Permutation
  * Purpose: static functions to return all permutation of a String using
  * iterative method and Recursion method
  *

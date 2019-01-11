@@ -1,8 +1,8 @@
 package com.bridgelabz.utility;
-import com.bridgelabz.utility.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 
 public class DataStructureUtility {
@@ -166,6 +166,67 @@ Stack1.push(primeList.get(j));
 }
 return stack;
 }
+/**
+ * static object is created for Scanner class to avoid multiple object creations
+ * of the same class.
+ */
+
+static Scanner scanner = new Scanner(System.in);
+
+/**
+ * static function to read integers input from the user
+ * 
+ * @return integer values that are read
+ */
+
+public static int userInteger() {
+
+    return scanner.nextInt();
+
+}
+public static float userFloat() {
+
+    return scanner.nextFloat();
+
+}
+
+/**
+ * static function to read double input from the user
+ * 
+ * @return double values that are read
+ */
+public static double userDouble() {
+
+    return scanner.nextDouble();
+
+}
+
+/**
+ * static function to read boolean input from the user
+ * 
+ * @return boolean values that are read
+ */
+public static boolean userBoolean() {
+
+    return scanner.nextBoolean();
+
+}
+
+/**
+ * static function to read string input from the user
+ * 
+ * @return strings that are read
+ */
+public static String userString() {
+    return scanner.next();
+
+}
+public static long userLong() {
+
+    return scanner.nextLong();
+
+}
+
 	//////////////
 	public static void printPrimeAndAnagram(List<List<Integer>> list1)
     {

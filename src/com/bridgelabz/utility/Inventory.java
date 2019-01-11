@@ -9,8 +9,8 @@ public class Inventory {
         this.name = name;
     }
 
-    public void setWeight(float weight) {
-        this.weight = weight;
+    public void setWeight(double d) {
+        this.weight = (float) d;
     }
 
     public void setPrice(double price) {

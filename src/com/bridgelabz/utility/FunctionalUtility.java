@@ -336,8 +336,9 @@ static boolean isEmpty = true;
 public static void initBoard() {
 	System.out.println("TIC TAC TOE GAME\nComputer is o\nPlayer  is x ");
 	for (int i = 0; i < BOARD.length; i++) {
-		for (int j = 0; j < BOARD[i].length; j++) {
-			BOARD[i][j] = -10;
+		for (int j = 0; j < BOARD[i].length; j++)//value of i and the count of cell inside it (initially 1)
+		{
+			BOARD[i][j] = -10;//to display the positive numbers at the end.
 		}
 	}
 	System.out.println("Board is this :");
@@ -348,11 +349,13 @@ public static void initBoard() {
 	int count = 0;
 	for (int i = 0; i < BOARD.length; i++) {
 		System.out.println("---------------");
-		System.out.print("||");
-		for (int j = 0; j < BOARD[i].length; j++) {
-			if (BOARD[i][j] == 0) {
-				count++;
-				System.out.print(" o |");
+		System.out.print("||");//printing horizontally
+		for (int j = 0; j < BOARD[i].length; j++)//value of i and  then length of i(initially 0)
+		{
+			if (BOARD[i][j] == 0) // The value is changed in here.
+			{
+				count++;//to track the cells in the matrix
+				System.out.print(" o |");//printing vertically
 			} else if (BOARD[i][j] == 1) {
 				count++;
 				System.out.print(" x |");
@@ -370,7 +373,7 @@ public static void initBoard() {
  * static void putVal(int i, int j, int player) { if if (player % 2 == 0) {
  * BOARD[i][j] = 0; } else BOARD[i][j] = 1; }
  */
-//Method To 
+//Method To input the value from the player
 public static void putVal() {
 	int i;
 	int j;
@@ -383,11 +386,12 @@ public static void putVal() {
 		i = s.nextInt();
 		j = s.nextInt();
 	}
-	if (BOARD[i][j] == -10) {
+	if (BOARD[i][j] == -10) //if (BOARD[i][j]<0)
+	{
 		if (player % 2 == 0) {
 			BOARD[i][j] = 0;
 		} else {
-			BOARD[i][j] = 1;
+			BOARD[i][j] = 1;//boad is already filled
 			System.out.println("Computer is Choosing " + i + " " + j);
 		}
 	} else
@@ -430,7 +434,7 @@ public static void play() {
 	
 }
 //recursive combination
-public void recursion(String str,int initial,int last)
+public static <T> void recursion(T str,int initial,int last)
 {
     if(initial==last)
     {
@@ -440,27 +444,46 @@ public void recursion(String str,int initial,int last)
     {
         for(int i=initial;i<last;i++)
         {
-            str = swap(str,initial,i); 
+            str = (T) swap(str,initial,i); 
             recursion(str, (initial+1), last);
-            str = swap(str,initial,i); 
+            str = (T) swap(str,initial,i); 
     
         }
     }
 }
+/** 
+ * Swap Characters at position 
+ * @param str string value 
+ * @param i position 1 
+ * @param j position 2 
+ * @return 
+ * @return swapped string 
+ */
+public static <T> String swap(T str,int i,int j)
+{
+    char temp;
+    char [] ch=((java.lang.String) str).toCharArray();
+    temp=ch[i];
+    ch[i]=ch[j];
+    ch[j]=temp;
+    return String.valueOf(ch);
+    
+}
+
 
 /**
- * @param s
+ * @param s is the user input.
  */
-public static void iteration(String s)
+public static <T> void iteration(T s)
 {
     // create an empty ArrayList to store (partial) permutations
     List<String> arr = new ArrayList<>();
 
     // initialize the list with the first character of the string
-    arr.add(String.valueOf(s.charAt(0)));
+    arr.add(String.valueOf(((String) s).charAt(0)));
 
     // do for every character of the specified string
-    for (int i = 1; i < s.length(); i++)
+    for (int i = 1; i < ((String) s).length(); i++)
     {
         // consider previously constructed partial permutation one by one
 
@@ -477,7 +500,7 @@ public static void iteration(String s)
             for (int k = 0; k <= str.length(); k++)
             {
                 // Advice: use StringBuilder for concatenation
-                arr.add(str.substring(0, k) + s.charAt(i) +
+                arr.add(str.substring(0, k) + ((String) s).charAt(i) +
                             str.substring(k));
             }
         }
@@ -486,10 +509,10 @@ public static void iteration(String s)
     System.out.println(arr);
 }
 
-public String swap(String str,int i,int j)
+public static <T> String String (T str,int i,int j)
 {
     char temp;
-    char [] ch=str.toCharArray();
+    char [] ch=((String) str).toCharArray();
     temp=ch[i];
     ch[i]=ch[j];
     ch[j]=temp;
