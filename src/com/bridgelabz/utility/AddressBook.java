@@ -7,151 +7,142 @@ import java.util.List;
 
 public class AddressBook {
 
-	List<Person> listofperson=new ArrayList<Person>();//creating a person list
-	Person person=null;//creating an object of person class
-
-	public void addPerson()
-	{
-		 person=new Person();
-		System.out.println("Enter The First Name:");
-		person.setFirstname(DataStructureUtility.userString());
-		System.out.println("Enter The Last Name");
-		person.setLastname(DataStructureUtility.userString());
-		System.out.println("Enter the Phone Number:");
-		person.setPhonenumber(DataStructureUtility.userLong());
-		Address addr=new Address();//Creating an object of address class
-		System.out.println("Enter the Street:");
-		addr.setStreet(DataStructureUtility.userString());
-		System.out.println("Enter the City:");
-		addr.setCity(DataStructureUtility.userString());
-		System.out.println("Enter the State:");
-		addr.setState(DataStructureUtility.userString());
-		System.out.println("Enter the ZipCode:");
-		addr.setZipcode(DataStructureUtility.userLong());
-		System.out.println("The Details Entered are added successfully");
-		person.setAddr(addr);
-		listofperson.add(person);
-	}
-
-	public void editPerson()
-	{
-		System.out.println("Enter the Person Whose Details needs to be changed");
-		System.out.println("Enter the First Name:");
-		String fname=DataStructureUtility.userString();
-		System.out.println("Enter the Last Name:");
-		String lname=DataStructureUtility.userString();
-		int flag=0;
-		for(int i=0;i<listofperson.size();i++)
-		{
-		if (fname.contains(person.getFirstname())&& lname.contains(person.getLastname()))
-		{
-		
-			System.out.println(i);
-			
-				System.out.println("Choose which details you want to edit:");
-				System.out.println(" 1.PhoneNumber \n 2. Address\n 3.End ");
-				int ch =DataStructureUtility.userInteger();
-				switch(ch){
-				case 1: System.out.println("Enter the Phone Number to Update:");
-				person.setPhonenumber(DataStructureUtility.userLong());
-				System.out.println("Phone Number Updated.");
-				break;
-				case 2: Address addr=person.getAddr();
-				System.out.println("Choose the option to edit the address\n 1.Street\n 2.City\n 3.State\n 4.ZipCode\n");
-				int choice=DataStructureUtility.userInteger();
-				switch(choice)
-				{
-				case 1:System.out.println("Enter the New Street Details:");
-				addr.setStreet(DataStructureUtility.userString());
-				System.out.println("Street Details updated");
-				break;
-				case 2:System.out.println("Enter the New City :");
-				addr.setCity(DataStructureUtility.userString());
-				System.out.println("City Details updated");
-				break;
-				case 3:System.out.println("Enter the New State:");
-				addr.setState(DataStructureUtility.userString());
-				System.out.println("State Details updated");
-				break;
-				case 4:System.out.println("Enter the New ZipCode :");
-				addr.setZipcode(DataStructureUtility.userLong());
-				System.out.println("State Details updated");
-				break;
-				default:System.out.println("Enter the Correct Choice:");
-				}//ending the inside switch
-				person.setAddr(addr);
-				default:System.out.println("Press 1 to continue\n 0 to exit:");
-				System.exit(0);
-
-				}//end of outside switch
-			}//end of if
-			flag=1;
-	}
-		if (flag==0)
-		{
-			System.out.println("The Entered details didn't match or empty, Please proceed further");
-		}//end of for
-}//end of edit person method. 
-	   public void displayAddress() {
-		   if (!listofperson.isEmpty())
-		   {
-		   System.out.println("The Details Entered are:");
-	        for (Person per2 : listofperson) {
-	            System.out.println("First name : " + per2.getFirstname());
-	            System.out.println("Last name : " + per2.getLastname());
-	            System.out.println("Phone number : " + per2.getPhonenumber());
-	            Address addr = per2.getAddr();
-	            System.out.println("Address :\n");
-	            System.out.println("Street : " + addr.getStreet());
-	            System.out.println("City : " + addr.getCity());
-	            System.out.println("State : " + addr.getState());
-	            System.out.println("Zip Code : " + addr.getZipcode());
-	            System.out.println("--------------------------------------");
-	        }
-		   }
-		   else
-		   {
-			   System.out.println("Address book is Empty, There's Nothing to display.");
-		   }
-	    }
-
-	    public void deletePerson() {
-	        System.out.println("Enter the first name of the person which has to be deleted");
-	        String fName = DataStructureUtility.userString();
-	        System.out.println("Enter the last name of the person which has to be deleted");
-	        String lName = DataStructureUtility.userString();
-	        int flag=0;
-	        try{
-	        for (Person per : listofperson) {
-	            if (fName.equals(per.getFirstname()) && lName.equals(per.getLastname())) {
-	                listofperson.remove(per);
-	                System.out.println("Person removed from the address book ");
-	            }
-	            flag=1;
-	        }
-	        if (flag == 0) {
-	            System.out.println("Entered first name and last name does not exist in address book");
-	        }
-	        
-	     
-	    }
-	        catch (Exception e)
-	        {
-	        	System.out.println();
-	        }
-	        }
+private static List<Person> listOfPerson=new ArrayList<Person>();
 	
-	    public void sortByLastName(){
-	    	Collections.sort(listofperson,(person1,person2)->person1.getLastname().compareTo(person2.getLastname()));
-	    		    }
-	    public void sortByZipCode(){
-			Collections.sort(listofperson,(person1,person2)->
-					person1.getAddr().getZipcode()>person2.getAddr().getZipcode()?1:
-						person1.getAddr().getZipcode()<person2.getAddr().getZipcode()?-1:
-							person1.getAddr().getZipcode()==person2.getAddr().getZipcode()?0:-10);
-			
+	public void addPerson(){
+		Person person=new Person();
+		System.out.println("Enter first name");
+		person.setFirstname(DataStructureUtility.userString());
+		System.out.println("Enter last name");
+		person.setLastname(DataStructureUtility.userString());
+		System.out.println("Enter contact number");
+		person.setPhonenumber(DataStructureUtility.userLong());
+		Address address=new Address();
+		System.out.println("Enter street");
+		address.setStreet(DataStructureUtility.userString());
+		System.out.println("Enter city");
+		address.setCity(DataStructureUtility.userString());
+		System.out.println("Enter state");
+		address.setState(DataStructureUtility.userString());
+		System.out.println("Enter zipcode");
+		address.setZipcode(DataStructureUtility.userLong());
+		person.setAddr(address);
+		listOfPerson.add(person);
+	}
+	
+	public void editPerson(){
+		int edit=1;
+		System.out.println("Enter the details of the person whose information needs to be modified");
+		System.out.println("Enter first name");
+		String firstName=DataStructureUtility.userString();
+		System.out.println("Enter last name");
+		String lastName=DataStructureUtility.userString();
+		for(Person per:listOfPerson){
+			if(firstName.equals(per.getFirstname()) && lastName.equals(per.getLastname())){
+				while(edit==1){
+				System.out.println("Enter the choice you want modify");
+				System.out.println("1:Contact Number  2:Address");
+				int choice=DataStructureUtility.userInteger();
+				switch(choice){
+				case 1: System.out.println("Enter the new contact number");
+						long newContact=DataStructureUtility.userLong();
+						per.setPhonenumber(newContact);
+						System.out.println("Your contact number is updated");
+						break;
+				case 2: Address address=per.getAddr();
+						int press=1;
+						while(press==1){
+						System.out.println("Enter the details of address you want to change");
+						System.out.println("1:Street  2:City  3:State  4:Zipcode");
+						int ch=DataStructureUtility.userInteger();
+						switch(ch){
+						case 1: System.out.println("Enter the street");
+								String newStreet=DataStructureUtility.userString();
+								address.setStreet(newStreet);
+								System.out.println("Your street is updated");
+								break;
+						case 2: System.out.println("Enter the city");
+								String newCity=DataStructureUtility.userString();
+								address.setCity(newCity);
+								System.out.println("Your city is updated");
+								break;
+						case 3: System.out.println("Enter the state");
+								String newState=DataStructureUtility.userString();
+								address.setState(newState);
+								System.out.println("Your state is updated");
+								break;
+						case 4: System.out.println("Enter the zipcode");
+								long newZip=DataStructureUtility.userLong();
+								address.setZipcode(newZip);
+								System.out.println("Your zip code has been updated");
+								break;
+						default: System.exit(0);
+						}
+						System.out.println("Do you want to continue to change? if yes press 1 else 0");
+						press=DataStructureUtility.userInteger();
+						}
+						per.setAddr(address);
+						break;
+						
+				default:System.exit(0);
+				}
+				System.out.println("Do you want to continue editing? if yes press 1 else 0");
+				edit=DataStructureUtility.userInteger();
+				}
+			}
 		}
-	    	
+	}
+	
+	public static List<Person> getListOfPerson() {
+		return listOfPerson;
+	}
+
+	public static void setListOfPerson(List<Person> listOfPerson) {
+		AddressBook.listOfPerson = listOfPerson;
+	}
+
+	public void display(){
+		for(Person p:listOfPerson){
+			System.out.println("First Name: "+p.getFirstname());
+			System.out.println("Last Name: "+p.getLastname());
+			System.out.println("Contact Number: "+p.getPhonenumber());
+			Address add=p.getAddr();
+			System.out.println("Street: "+add.getStreet());
+			System.out.println("City: "+add.getCity());
+			System.out.println("State: "+add.getState());
+			System.out.println("Zip code: "+add.getZipcode());
+			System.out.println("-------------------------------------");
+		}
+	}
+	
+	public void deletePerson(){
+		System.out.println("Enter the details of person to delete");
+		System.out.println("Enter first name");
+		String firstName=DataStructureUtility.userString();
+		System.out.println("Enter last name");
+		String lastName=DataStructureUtility.userString();
+		if(!listOfPerson.isEmpty()){
+			for(Person per:listOfPerson){
+				if(firstName.equals(per.getFirstname()) && lastName.equals(per.getLastname())){
+					listOfPerson.remove(per);
+					System.out.println("The person has been deleted");
+					break;
+				}
+			}
+		}		
+	}
+	
+	public void sortByLastName(){
+		Collections.sort(listOfPerson,(person1,person2)->person1.getLastname().compareTo(person2.getLastname()));
+	}
+	
+	public void sortByZipCode(){
+		Collections.sort(listOfPerson,(person1,person2)->
+				person1.getAddr().getZipcode()>person2.getAddr().getZipcode()?1:
+					person1.getAddr().getZipcode()<person2.getAddr().getZipcode()?-1:
+						person1.getAddr().getZipcode()==person2.getAddr().getZipcode()?0:-10);
+		
+	}
 	    }
 
 

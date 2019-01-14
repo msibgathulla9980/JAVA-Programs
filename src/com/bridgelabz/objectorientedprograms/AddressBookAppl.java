@@ -1,46 +1,48 @@
 package com.bridgelabz.objectorientedprograms;
+import java.io.IOException;
+
 import com.bridgelabz.utility.*;
 public class AddressBookAppl {
 
-	public static void main(String[] args) {
-		int t=0;
-		AddressBook a=new AddressBook();
-		do{
-			System.out.println("Press\t1.ToAdd\t2.ToDisplay\t3.ToEdit\t4.Todelete\t5.To Sort ");
-			System.out.println("Enter your Choice:");
-			int ch=DataStructureUtility.userInteger(); 
-			switch(ch)
-			{
-			case 1: 
-				a.addPerson();
+	public static void main(String[] args) throws IOException {
+		AddressBookManager addBookMan = new AddressBookManager();
+		boolean isRunning = true;
+		while (isRunning) {
+			System.out.println("\t\t\t\t\t*******************************ADDRESS BOOK*****************************");
+			System.out.println("1:Create Book  2:Open Book  3:Save Book  4:Save As  5:Close Book  6:Quit");
+			System.out.println("Enter your choice");
+			int choice = DataStructureUtility.userInteger();
+			switch (choice) {
+			case 1:
+				addBookMan.createBook();
+				isRunning = true;
 				break;
-			case 2: 
-				a.displayAddress();
+			case 2:
+				addBookMan.openBook();
+				isRunning=true;
 				break;
-			case 3: 
-				a.editPerson();
+			case 3:
+				addBookMan.saveBook();
+				isRunning=true;
 				break;
-			case 4: a.deletePerson();
-			case 5: System.out.println("1. Sort by Lastname 2. sort by Zipcode");
-			System.out.println("Enter your Choice:");
-			int ch1 = DataStructureUtility.userInteger();
+			case 4:
+				addBookMan.saveAsBook();
+				isRunning=true;
+				break;
+			case 5:
+				addBookMan.close();
+				isRunning=true;
+				break;
+			case 6:
+				System.out.println("Invalid choice");
+				isRunning=false;
+				break;
 
-			switch(ch1){
-			case 1: System.out.println("Press 2 to display the address book after sorting by Last Name ");
-			a.sortByLastName();
-			break;
-			case 2:System.out.println("Press 2 to display the address book after sorting by Zipcode: ");
-			a.sortByZipCode();
-		
-			}//end of inside switch
-			
-			
-		default:
-			System.out.println("Please enter the appropriate choice");
-            break;
-			}//end of outside switch
-	}while(t<20);
-	
+			}
+		}
+		System.out.println("You have exited");
+
+	}
 }
 
-}
+

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.StringTokenizer;
 
 public class DataStructureUtility {
 	
@@ -362,4 +363,15 @@ public static long userLong() {
             if  (((year % 4 == 0) && (year % 100 != 0))||year % 400 == 0) return true;
             else return false;
     }
+  //Take Statement And return Array of words
+  	public static String[] wordsArrayFromStatement(String statement){	
+  		StringTokenizer st = new StringTokenizer(statement," ");
+  		String words[]=new String[st.countTokens()];
+  		int i=0;
+  		while(st.hasMoreTokens()){
+  			words[i]=st.nextToken();
+  			i++;
+  		}
+  		return words;
+  	}
 }
