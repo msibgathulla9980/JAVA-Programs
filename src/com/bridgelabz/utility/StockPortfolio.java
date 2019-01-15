@@ -39,7 +39,7 @@ public class StockPortfolio {
         try {
             liOfStock = OopsUtility.userReadValue(string, Stock.class);
         } catch (Exception e) {
-            System.out.println("File is empty!!! Nothing in data to display");
+            System.out.println("File is Not Empty");
         }
         for (Stock stock : liOfStock) {
             System.out.println("Stock Name               : " + stock.getStockName());
@@ -68,7 +68,7 @@ public class StockPortfolio {
         try {
             liOfStock = OopsUtility.userReadValue(string, Stock.class);
         } catch (Exception e) {
-            System.out.println("File is empty!!! Nothing in data to display");
+            System.out.println("File is Not Empty");
         }
         double sum = 0;
         for (Stock stock : liOfStock) {

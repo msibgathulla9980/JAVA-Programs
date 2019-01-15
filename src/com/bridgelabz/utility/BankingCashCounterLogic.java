@@ -86,7 +86,7 @@ static class Node
         }
         else
         {
-            rear.setLink(node);
+            Node.setLink(node);
             rear = rear.getLink();
         }
         size++ ;

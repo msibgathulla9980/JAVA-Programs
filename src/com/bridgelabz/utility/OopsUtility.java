@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -199,7 +200,7 @@ public class OopsUtility {
 	}
 	//Function take String in dd/mm/yyyy format and return Date Object
 		public static Date printDate(String date){
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy ");
 			try{
 				return sdf.parse(date);
 			}
@@ -207,7 +208,13 @@ public class OopsUtility {
 				return null;
 			}
 		}
-		
+		public static String getDate() {
+	        Date date = new Date();
+	        String strDateFormat = "hh:mm:ss a";
+	        DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
+	        String Date= dateFormat.format(date);
+	        return Date;
+		}
 		/**
 		 * static object is created for Scanner class to avoid multiple object creations
 		 * of the same class.

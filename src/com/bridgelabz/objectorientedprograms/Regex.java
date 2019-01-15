@@ -1,6 +1,5 @@
 package com.bridgelabz.objectorientedprograms;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

@@ -1,13 +1,15 @@
-package com.bridgelabz.objectorientedprograms;
+package com.bridgelabz.utility;
 
-public class UserDetails {
+
+
+public class UserDetails1 {
 	private String firstName;
 	private String lastName;
 	private String mobileNo;
 	private String date;
 
 	//constructor
-	public UserDetails(){
+	public UserDetails1(){
 	}
 	//getter and setter methods
 	public void setfName(String firstName){
@@ -42,3 +44,4 @@ public class UserDetails {
 		return date;
 	}
 }
+

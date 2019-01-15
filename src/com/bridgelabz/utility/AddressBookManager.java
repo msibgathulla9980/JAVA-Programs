@@ -13,7 +13,7 @@ import com.bridgelabz.utility.OopsUtility;
 public class AddressBookManager {
 
 	private static String ch_book;
-	static String path="F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms";
+	static String path="F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms\\JAVA-Programs\\";
 	AddressBook addressBook = new AddressBook();
 	ObjectMapper objectMapper = new ObjectMapper();
 	List<Person> listOfPersons = new ArrayList<Person>();
