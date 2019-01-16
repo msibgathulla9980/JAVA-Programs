@@ -14,7 +14,7 @@ public class StockPersonManagement {
     StockPerPerson stockPerPerson = null;
     static List<StockPerPerson> liOfStockPerPerson = new ArrayList<StockPerPerson>();
     File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
-    static final String str = "F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms\\JAVA-Programs\\";
+    static final String str = "/home/admin1/MohammedSibgath/Bridgelabz/JAVA-Programs/";
     static String accountName = null;
 
     public static String getAccountName() {
@@ -44,8 +44,8 @@ public class StockPersonManagement {
         int flag = 0;
         for (File file : arrayOfFiles) {
             String filename = file.getName();
-            if (account.equals(filename)) {
-                if (file.length() > 0) {
+            if (account.equals(filename)) {       	
+                if (file.length() >0) {
                     System.out.println("Account Details");
                     String string = OopsUtility.readFile(filename);
                     liOfStockPerPerson = OopsUtility.userReadValue(string, StockPerPerson.class);
@@ -67,7 +67,7 @@ public class StockPersonManagement {
         stockPersonOperation = new StockPersonOperation();
         boolean run = true;
         while (run == true) {
-            System.out.println("1.Buy Stock\n2.Sell Stock\n3.Save\n4.Print\n5.Go back to main menu");
+            System.out.println("1.Buy Stock\n2.Sell Stock\n3.Save\n4.Display\n5.Go back to main menu");
             int choice = OopsUtility.userInt();
             switch (choice) {
             case 1:

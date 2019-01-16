@@ -13,7 +13,7 @@ import com.bridgelabz.utility.OopsUtility;
 public class AddressBookManager {
 
 	private static String ch_book;
-	static String path="F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms\\JAVA-Programs\\";
+	static String path="/home/admin1/MohammedSibgath/Bridgelabz/JAVA-Programs/";
 	AddressBook addressBook = new AddressBook();
 	ObjectMapper objectMapper = new ObjectMapper();
 	List<Person> listOfPersons = new ArrayList<Person>();
@@ -41,7 +41,7 @@ public class AddressBookManager {
 
 	public void openBook() throws IOException {
 		System.out.println("Files available are:");
-		for (File file : arrayOfFiles) {
+		for (File file : arrayOfFiles) {	
 			if (file.getName().endsWith(".json"))
 				System.out.println(file.getName());
 		}
@@ -54,8 +54,13 @@ public class AddressBookManager {
 				if (file.length() > 0) {
 					System.out.println("Address book is not empty");
 					String string = OopsUtility.readJsonFile(filename);
+					try {
 					listOfPersons = objectMapper.readValue(string, new TypeReference<List<Person>>() {
-					});
+					});}
+					catch (Exception e){
+						System.out.print("");
+					}
+					
 					AddressBook.setListOfPerson(listOfPersons);
 					addressBook();
 				} else {

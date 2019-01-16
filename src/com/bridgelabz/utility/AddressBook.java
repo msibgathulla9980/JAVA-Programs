@@ -102,6 +102,10 @@ private static List<Person> listOfPerson=new ArrayList<Person>();
 	}
 
 	public void display(){
+		if (listOfPerson==null) {
+			System.out.println("There are No persons to display........");
+		}
+		else {
 		for(Person p:listOfPerson){
 			System.out.println("First Name: "+p.getFirstname());
 			System.out.println("Last Name: "+p.getLastname());
@@ -112,6 +116,7 @@ private static List<Person> listOfPerson=new ArrayList<Person>();
 			System.out.println("State: "+add.getState());
 			System.out.println("Zip code: "+add.getZipcode());
 			System.out.println("-------------------------------------");
+		}
 		}
 	}
 	

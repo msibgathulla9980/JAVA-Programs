@@ -16,11 +16,11 @@ import com.bridgelabz.utility.OopsUtility;
 
 public class CliniqueManager {
 	static List<Doctor> listOfDoctor = new ArrayList<Doctor>();
-	static String doctorFile = "F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms\\JAVA-Programs\\src\\com\\bridgelabz\\objectorientedprograms\\Doctor.json";
+	static String doctorFile = "/home/admin1/MohammedSibgath/Bridgelabz/JAVA-Programs/src/com/bridgelabz/objectorientedprograms/Doctor.json";
 	static List<Patient> listOfPatients = new ArrayList<Patient>();
-	static String patientFile = "F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms\\JAVA-Programs\\src\\com\\bridgelabz\\objectorientedprograms\\Patient.json";
+	static String patientFile = "/home/admin1/MohammedSibgath/Bridgelabz/JAVA-Programs/src/com/bridgelabz/objectorientedprograms/Patient.json";
 	static List<Appointment> listOfAppointments = new ArrayList<>();
-	static String appointmentFile = "F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms\\JAVA-Programs\\src\\com\\bridgelabz\\objectorientedprograms\\Appointment.json";
+	static String appointmentFile = "/home/admin1/MohammedSibgath/Bridgelabz/JAVA-Programs/src/com/bridgelabz/objectorientedprograms/Appointment.json";
 
 	public static void add() throws IOException {
 		System.out.println("Enter choice- 1:To Add Doctor 2:To Add Patient");

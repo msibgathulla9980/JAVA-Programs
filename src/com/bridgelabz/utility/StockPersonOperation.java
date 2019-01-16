@@ -28,6 +28,8 @@ public class StockPersonOperation {
                     int share = OopsUtility.userInt();
                     System.out.println("The Entered Shares are: "+share);
                     System.out.println("The Shares that are present are:"+stock.getNumberOfShare());
+                    double s=stock.getNumberOfShare()-share;
+                    System.out.println("The Shares remaining are: "+s );
                     if (stock.getNumberOfShare() >= share) {
                         stockPerPerson.setNumberofStocks(share);
                         stock.setNumberOfShare(stock.getNumberOfShare() - share);
@@ -44,7 +46,7 @@ public class StockPersonOperation {
                 stockPerPerson.setStockPrice(stock.getSharePrice());
                 Transactions transactions = new Transactions();
                 transactions.setDate(OopsUtility.getDate());
-                transactions.setTransactionStatus("stock added");
+                transactions.setTransactionStatus("Purchased");
                 stockPerPerson.setTransactions(transactions);
                 flag = 1;
                 return stockPerPerson;
@@ -73,9 +75,10 @@ public class StockPersonOperation {
                     }
                     StockPersonManagement.liOfStockPerPerson.remove(stockPerPerson);
                     System.out.println("Stock has been removed from account ");
+                    flag = 1;
                     break;
                 }
-                flag = 1;
+               
             }
         } else {
             System.out.println("There are no stocks in account...!");
@@ -88,18 +91,20 @@ public class StockPersonOperation {
     public void displayPerPersonStock() throws IOException {
         String string = OopsUtility.readFile(StockPersonManagement.getAccountName());
         try {
-            StockPersonManagement.liOfStockPerPerson = OopsUtility.userReadValue(string, Stock.class);
-        
-        for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
-            System.out.println("Stocks          : " + stockPerPerson.getStockName());
-            System.out.println("Number of shares : " + stockPerPerson.getNumberofStocks());
-            System.out.println("Stock price      : " + stockPerPerson.getStockPrice());
-            System.out.println("----------------------------------------------------");
-        }
+            StockPersonManagement.liOfStockPerPerson = OopsUtility.userReadValue(string, StockPerPerson.class);
         } catch (Exception e) {
-            System.out.println();
+            System.out.println("File is empty!!! Nothing in data to display");
+        }
+        for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
+            System.out.println("Stock            : " + stockPerPerson.getStockName());
+            System.out.println("Number of shares   : " + stockPerPerson.getNumberofStocks());
+            System.out.println("Stock price        : " + stockPerPerson.getStockPrice());
+            System.out.println("Date             :" + stockPerPerson.getTransactions().getDate());
+            System.out.println("Transaction status :" + stockPerPerson.getTransactions().getTransactionStatus());
+            System.out.println("----------------------------------------------------");
+           break;
         }
     }
-}
+    }
 
 

@@ -5,7 +5,7 @@ import com.bridgelabz.utility.*;
 public class AddressBookAppl {
 
 	public static void main(String[] args) throws IOException {
-		AddressBookManager addBookMan = new AddressBookManager();
+		AddressBookManager addBookMan = new AddressBookManager();	
 		boolean isRunning = true;
 		while (isRunning) {
 			System.out.println("\t\t\t\t\t*******************************ADDRESS BOOK*****************************");
@@ -20,7 +20,6 @@ public class AddressBookAppl {
 			case 2:
 				addBookMan.openBook();
 				isRunning=true;
-				break;
 			case 3:
 				addBookMan.saveBook();
 				isRunning=true;

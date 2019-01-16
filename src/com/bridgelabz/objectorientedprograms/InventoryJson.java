@@ -12,7 +12,7 @@ import com.bridgelabz.utility.OopsUtility;
 public class InventoryJson {
 	public static void main(String[] args) throws IOException {
 
-		String file = "F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms\\JAVA-Programs\\src\\com\\bridgelabz\\objectorientedprograms\\Inventory.json";
+		String file = "/home/admin1/MohammedSibgath/Bridgelabz/JAVA-Programs/src/com/bridgelabz/objectorientedprograms/Inventory.json";
 		ObjectMapper objectMapper = new ObjectMapper();//(present in external jar file)used to convert the string to the object and vice versa
 		List<InventoryList> list2 = new ArrayList<InventoryList>();
 		InventoryList inventoryList = new InventoryList();//contains the rice.....

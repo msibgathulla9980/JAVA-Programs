@@ -9,7 +9,7 @@ import com.bridgelabz.utility.Stock;
 public class StockPortfolio {
     static List<Stock> liOfStock = new ArrayList<Stock>();
     static Stock stock = new Stock();
-    static final String str = "F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms\\JAVA-Programs\\src\\com\\bridgelabz\\objectorientedprograms\\Stock.json";
+    static final String str = "/home/admin1/MohammedSibgath/Bridgelabz/JAVA-Programs/src/com/bridgelabz/objectorientedprograms/Stock.json";
 
     public static void addStock() throws JsonGenerationException, JsonMappingException, IOException {
         String string = OopsUtility.readFile(str);
