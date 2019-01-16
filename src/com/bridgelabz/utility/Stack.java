@@ -7,7 +7,7 @@ class  Stack
     private static int top;
 
     //for size 
-    public  Stack(int s)
+    public Stack(int s)
     {
     maxSize = s;
     stackArray = new long[maxSize];

@@ -1,6 +1,5 @@
 package com.bridgelabz.utility;
 import java.io.IOException;
-import com.bridgelabz.utility.*;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
@@ -8,7 +7,10 @@ public class StockPersonOperation {
     StockPortfolio stockPortfolio = null;
     StockPersonOperation stockPersonOperation = null;
     StockPerPerson stockPerPerson = null;
-
+static LinkedList<String> linkedList=new LinkedList<String>();
+static StackLinkedList<String> stackLinkedList=new StackLinkedList<String>();
+static QueueLinkedList<String> queueLinkedList= new QueueLinkedList<String>();
+static StackLinkedList<String> stackLinkedList2=new StackLinkedList<String>();
     public StockPerPerson buyStock() throws JsonGenerationException, JsonMappingException, IOException {
         stockPersonOperation = new StockPersonOperation();
         stockPortfolio = new StockPortfolio();
@@ -94,6 +96,7 @@ public class StockPersonOperation {
             StockPersonManagement.liOfStockPerPerson = OopsUtility.userReadValue(string, StockPerPerson.class);
         } catch (Exception e) {
             System.out.println("File is empty!!! Nothing in data to display");
+          
         }
         for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
             System.out.println("Stock            : " + stockPerPerson.getStockName());
@@ -102,8 +105,46 @@ public class StockPersonOperation {
             System.out.println("Date             :" + stockPerPerson.getTransactions().getDate());
             System.out.println("Transaction status :" + stockPerPerson.getTransactions().getTransactionStatus());
             System.out.println("----------------------------------------------------");
-           break;
+          
         }
+    }
+    //storing the Transaction Status in stack, StockName in Linked List and the Date Of Transaction in Queue.
+    public void storeDynamic() throws IOException {
+        String string = OopsUtility.readFile(StockPersonManagement.getAccountName());
+        try {
+            StockPersonManagement.liOfStockPerPerson = OopsUtility.userReadValue(string, Stock.class);
+        } catch (Exception e) {
+            System.out.println("File is empty!!! Nothing in data to display");
+        }
+        for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
+        	
+        	linkedList.add(stockPerPerson.getStockName());
+        	queueLinkedList.enqueue(stockPerPerson.getTransactions().getDate());
+            stackLinkedList.push(stockPerPerson.getTransactions().getTransactionStatus());
+        }
+
+    }
+//Displaying the Transaction Status in stack, StockName in Linked List and the Date Of Transaction in Queue.
+    public void displayDynamic() throws IOException {
+        storeDynamic();
+        System.out.println("Stock Name Bought with Date and Time and Transaction report is below :");
+        System.out.print("Stock Name : ");
+        linkedList.getLikedList();
+        System.out.println();
+        System.out.print("Date       : ");
+        for (int i = 0; i < queueLinkedList.getSize(); i++) {
+            System.out.print(queueLinkedList.dequeue() + "\t");
+        }
+        System.out.println();
+        while (!stackLinkedList.isEmpty()) {
+            stackLinkedList2.push(stackLinkedList.pop());
+        }
+        System.out.print("Status     : ");
+        while (!stackLinkedList2.isEmpty()) {
+            System.out.print(stackLinkedList2.pop() + "\t\t\t");
+        }
+        System.out.println(
+                "\n---------------------------------------------------------------------------------------------------------");
     }
     }
 

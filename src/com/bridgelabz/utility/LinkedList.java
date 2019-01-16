@@ -257,4 +257,20 @@ public class LinkedList<T> {
         }
         return str;
     }
+    public void getLikedList() {
+
+        NodeCalendar<T> tmp = first;
+        while (true) {
+            if (tmp == null) {
+                break;
+            }
+            if(tmp.getValue()!=null)
+            {
+            System.out.print(tmp.getValue()+"\t\t\t\t");
+            }
+            tmp = tmp.getNextRef();
+        }
+    }
+
+
 }

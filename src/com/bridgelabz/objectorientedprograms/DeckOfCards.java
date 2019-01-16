@@ -26,7 +26,7 @@ public class DeckOfCards {
 	        for (int i = 0; i < n; i++) {
 	            int r = i + (int) (Math.random() * (n-i));
 	            String temp = deck[r];
-	            deck[r] = deck[i];
+	            deck[r] = deck[i]; 
 	            deck[i] = temp;
 	        }
 	     // print shuffled deck

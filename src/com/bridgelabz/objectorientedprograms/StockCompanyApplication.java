@@ -10,8 +10,8 @@ public class StockCompanyApplication {
         boolean run = true;
         while (run == true)
         {
-            System.out.println("****************STOCK COMPANY APPLICATION********************");
-        System.out.println("1.Create Personnel Account\n2.Open Personnel Account\n3.Exit");
+            System.out.println("****************STOCK APP********************");
+        System.out.println("1.Do you want to Create an Account, If yes press 1\n2.Do you want to Open the Existing Account\n3.Exit");
         int choice = OopsUtility.userInt();
         switch (choice) {
         case 1:stockPersonManagement.createPersonalAccount();
@@ -21,12 +21,12 @@ public class StockCompanyApplication {
             run = true;
             break;
         case 3:
-            System.out.println("Thank you!!!");
+            System.out.println("Thank you, Do Visit Again!!!");
             run = false;
             System.exit(0);
             break;
         default:
-            System.out.println("Please select correct choice");
+            System.out.println("Select The appropriate choice");
             run = true;
             break;
         }
