@@ -2,7 +2,7 @@ package com.bridgelabz.utility;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -147,39 +147,6 @@ public class OopsUtility {
 		line = m4.replaceAll(date);
 		return line;
 	}
-//	//Method Read the file  and take stock details as input and return array-list of stock details
-//
-//	public ArrayList<Stock> getStockDetails(String fileName){
-//		ArrayList<Stock> stockList=new ArrayList<Stock>();
-//		BufferedReader br;
-//		try{
-//			br=new BufferedReader(new FileReader(fileName));
-//			StringBuilder sb=new StringBuilder();
-//			String line=br.readLine();
-//			StockUtility s=new StockUtility();
-//			while(line!=null){
-//				String words[]=DataStructureUtility.wordsArrayFromStatement(line);
-//				try{
-//					stockList.add(s.Stock(words[0],Integer.parseInt(words[1]),Integer.parseInt(words[2])));
-//				}
-//				catch(NumberFormatException nfe){
-//				}
-//				catch(ArrayIndexOutOfBoundsException ae){
-//				}
-//				line=br.readLine();
-//			}
-//			return stockList;
-//		}
-//		catch(Exception e){
-//			return null;
-//		}
-//		finally{
-//			try{
-//				br.close();
-//			}
-//			catch(IOException ioe){
-//			}	
-//		}
 
 	public static String readJsonFile(String filename) throws IOException{
 		FileReader fr=new FileReader(filename);
@@ -285,8 +252,54 @@ public class OopsUtility {
 		public static <T> String userWriteValueAsString(List<T> list) throws JsonGenerationException, JsonMappingException, IOException{
 			return objectMapper.writeValueAsString(list);
 		}
-		
-		
+//		public static QueueLinkedList<QueueLinkedList<String>> deckQueueStore(String[] deck )
+//        {
+//            QueueLinkedList<QueueLinkedList<String>> mainQueue = new QueueLinkedList<QueueLinkedList<String>>(deck);
+//            QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>(deck);
+//            System.out.println("Total numver of deck of cards are " + deck.length);
+//            //storing those cards of particular person in an array
+//            for (int i = 0; i < 4; i++) {
+//                String[] demo = new String[9];
+//                for (int j = 0; j < 9; j++) {
+//                    demo[j] = deck[i + j * 4];
+//                }
+//                //sorting demo array and storing in str2
+//                String[] str2 = sortArray(demo);
+//                for (int k = 0; k < str2.length; k++) {
+//                    queueLinkedList.enqueue(str2[k]);//inserting it to one queue
+//                }
+//                mainQueue.enqueue(queueLinkedList);//inserting to the main queue
+//                queueLinkedList = new QueueLinkedList<String>(str2);//takes the cards of the particular person corresponding to the indices
+//                continue;
+//            }
+//            return mainQueue;
+//        }
+//        public static void displayDeck(QueueLinkedList<QueueLinkedList<String>> mainQueue)
+//        {
+//            for (int i = 0; i < mainQueue.getSize(); i++) {
+//                QueueLinkedList<String> queue2 = mainQueue.dequeue();
+//                System.out.println("---------------------------------------- Person " + (i + 1)
+//                        + " -------------------------------------------");
+//                for (int j = 0; j < queue2.getSize(); j++) {
+//                    System.out.print(queue2.dequeue() + " ");
+//                }
+//                System.out.println();
+//            }
+//        }
+public static <T extends Comparable<T>> T[] sortArray(T str[]) {
+        int length = str.length;
+        for (int i = 1; i < length; i++) {
+            T key = str[i];
+            int j = i - 1;
+            while (j >= 0 && ((str[j].compareTo(key) > 0))) {
+                str[j + 1] = str[j];
+                j--;
+            }
+            str[j + 1] = key;
+        }
+        return str;
+    }
+
 
 }
 

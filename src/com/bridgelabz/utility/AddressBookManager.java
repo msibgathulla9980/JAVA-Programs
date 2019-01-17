@@ -55,12 +55,12 @@ public class AddressBookManager {
 					System.out.println("Address book is not empty");
 					String string = OopsUtility.readJsonFile(filename);
 					try {
-					listOfPersons = objectMapper.readValue(string, new TypeReference<List<Person>>() {
-					});}
+						listOfPersons = objectMapper.readValue(string, new TypeReference<List<Person>>() {
+						});}
 					catch (Exception e){
 						System.out.print("");
 					}
-					
+
 					AddressBook.setListOfPerson(listOfPersons);
 					addressBook();
 				} else {
@@ -107,7 +107,7 @@ public class AddressBookManager {
 			System.out.println("File of that name already exists");
 		}
 	}
- 
+
 	public void close() {
 		addressBook = null;
 		objectMapper = null;
@@ -118,61 +118,69 @@ public class AddressBookManager {
 
 	public void addressBook() throws IOException {
 		AddressBook ab = new AddressBook();
-		boolean isRunning = true;
-		while (isRunning) {
+		//boolean i=true;
+		int t=1;
+		do{
 			System.out.println("Enter choice");
 			System.out.println(
 					"1:Add Person  2:Edit Person  3:Display Persons  4:Delete Person  5:Sort  6:Go Back to main ");
 			int choice = DataStructureUtility.userInteger();
-			switch (choice) {
-			case 1:
-				ab.addPerson();
-				isRunning = true;
-				break;
-			case 2:
-				ab.editPerson();
-				isRunning = true;
-				break;
-			case 3:
-				ab.display();
-				isRunning = true;
-				break;
-			case 4:
-				ab.deletePerson();
-				isRunning = true;
-				break;
-			case 5:
-				boolean isSort = true;
-				while (isSort) {
-					System.out.println("Enter your choice");
-					System.out.println("1:Sort by Last Name  2:Sort by Zip Code");
-					int ch = DataStructureUtility.userInteger();
-					switch (ch) {
-					case 1:
-						System.out.println("Sorting by last name");
-						ab.sortByLastName();
-						System.out.println("Your list is sorted");
-						break;
-					case 2:
-						System.out.println("Sorting by zip code");
-						ab.sortByZipCode();
-						System.out.println("Your list is sorted");
-						break;
-					default:
-						System.out.println("Invalid choice");
-						isSort = false;
-						break;
+		
+				switch (choice) {
+				case 1:
+					AddressBook.addPerson();
+					//isRunning = true;
+					break;
+				case 2:
+					AddressBook.editPerson();
+					//isRunning = true;
+					break;
+				case 3:
+					AddressBook.display();
+					
+					//isRunning = true;
+					break;
+				case 4:
+					AddressBook.deletePerson();
+					//isRunning = true;
+					break;
+				case 5:
+					boolean isSort = true;
+					while (isSort) {
+						System.out.println("Enter your choice");
+						System.out.println("1:Sort by Last Name  2:Sort by Zip Code");
+						int ch = DataStructureUtility.userInteger();
+						switch (ch) {
+						case 1:
+							System.out.println("Sorting by last name");
+							ab.sortByLastName();
+							System.out.println("Your list is sorted");
+							break;
+						case 2:
+							System.out.println("Sorting by zip code");
+							ab.sortByZipCode();
+							System.out.println("Your list is sorted");
+							break;
+						default:
+							System.out.println("Invalid choice");
+							isSort = false;
+							break;
+						}
 					}
+					break;
+				case 6:
+					AddressBookAppl.main(null);
+				default:
+					System.out.println("Invalid choice");
+					//isRunning = false;
+					break;
 				}
-				break;
-			case 6:
-				AddressBookAppl.main(null);
-			default:
-				System.out.println("Invalid choice");
-				isRunning = false;
-				break;
-			}
-		}
+			
+			
+		
+		}while(t<10);
 	}
-}
+	}
+
+
 

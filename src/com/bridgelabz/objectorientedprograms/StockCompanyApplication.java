@@ -21,7 +21,7 @@ public class StockCompanyApplication {
             run = true;
             break;
         case 3:
-            System.out.println("Thank you, Do Visit Again!!!");
+            System.out.println(" Do Visit Again!!!");
             run = false;
             System.exit(0);
             break;

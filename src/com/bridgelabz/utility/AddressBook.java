@@ -9,15 +9,15 @@ public class AddressBook {
 
 private static List<Person> listOfPerson=new ArrayList<Person>();
 	
-	public void addPerson(){
+	public static void addPerson(){
 		Person person=new Person();
+		Address address=new Address();
 		System.out.println("Enter first name");
 		person.setFirstname(DataStructureUtility.userString());
 		System.out.println("Enter last name");
 		person.setLastname(DataStructureUtility.userString());
 		System.out.println("Enter contact number");
 		person.setPhonenumber(DataStructureUtility.userLong());
-		Address address=new Address();
 		System.out.println("Enter street");
 		address.setStreet(DataStructureUtility.userString());
 		System.out.println("Enter city");
@@ -27,10 +27,11 @@ private static List<Person> listOfPerson=new ArrayList<Person>();
 		System.out.println("Enter zipcode");
 		address.setZipcode(DataStructureUtility.userLong());
 		person.setAddr(address);
+		System.out.println("Person Added Successfully....");
 		listOfPerson.add(person);
 	}
 	
-	public void editPerson(){
+	public static void editPerson(){
 		int edit=1;
 		System.out.println("Enter the details of the person whose information needs to be modified");
 		System.out.println("Enter first name");
@@ -101,8 +102,10 @@ private static List<Person> listOfPerson=new ArrayList<Person>();
 		AddressBook.listOfPerson = listOfPerson;
 	}
 
-	public void display(){
+	public static void display(){
+		
 		if (listOfPerson==null) {
+			
 			System.out.println("There are No persons to display........");
 		}
 		else {
@@ -120,7 +123,7 @@ private static List<Person> listOfPerson=new ArrayList<Person>();
 		}
 	}
 	
-	public void deletePerson(){
+	public static void deletePerson(){
 		System.out.println("Enter the details of person to delete");
 		System.out.println("Enter first name");
 		String firstName=DataStructureUtility.userString();

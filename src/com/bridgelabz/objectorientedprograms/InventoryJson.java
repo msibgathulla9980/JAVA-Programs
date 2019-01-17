@@ -27,7 +27,7 @@ public class InventoryJson {
 			case 1://display
 				try {//read value is the method that is defined in the class object mapper.()
 					list2 = objectMapper.readValue(str, new TypeReference<List<InventoryList>>() //belongs to jackson file of the object and vice versa
-
+//JSON in the form of string can be parsed into a Java Map object
 							{
 						//converting the str to the jason objects(in terms of list)
 							}); 
@@ -65,7 +65,7 @@ public class InventoryJson {
 				}
 
 				System.out.println("Entered elements has been added to list");
-				String json = objectMapper.writeValueAsString(list2);
+				String json = objectMapper.writeValueAsString(list2);//generates a JSON from a Java object and returns the generated JSON as a string
 				OopsUtility.write(json);
 				System.out.println("Inventory list has been written on to file");
 				break;

@@ -21,12 +21,12 @@ static StackLinkedList<String> stackLinkedList2=new StackLinkedList<String>();
         for (Stock stock : StockPortfolio.liOfStock) {
             if (name.equals(stock.getStockName())) {
                 System.out.println("Stock found");
-                System.out.println("adding to your account");
+                System.out.println("Adding into your account");
                 stockPerPerson = new StockPerPerson();
                 stockPerPerson.setStockName(stock.getStockName());
                 boolean yes = true;
                 while (yes == true) {
-                    System.out.println("Select number of shares");
+                    System.out.println("Select the number of shares");
                     int share = OopsUtility.userInt();
                     System.out.println("The Entered Shares are: "+share);
                     System.out.println("The Shares that are present are:"+stock.getNumberOfShare());

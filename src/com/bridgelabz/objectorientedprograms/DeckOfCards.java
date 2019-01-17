@@ -1,7 +1,9 @@
 package com.bridgelabz.objectorientedprograms;
+import com.bridgelabz.utility.QueueLinkedList;
 
 public class DeckOfCards {
 
+	
 	public static void main(String[] args) 
 	{
 		String[] SUITS = {
@@ -28,12 +30,14 @@ public class DeckOfCards {
 	            String temp = deck[r];
 	            deck[r] = deck[i]; 
 	            deck[i] = temp;
+	            
 	        }
 	     // print shuffled deck
 	        for (int i = 0; i < 4; i++) {
 	            System.out.println("** Person " + (i + 1) + " **");
 	            for (int j = 0; j < 5; j++) {
 	                System.out.println(deck[i + j * 4] + " (Card " + (i + j * 4) + ")");
+	                
 	            }
 	        }
 	    }
