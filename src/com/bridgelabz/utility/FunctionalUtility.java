@@ -2,10 +2,9 @@ package com.bridgelabz.utility;
 
 import java.util.Scanner;
 
-import com.bridgelabz.functionalprograms.StopWatch;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Random;
 
@@ -110,6 +109,7 @@ public class FunctionalUtility<E> {
 	public static void Gambler() {
 		int t = 0;
 		do{
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the stake :");
 		int stake = sc.nextInt();
@@ -229,6 +229,7 @@ public class FunctionalUtility<E> {
 int t=0;
 do{
 	
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 
 		System.out.println("enter x point");
@@ -289,6 +290,7 @@ do{
 	 */
 	public static void quadratic()
 	{
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the value of a:");
 		int a=sc.nextInt();
@@ -313,6 +315,7 @@ do{
 	
 	public static void windChill()
 	{
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the value of t in Fahrenheit:");
 		double t=sc.nextDouble();
@@ -381,6 +384,7 @@ public static void putVal() {
 		i = (int) (Math.random() * 10) % 3;
 		j = (int) (Math.random() * 10) % 3;
 	} else {
+		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		System.out.println("enter value of x and y by space");
 		i = s.nextInt();
@@ -434,6 +438,7 @@ public static void play() {
 	
 }
 //recursive combination
+@SuppressWarnings("unchecked")
 public static <T> void recursion(T str,int initial,int last)
 {
     if(initial==last)

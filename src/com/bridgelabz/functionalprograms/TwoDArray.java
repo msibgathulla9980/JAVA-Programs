@@ -17,7 +17,7 @@ import com.bridgelabz.utility.FunctionalUtility;
 
 public class TwoDArray {
 
-	@SuppressWarnings({ "unchecked", "unchecked" })
+	@SuppressWarnings({ "unchecked" })
 	public static void main(String[] args) {
 		int t=0;
 	

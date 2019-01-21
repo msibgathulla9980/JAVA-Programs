@@ -8,8 +8,8 @@ public class Queue1 {
 	    static int currentSize = 0;
 	    
 	    public Queue1(int queueSize){
-	        this.capacity = queueSize;
-	        queueArr = new int[this.capacity];
+	        Queue1.capacity = queueSize;
+	        queueArr = new int[Queue1.capacity];
 	    }
 
 	    /**

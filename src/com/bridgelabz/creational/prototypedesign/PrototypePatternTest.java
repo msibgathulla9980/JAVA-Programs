@@ -1,6 +1,8 @@
-package com.bridgelabz.designpatternprograms.creational;
+package com.bridgelabz.creational.prototypedesign;
 
 import java.util.List;
+
+import com.bridgelabz.creational.prototypedesign.Employees;
 
 public class PrototypePatternTest {
 

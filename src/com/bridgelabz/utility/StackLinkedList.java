@@ -1,5 +1,5 @@
 package com.bridgelabz.utility;
-import com.bridgelabz.*;
+
 /******************************************************************************
  *  Compilation:  javac -d bin StackLinkedList.java
  *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.StackLinkedList n

@@ -1,4 +1,4 @@
-package com.bridgelabz.designpatternprograms.creational;	
+package com.bridgelabz.creational.factorypattern;	
 public class PC extends Computer {
 
 	private String ram;

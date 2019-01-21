@@ -14,7 +14,7 @@ public class UnorderedList<T> {
 	Node tail;
 	private int size = 0;
 
-	@SuppressWarnings("Unchecked")
+	
 
 	/**
 	 * function to add a new item in the list and returns nothing
@@ -165,6 +165,7 @@ public class UnorderedList<T> {
 	 * 
 	 * @return the last element of list after removing
 	 */
+	@SuppressWarnings("unchecked")
 	public T pop() {
 		Node n = head;
 		if (size == 1) {
@@ -187,6 +188,7 @@ public class UnorderedList<T> {
 	 * @param pos the index at which the item to return
 	 * @return the element at the given index after removing it
 	 */
+	@SuppressWarnings("unchecked")
 	public T pop(int pos) {
 		int index = 0;
 		Node n = head;

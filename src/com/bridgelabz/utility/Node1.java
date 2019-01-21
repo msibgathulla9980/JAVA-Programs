@@ -4,6 +4,7 @@ public class Node1<E>
 {
 	public String data1;
 	public int data;
+	@SuppressWarnings("rawtypes")
 	public Node1 nextNode;
 	
 	//constructor

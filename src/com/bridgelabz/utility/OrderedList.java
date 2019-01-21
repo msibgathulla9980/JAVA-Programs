@@ -144,6 +144,7 @@ public class OrderedList<T extends Comparable<T>> {
 	 * 
 	 * @return the last element of list after removing
 	 */
+	@SuppressWarnings("unchecked")
 	public T pop() {
 		Node n = head;
 		Node prev = null;
@@ -163,6 +164,7 @@ public class OrderedList<T extends Comparable<T>> {
 	 * @param pos the index at which the item to return
 	 * @return the element at the given index after removing it
 	 */
+	@SuppressWarnings("unchecked")
 	public T pop(int pos) {
 		int index = 0;
 		Node prev = null;

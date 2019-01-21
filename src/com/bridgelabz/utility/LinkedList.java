@@ -146,10 +146,7 @@ public class LinkedList<T> {
             temp=temp.getNextRef();
         }
         if (temp == null || temp.getNextRef() == null) 
-                return; 
-        NodeCalendar<T> next = temp.getNextRef().getNextRef(); 
-      
-            next=temp.getNextRef();
+                return;
     }
     public int [] convInteger(LinkedList<Integer> li,int len)
     {

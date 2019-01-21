@@ -1,6 +1,7 @@
-package com.bridgelabz.designpatternprogramsmain;
+package com.bridgelabz.designpatternprograms.creationalmain;
 
-import com.bridgelabz.designpatternprograms.creational.Computer;
+import com.bridgelabz.creational.factorypattern.Computer;
+import com.bridgelabz.creational.factorypattern.ComputerFactory;
 
 public class TestFactory {
 
@@ -11,3 +12,4 @@ public class TestFactory {
 		System.out.println("Factory Server Config::"+server);
 	}
 }
+	

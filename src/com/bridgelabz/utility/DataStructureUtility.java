@@ -11,19 +11,18 @@ public class DataStructureUtility {
 	public static boolean simpleBalancedParenthesis(String exp) {
 		
 	      int len=exp.length();
-	        Stack Stack1=new Stack(len);
-	          int i=0;
+	        int i=0;
 	             while(i<len)
 	             {
-	                 if(exp.charAt(i)==')'&&Stack1.isEmpty())
+	                 if(exp.charAt(i)==')'&&Stack.isEmpty())
 	                  return false;
 	                 else if(exp.charAt(i)==')')
-	                  Stack1.pop();
+	                  Stack.pop();
 	                 else if(exp.charAt(i)=='(')
-	                  Stack1.push(i);
+	                  Stack.push(i);
 	                 ++i;
 	             }
-	         if (Stack1.isEmpty())
+	         if (Stack.isEmpty())
 	             return true;
 	         else
 	             return false; 
@@ -260,10 +259,11 @@ public static long userLong() {
 			}
 		}
 	}
-  static FunctionalUtility fu=new FunctionalUtility();
+  @SuppressWarnings("rawtypes")
+static FunctionalUtility fu=new FunctionalUtility();
 	public static void display(int m,int y) {
 		System.out.println("	Sun	Mon	Tue	Wed	Thu	Fri	Sat");
-		boolean x=fu.isLeap(y);
+		boolean x=FunctionalUtility.isLeap(y);
 		if(m==2)
 		{
 			if(x)
@@ -323,8 +323,8 @@ public static long userLong() {
         for (int i = 0; i < primeList.size(); i++) {
             for (int j = i+1; j < primeList.size(); j++) {
                 if (AlgorithmUtility.anagramDetection(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
-                    queue.enqueue(primeList.get(i));
-                    queue.enqueue(primeList.get(j));
+                    Queue1.enqueue(primeList.get(i));
+                    Queue1.enqueue(primeList.get(j));
                 }
             }
         }

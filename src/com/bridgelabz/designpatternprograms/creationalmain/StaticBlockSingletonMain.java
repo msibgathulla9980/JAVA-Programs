@@ -1,4 +1,4 @@
-package com.bridgelabz.designpatternprogramsmain;
+package com.bridgelabz.designpatternprograms.creationalmain;
 
 import com.bridgelabz.designpatternprograms.creational.StaticBlockSingleton;
 

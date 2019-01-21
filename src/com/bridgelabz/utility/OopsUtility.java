@@ -308,6 +308,16 @@ public static <T extends Comparable<T>> T[] sortArray(T str[])//Since zero's ASC
 
 }
 
-
+/*
+ * public void openBook() throws IOException { File[] files = getFiles();
+ * selectAddressBookName(); boolean flag = false; for (File file : files) {
+ * String filename = file.getName(); if (bookName.equals(filename)) { if
+ * (file.length() > 0) { System.out.println("Add Details"); String string =
+ * OopsUtility.readFile(filename); persons = OopsUtility.userReadValue(string,
+ * Person.class); } else { System.out.println("Address Book is empty..!!"); }
+ * insertAddressBook(persons); flag = true; } } if (!flag) {
+ * System.out.println("File doesnot exist or u have not given extention(.json)"
+ * ); } }
+ */
 
 

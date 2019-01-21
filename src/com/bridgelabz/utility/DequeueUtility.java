@@ -9,6 +9,7 @@ public class DequeueUtility<E>
 	int size=0;
 	
 	//add front
+	@SuppressWarnings("null")
 	public void addFront(E c)
 	{
 		if(front==null) //if no element in list

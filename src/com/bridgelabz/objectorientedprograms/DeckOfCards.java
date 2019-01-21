@@ -18,21 +18,21 @@ public class DeckOfCards {
 	
 	public static void main(String[] args) 
 	{
-		String[] SUITS = {
+		String[] suits = {
 	            "Clubs", "Diamonds", "Hearts", "Spades"
 	        };
 
-	        String[] RANKS = {
+	        String[] ranks = {
 	            "2", "3", "4", "5", "6", "7", "8", "9", "10",
 	            "Jack", "Queen", "King", "Ace"
 	        };
 
 	        // initialize deck
-	        int n = SUITS.length * RANKS.length;
+	        int n = suits.length * ranks.length;
 	        String[] deck = new String[n];
-	        for (int i = 0; i < RANKS.length; i++) {
-	            for (int j = 0; j < SUITS.length; j++) {
-	                deck[SUITS.length*i + j] = RANKS[i] + " of " + SUITS[j];
+	        for (int i = 0; i < ranks.length; i++) {
+	            for (int j = 0; j < suits.length; j++) {
+	                deck[suits.length*i + j] = ranks[i] + " of " + suits[j];
 	            }
 	        }
 

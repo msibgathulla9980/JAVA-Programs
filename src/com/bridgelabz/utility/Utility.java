@@ -1,13 +1,9 @@
 package com.bridgelabz.utility;
-import com.bridgelabz.*;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 public class Utility
 {		   
 		//for timer start and stop

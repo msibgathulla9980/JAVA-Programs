@@ -1,8 +1,8 @@
-package com.bridgelabz.designpatternprogramsmain;
+package com.bridgelabz.creational.factorypattern;
 
-import com.bridgelabz.designpatternprograms.creational.Computer;
-import com.bridgelabz.designpatternprograms.creational.PC;
-import com.bridgelabz.designpatternprograms.creational.Server;
+import com.bridgelabz.creational.factorypattern.Computer;
+import com.bridgelabz.creational.factorypattern.PC;
+import com.bridgelabz.creational.factorypattern.Server;
 
 public class ComputerFactory {
 

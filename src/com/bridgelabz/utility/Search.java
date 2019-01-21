@@ -14,7 +14,8 @@ public class Search {
 			List<Doctor> list = new ArrayList<>();
 			System.out.println("Enter the doctor's name to be searched");
 			String name = OopsUtility.userString();
-			System.out.println(name);
+			System.out.println("The Name you have entered is:"+name);
+			System.out.println("The Details are:");
 			for (Doctor doctor : CliniqueManager.listOfDoctor) {
 				if (name.equals(doctor.getName())) {
 					list.add(doctor);
@@ -106,7 +107,7 @@ public class Search {
 	public static Patient searchByPhoneNo() throws IOException {
 		String string = OopsUtility.readFile(CliniqueManager.patientFile);
 		CliniqueManager.listOfPatients = OopsUtility.userReadValue(string, Patient.class);
-		System.out.println("Enter the patient's phone number to search");
+		System.out.println("Enter the patient's phone number to searched");
 		long phoneNo = OopsUtility.userLong();
 
 		for (Patient patient : CliniqueManager.listOfPatients) {

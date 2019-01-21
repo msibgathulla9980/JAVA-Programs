@@ -113,7 +113,7 @@ public class CliniqueManager {
 				System.out.println("Doctor is not present");
 			break;
 		case 4:
-			List<Doctor> doctor4 = Search.searchBySpecialization();
+			List<Doctor> doctor4 = Search.searchByAvailability();
 			if (!doctor4.isEmpty())
 				System.out.println("Doctor is present");
 			else
@@ -163,14 +163,15 @@ public class CliniqueManager {
 
 	public static void takeAppointment() throws IOException {
 		String string = OopsUtility.readFile(appointmentFile);
-		System.out.println(string);
-		try {
+		try 
+		{
 		listOfAppointments = OopsUtility.userReadValue(string, Appointment.class);
-		System.out.println(listOfAppointments);
 		System.out.println("File is not empty");
 
 		}
 		catch (Exception e) {
+			e.printStackTrace();
+			
 		System.out.println("File is empty");
 		}
 		Patient patient = Search.searchByPhoneNo();
@@ -209,7 +210,7 @@ public class CliniqueManager {
 			for (Doctor doctor : doctorList) {
 				if (id == doctor.getId()) {
 					for (Appointment appointment : listOfAppointments) {
-						if (doctor.getName().equals(appointment.getName())) {
+						if (doctor.getName().equals(appointment.getdocName())) {
 							List<Patient> patientAppointmentList = appointment.getListOfPatients();
 							if (patientAppointmentList.size() < 5) {
 								patientAppointmentList.add(patient);
@@ -280,7 +281,7 @@ public class CliniqueManager {
 			listOfAppointments = OopsUtility.userReadValue(string, Appointment.class);
 			for (int i = 0; i < listOfAppointments.size(); i++) {
 				Appointment appointment = listOfAppointments.get(i);
-				String doctorName = appointment.getName();
+				String doctorName = appointment.getdocName();
 				Integer numberOfAppointments = appointment.getListOfPatients().size();
 				map.put(doctorName, numberOfAppointments);
 			}
