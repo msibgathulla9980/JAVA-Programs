@@ -3,16 +3,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Appointment {
-	private String docName;
+	private String name;
 	
 	private List<Patient> listOfPatients = new ArrayList<Patient>();
 	
-	public String getDocName() {
-		return docName;
+	public String getName() {
+		return name;
 	}
 
-	public void setDocName(String docName) {
-		this.docName = docName;
+	public void setName(String docName) {
+		this.name = docName;
 	}
 
 	

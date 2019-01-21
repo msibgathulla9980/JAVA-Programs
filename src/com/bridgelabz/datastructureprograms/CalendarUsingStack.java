@@ -3,11 +3,11 @@ package com.bridgelabz.datastructureprograms;
 
 /******************************************************************************
  *  Compilation:  javac -d bin UnOrderedList.java
- *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.UnOrderedList n
+ *  Execution:    java -cp bin com.bridgelabz.datastructure program.UnOrderedList n
  *  
  *  Purpose: Create the Week Object having a list of WeekDay objects each 
  *              storing the day (i.e S,M,T,W,Th,..) and the Date (1,2,3..) . 
- *              The WeekDay objects are stored in a Queue implemented using 
+ *              The WeekDay objects are stored in a Stack implemented using 
  *              Linked List. Further maintain also a Week Object in two stacks to
  *              finally display the Calendar
  *

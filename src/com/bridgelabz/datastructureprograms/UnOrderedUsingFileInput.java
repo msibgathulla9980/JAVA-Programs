@@ -1,4 +1,18 @@
 package com.bridgelabz.datastructureprograms;
+/******************************************************************************
+ *  Compilation:  javac -d binUnOrderedUsingFileInput.java
+ *  Execution:    java -cp bin com.bridgelabz.datastructure program.UnOrderedUsingFileInputn
+ *  
+ *  Purpose:  Read the Text from a file, split it into words and arrange it as Linked List.
+ *            Take a user input to search a Word in the List. If the Word is not found then 
+ *            add it to the list, and if it found then remove the word from the List. In the
+ *            end save the list into a file
+
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   20-12-2018
+ *
+ ******************************************************************************/
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -6,20 +20,21 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import java.*;
+
 
 
 public class UnOrderedUsingFileInput  {
     public static void main(String[] args) throws IOException 
     {
-    	Scanner sc=new Scanner(System.in);
+    	@SuppressWarnings("resource")
+		Scanner sc=new Scanner(System.in);
         String str="C:/Users/Mohammed Sibgath/Desktop/newFile.txt";
         FileReader f=new FileReader(str);
-        BufferedReader read=new BufferedReader(f);
+        @SuppressWarnings("resource")
+		BufferedReader read=new BufferedReader(f);
         FileWriter w=new FileWriter(str,true);
         BufferedWriter writer = new BufferedWriter(w);
         final String DELIMITER=" ";
-        Node nd=null;
         int n=0;
         LinkedList<String> li=new LinkedList<>();
         try 

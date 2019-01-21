@@ -2,11 +2,11 @@ package com.bridgelabz.datastructureprograms;
 
 /******************************************************************************
  *  Compilation:  javac -d bin HashingFunction.java
- *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.HashingFunction n
+ *  Execution:    java -cp bin com.bridgelabz.datastructure program.HashingFunction n
  *  
  *  Purpose: Hashing Function to search a Number in a slot
  *
- *  @author  Naveen Adiga
+ *  @author  Mohammed Sibgathulla
  *  @version 1.0
  *  @since   4-12-2018
  *
@@ -17,15 +17,9 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
-
-import com.bridgelabz.utility.AlgorithmUtility;
-import com.bridgelabz.utility.DataStructureUtility;
 import com.bridgelabz.utility.LinkedList;
 
 public class HashingFunction {
@@ -44,10 +38,10 @@ public class HashingFunction {
             linkedList2 = new LinkedList<>();
             map.put(i, linkedList2);
         }
-        FileReader fr = new FileReader("C:\\Users\\Mohammed Sibgath\\Desktop\\File for hashing function.txt");
+        FileReader fr = new FileReader("/home/admin1/hashing.txt");
         @SuppressWarnings("resource")
         BufferedReader br = new BufferedReader(fr);
-        FileWriter w = new FileWriter("C:\\Users\\Mohammed Sibgath\\Desktop\\File for hashing function.txt", true);
+        FileWriter w = new FileWriter("/home/admin1/hashing.txt", true);
         BufferedWriter writer = new BufferedWriter(w);
         int rem;
         String read;
@@ -95,7 +89,8 @@ public class HashingFunction {
             list.printNew();
             System.out.println();
         }
-           Scanner sc=new Scanner(System.in);
+           @SuppressWarnings("resource")
+		Scanner sc=new Scanner(System.in);
         do {
             System.out.println();
             System.out.println(

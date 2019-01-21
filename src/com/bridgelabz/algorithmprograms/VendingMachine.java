@@ -10,21 +10,15 @@
  *
  ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
-import java.util.Scanner;
-
 import com.bridgelabz.utility.AlgorithmUtility;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
 
 public class VendingMachine {
 
 	public static void main(String[] args) {
 		int t=0;
 		do{
-		AlgorithmUtility au=new AlgorithmUtility();
-		au.vendingMachine();
+		 //au=new AlgorithmUtility();
+		 AlgorithmUtility.vendingMachine();
 
 	}while(t<6);
 	}

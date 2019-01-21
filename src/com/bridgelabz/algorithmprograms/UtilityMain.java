@@ -1,12 +1,18 @@
 package com.bridgelabz.algorithmprograms;
 
+/******************************************************************************
+ * Purpose: To implement Binary search, Insertion Sort, Bubble Sort, 
+ *
+ * @author Mohammed Sibgathulla
+ * @version 1.0
+ * @since 09-10-2018
+ *
+ ******************************************************************************/
 
-import com.bridgelabz.*;
+
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -18,7 +24,8 @@ public class UtilityMain {
 	 // main method
     public static void main(String[] args) {
         int ll=0;
-        Scanner sc =new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner sc =new Scanner(System.in);
         //Array list creation
         List<Double> timeList = new ArrayList<>();
         List<Double> timeList1 = new ArrayList<>();

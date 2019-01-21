@@ -17,11 +17,14 @@ import com.bridgelabz.utility.FunctionalUtility;
 
 public class TwoDArray {
 
+	@SuppressWarnings({ "unchecked", "unchecked" })
 	public static void main(String[] args) {
 		int t=0;
 	
 		do{
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
+		@SuppressWarnings("rawtypes")
 		FunctionalUtility fu=new FunctionalUtility();
 		System.out.println("Enter the no of rows:");
 		int m=sc.nextInt();

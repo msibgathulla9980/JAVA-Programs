@@ -13,9 +13,6 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.AlgorithmUtility;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
 
 
 public class DayOfWeek {
@@ -23,6 +20,7 @@ public class DayOfWeek {
 	public static void main(String[] args) {
 		
 		
+			@SuppressWarnings("resource")
 			Scanner scanner = new Scanner(System.in);
 
 			while(true) {

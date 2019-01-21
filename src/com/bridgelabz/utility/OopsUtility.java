@@ -43,6 +43,7 @@ public class OopsUtility {
 	}
 	public static String readFile(String str) throws IOException {
 		FileReader f = new FileReader(str);//reads the file, an inbuilt method
+		@SuppressWarnings("resource")
 		BufferedReader read = new BufferedReader(f);//Buffered Reader is the method used to read line by line
 		String line = "";
 
@@ -59,6 +60,7 @@ public class OopsUtility {
 	public static void write(String json) throws IOException
 	{
 		FileWriter fw = new FileWriter("F:\\Mohammed Sibgath1\\Bridgelabz\\JavaPrograms\\JAVA-Programs\\src\\com\\bridgelabz\\objectorientedprograms\\Inventory.json");
+		@SuppressWarnings("resource")
 		BufferedWriter bw = new BufferedWriter(fw);//takes the string and writes it one by one.
 		bw.write(json);
 		bw.flush();
@@ -150,18 +152,20 @@ public class OopsUtility {
 
 	public static String readJsonFile(String filename) throws IOException{
 		FileReader fr=new FileReader(filename);
+		@SuppressWarnings("resource")
 		BufferedReader br=new BufferedReader(fr);
 		String str ="";
 		String line = "";
 		while((line=br.readLine())!=null){
 			str+=line;
 		}
-		br.close();
+		//br.close();
 		return str;
 	}
 	public static void writeFile(String json,String filename) throws IOException
 	{
 		FileWriter fw = new FileWriter(filename);
+		@SuppressWarnings("resource")
 		BufferedWriter bw = new BufferedWriter(fw);//takes the string and writes it one by one.
 		bw.write(json);
 		bw.flush();
@@ -286,7 +290,8 @@ public class OopsUtility {
 //                System.out.println();
 //            }
 //        }
-public static <T extends Comparable<T>> T[] sortArray(T str[]) {
+public static <T extends Comparable<T>> T[] sortArray(T str[])//Since zero's ASCII Value Comes 
+{
         int length = str.length;
         for (int i = 1; i < length; i++) {
             T key = str[i];

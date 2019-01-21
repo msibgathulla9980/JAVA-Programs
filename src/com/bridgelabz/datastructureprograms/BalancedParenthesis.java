@@ -23,7 +23,8 @@ public class BalancedParenthesis {
 		int t=0;
 		do{
 			//Stack<Integer> Stack=new Stack<Integer>();
-		      Scanner sc=new Scanner(System.in);
+		      @SuppressWarnings("resource")
+			Scanner sc=new Scanner(System.in);
 		        System.out.println("Enter the experssion in the form-(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)");
 		        String exp=sc.nextLine();
 		        boolean a1= DataStructureUtility.simpleBalancedParenthesis(exp);

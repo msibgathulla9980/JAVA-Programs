@@ -1,4 +1,6 @@
-package com.bridgelabz.designpatternprograms.creational;
+package com.bridgelabz.designpatternprogramsmain;
+
+import com.bridgelabz.designpatternprograms.creational.LazyInitializedSingleton;
 
 public class LazyInitializedSingletonMain {
 	

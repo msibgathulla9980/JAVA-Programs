@@ -9,10 +9,6 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 
 public class AlgorithmUtility<E> {
 	/////////////////////////////////////////
@@ -112,10 +108,12 @@ public class AlgorithmUtility<E> {
 		while(!word.matches("quit"))
 		{
 			System.out.println("Enter the word to be searched for");
+			@SuppressWarnings("resource")
 			Scanner input = new Scanner(System.in);
 			word = input.next();
 			File file = new File("C:\\Users\\Mohammed Sibgath\\Desktop\\newFile.txt"); 
 
+			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(file); 
 
 			while(sc.hasNextLine())           
@@ -144,9 +142,10 @@ public class AlgorithmUtility<E> {
 	/**
 	 * 
 	 */
-	public void vendingMachine(){
+	public static void vendingMachine(){
 
 
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the amount in Rupees : ") ; 
 		int rs=sc.nextInt();
@@ -235,6 +234,7 @@ public class AlgorithmUtility<E> {
 		
 	//Function to Compute Temperature conversion
 	public void temperatureConversion(){
+		@SuppressWarnings("resource")
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter the Temperature In Fahrenheit: ");
 		double f=sc.nextDouble();
@@ -247,6 +247,7 @@ public class AlgorithmUtility<E> {
 	}
 	//Function To Compute Monthly Payment
 	public void monthlyPayment(){
+		@SuppressWarnings("resource")
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter The Principal Amount: ");
 		double p=sc.nextDouble();
@@ -262,7 +263,8 @@ public class AlgorithmUtility<E> {
 
 	}
 //Function To Compute The Square Root
-	public void sqrt(){
+	public static void sqrt(){
+		@SuppressWarnings("resource")
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter the Value to find the sqrtroot: ");
 		int c=sc.nextInt();
@@ -275,9 +277,10 @@ public class AlgorithmUtility<E> {
 
 	}
 	//Function that converts from decimal to Binary
-	public void toBinary(){
+	public static void toBinary(){
 		int i=0;
 		int[] bin=new int[100];
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the decimal number:");
 		int n = sc.nextInt();
@@ -498,6 +501,7 @@ public class AlgorithmUtility<E> {
 		public  static void binarySearch(int lower,int upper,int middle,int count,String input,int n)
 		{
 			
+			@SuppressWarnings("resource")
 			Scanner sc=new Scanner(System.in);
 			System.out.println("Is your number:"+middle);
 			System.out.println();
@@ -573,7 +577,6 @@ return ((x & 0x0F) << 4 | (x & 0xF0) >> 4);
 public static void toBinaryfornibble(int n){
 	int i=0;
 	int[] bin=new int[100];
-	Scanner sc = new Scanner(System.in);
 	while(n > 0)
 	{
 		bin[i] = n % 2;
@@ -633,8 +636,7 @@ public static double elapsedTime(double stopTime,double startTime)
 }
 public static List<Double> listCall(List<Double> timeList)
 {
-	List<Double> list = new ArrayList<>(Arrays.asList(1.38, 2.56, 4.3));
- Collections.sort(timeList);    
+	Collections.sort(timeList);    
  return timeList;
 }
 

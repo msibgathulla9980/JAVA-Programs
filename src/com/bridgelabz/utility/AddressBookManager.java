@@ -4,183 +4,168 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
-
 import com.bridgelabz.objectorientedprograms.AddressBookAppl;
 import com.bridgelabz.utility.OopsUtility;
 
 public class AddressBookManager {
+    private static final String ADDRESS_BOOK_FILE_PATH = "/home/admin1/MohammedSibgath/Bridgelabz/JAVA-Programs/";
+    private static final AddressBookManager ADDRESS_BOOK_MANAGER = null;
+    private AddressBook addressBook = null;
+    private static List<AddressBook> addressBooks = new ArrayList<AddressBook>();
+    private static List<Person> persons = new ArrayList<Person>();
+    private static String bookName = null;
+    
+    private AddressBookManager() {
+    }
 
-	private static String ch_book;
-	static String path="/home/admin1/MohammedSibgath/Bridgelabz/JAVA-Programs/";
-	AddressBook addressBook = new AddressBook();
-	ObjectMapper objectMapper = new ObjectMapper();
-	List<Person> listOfPersons = new ArrayList<Person>();
-	File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
+    public static AddressBookManager getInstance() {
+        if (ADDRESS_BOOK_MANAGER == null) {
+            return new AddressBookManager();
+        }
+        return ADDRESS_BOOK_MANAGER;
+    }
 
-	public static String getCh_book() {
-		return ch_book;
-	}
+    public void createBook() throws IOException {
+        System.out.println("Enter name of address book with extension (eg:file.json)");
+        String book = OopsUtility.userString();
+        File file = new File(ADDRESS_BOOK_FILE_PATH + book);
+        if (file.createNewFile()) {
+            System.out.println("File is created");
+        } else {
+            System.out.println("File of that name already exists");
+        }
+    }
 
-	public static void setCh_book(String ch_book) {
-		AddressBookManager.ch_book = ch_book;
-	}
+    public void openBook() throws IOException {
+        File[] files = getFiles();
+        selectAddressBookName();
+        boolean flag = false;
+        for (File file : files) {
+            String filename = file.getName();
+            if (bookName.equals(filename)) {
+                if (file.length() > 0) {
+                    System.out.println("Add Details");
+                    String string = OopsUtility.readFile(filename);
+                    persons = OopsUtility.userReadValue(string, Person.class);
+                } else {
+                    System.out.println("Address Book is empty..!!");
+                }
+                insertAddressBook(persons);
+                flag = true;
+            }
+        }
+        if (!flag) {
+            System.out.println("File doesnot exist or u have not given extention(.json)");
+        }
+    }
 
-	public void createBook() throws IOException {
-		System.out.println("Enter name of address book");
-		String book = DataStructureUtility.userString();
-		File file = new File(path+ book + ".json");
-		boolean rs = file.createNewFile();
-		if (rs) {
-			System.out.println("File is created");
-		} else {
-			System.out.println("File of that name already exists");
-		}
-	}
+    private File[] getFiles() {
+        return new File(System.getProperty("user.dir")).listFiles();
+    }
 
-	public void openBook() throws IOException {
-		System.out.println("Files available are:");
-		for (File file : arrayOfFiles) {	
-			if (file.getName().endsWith(".json"))
-				System.out.println(file.getName());
-		}
-		System.out.println("Choose the address book");
-		ch_book = DataStructureUtility.userString();
-		setCh_book(ch_book);
-		for (File file : arrayOfFiles) {
-			String filename = file.getName();
-			if (ch_book.equals(filename)) {
-				if (file.length() > 0) {
-					System.out.println("Address book is not empty");
-					String string = OopsUtility.readJsonFile(filename);
-					try {
-						listOfPersons = objectMapper.readValue(string, new TypeReference<List<Person>>() {
-						});}
-					catch (Exception e){
-						System.out.print("");
-					}
+    public void selectAddressBookName() {
+        File[] files = getFiles();
+        System.out.println("Files available are:");
+        for (File file : files) {
+            if (file.getName().endsWith(".json"))
+                System.out.println(file.getName());
+        }
+        System.out.println("Choose the address book");
+        bookName = OopsUtility.userString();
+    }
 
-					AddressBook.setListOfPerson(listOfPersons);
-					addressBook();
-				} else {
-					System.out.println("Address Book is empty");
-					System.out.println("Add new data onto the Address Book");
-					addressBook();
-				}
-			}
-		}
-	}
+    public void insertAddressBook(List<Person> persons) throws IOException {
+        addressBook = new AddressBook(persons);
+        do {
+            System.out.println(
+                    "select choice\n1.Add 2.Edit 3.Display 4.Delete 5.Sort 6.Go to Main Page");
+            int i = OopsUtility.userInt();
+            switch (i) {
+            case 1:
+                addressBook.addPerson();
+                break;
+            case 2:
+                addressBook.editPerson();
+                break;
+            case 3:
+                addressBook.displayAddress();
+                break;
+            case 4:
+                addressBook.deletePerson();
+                break;
+            case 5:
+                sort();
+                break;
+            case 6:
+                addressBook = null;
+                AddressBookAppl.main(null);
+                break;
+            default:
+                System.out.println("no choice");
+                break;
+            }
+        } while (addressBook != null);
+        addressBooks.add(addressBook);
+    }
 
-	public void saveBook() {
-		System.out.println("Saving " + getCh_book() + " address book");
-		for (File file : arrayOfFiles) {
-			String filename = file.getName();
-			if (getCh_book().equals(filename)) {
-				try {
-					String json = objectMapper.writeValueAsString(AddressBook.getListOfPerson());
-					OopsUtility.writeFile(json, filename);
-					System.out.println("Address book details saved");
-				} catch (Exception e) {
-					System.out.println("Cannot write to file");
-				}
-			}
-		}
-	}
+    public void sort() {
+        System.out.println("select choice\n1.Sort By Last Name 2.Sort By Zip code");
+        int choice = OopsUtility.userInt();
+        switch (choice) {
+        case 1:
+            addressBook.sortByLastName();
+            break;
+        case 2:
+            addressBook.sortByZipCode();
+            break;
+        }
+    }
 
-	public void saveAsBook() throws IOException {
-		System.out.println("Files available are:");
-		for (File file : arrayOfFiles) {
-			if (file.getName().endsWith(".json"))
-				System.out.println(file.getName());
-		}
-		System.out.println("Choose the address book you want to save as with extention");
-		String ch_book1 = DataStructureUtility.userString();
-		File file = new File(path + ch_book1);
-		boolean rs = file.createNewFile();
-		if (rs) {
-			System.out.println("File is created");
-			String json = objectMapper.writeValueAsString(AddressBook.getListOfPerson());
-			OopsUtility.writeFile(json, ch_book);
-			System.out.println("Address book details saved");
-		} else {
-			System.out.println("File of that name already exists");
-		}
-	}
+    public void saveBook() {
+        File[] files = getFiles();
+        int flag = 0;
+        for (File file : files) {
+            String filename = file.getName();
+            if (bookName.equals(filename)) {
+                try {
+                    String json = OopsUtility.userWriteValueAsString(persons);
+                    OopsUtility.writeFile(json, filename);
+                    System.out.println("Address book details saved");
+                    flag = 1;
+                } catch (Exception e) {
+                    System.out.println("Cannot write to file");
+                }
+            }
+        }
 
-	public void close() {
-		addressBook = null;
-		objectMapper = null;
-		listOfPersons = null;
-		arrayOfFiles = null;
+        if (flag == 0) {
+            System.out.println("File doesnot exist or u have not given extention(.json)");
+        }
+    }
 
-	}
+    public void saveAsBook() throws IOException {
+        selectAddressBookName();
+        System.out.println("Enter the file name to be saved with extension (eg:file.json)");
+        String book = OopsUtility.userString();
+        File file = new File(ADDRESS_BOOK_FILE_PATH + book);
+        if (file.createNewFile()) {
+            System.out.println("File is created");
+            String json = OopsUtility.userWriteValueAsString(persons);
+            OopsUtility.writeFile(json, book);
+            System.out.println("Address book details saved");
+        } else {
+            System.out.println("File of that name already exists");
+        }
+    }
 
-	public void addressBook() throws IOException {
-		AddressBook ab = new AddressBook();
-		//boolean i=true;
-		int t=1;
-		do{
-			System.out.println("Enter choice");
-			System.out.println(
-					"1:Add Person  2:Edit Person  3:Display Persons  4:Delete Person  5:Sort  6:Go Back to main ");
-			int choice = DataStructureUtility.userInteger();
-		
-				switch (choice) {
-				case 1:
-					AddressBook.addPerson();
-					//isRunning = true;
-					break;
-				case 2:
-					AddressBook.editPerson();
-					//isRunning = true;
-					break;
-				case 3:
-					AddressBook.display();
-					
-					//isRunning = true;
-					break;
-				case 4:
-					AddressBook.deletePerson();
-					//isRunning = true;
-					break;
-				case 5:
-					boolean isSort = true;
-					while (isSort) {
-						System.out.println("Enter your choice");
-						System.out.println("1:Sort by Last Name  2:Sort by Zip Code");
-						int ch = DataStructureUtility.userInteger();
-						switch (ch) {
-						case 1:
-							System.out.println("Sorting by last name");
-							ab.sortByLastName();
-							System.out.println("Your list is sorted");
-							break;
-						case 2:
-							System.out.println("Sorting by zip code");
-							ab.sortByZipCode();
-							System.out.println("Your list is sorted");
-							break;
-						default:
-							System.out.println("Invalid choice");
-							isSort = false;
-							break;
-						}
-					}
-					break;
-				case 6:
-					AddressBookAppl.main(null);
-				default:
-					System.out.println("Invalid choice");
-					//isRunning = false;
-					break;
-				}
-			
-			
-		
-		}while(t<10);
-	}
-	}
+    public void closeBook() {
+        System.out.println("Would you like to save the changes? Y / N");
+        String answer = OopsUtility.userString();
+        if (answer.equalsIgnoreCase("Y")) {
+            saveBook();
+        }
+        addressBook = null;
+    }
 
-
+}
 

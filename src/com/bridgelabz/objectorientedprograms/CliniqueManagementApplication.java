@@ -1,4 +1,15 @@
 package com.bridgelabz.objectorientedprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin CliniqueManagementApplication.java
+ *  Execution:    java -cp bin com.bridgelabz.objectorientedprograms.CliniqueManagementApplication
+ *  
+ *  Purpose: Program to implement the Address Book Directory
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   1-12-2018
+ *
+ ******************************************************************************/
+
 import java.io.IOException;
 
 import org.codehaus.jackson.JsonParseException;
@@ -35,9 +46,10 @@ public class CliniqueManagementApplication {
 				CliniqueManager.famousSpecialist();
 				isRunning=true;
 				break;
-			default:
-				System.out.println("Invalid choice");
-				isRunning = false;
+			case 6:
+				System.out.println("You've been Exited");
+				System.exit(0);
+				
 				break;
 			}
 		}

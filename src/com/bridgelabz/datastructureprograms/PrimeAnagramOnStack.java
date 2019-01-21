@@ -1,7 +1,17 @@
 package com.bridgelabz.datastructureprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin PrimeAnagramOnStack.java
+ *  Execution:    java -cp bin com.bridgelabz.datastructure program.PrimeAnagramOnStack n
+ *  
+ *  Purpose:Add the Prime Numbers that are Anagram in the Range of 0 - 1000 in a Stack using the Linked List
+ *           and Print the Anagrams from the Stack.Note no Collection Library can be used.
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   16-12-2018
+ *
+ ******************************************************************************/
 import java.util.ArrayList;
 import java.util.List;
-import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.DataStructureUtility;
 import com.bridgelabz.utility.Stack1;
 

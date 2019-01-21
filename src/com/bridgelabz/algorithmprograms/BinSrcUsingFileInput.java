@@ -10,18 +10,15 @@
  *
  ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
-import java.util.Scanner;
-
 import com.bridgelabz.utility.AlgorithmUtility;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 public class BinSrcUsingFileInput {
 	
 	public static void main( String[] args ) throws FileNotFoundException   {
 		int t=0;
 		do{
+		@SuppressWarnings("rawtypes")
 		AlgorithmUtility au=new AlgorithmUtility();
 		au.binSrcFile();
 	}while(t<6);

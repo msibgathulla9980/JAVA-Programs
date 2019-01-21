@@ -1,4 +1,23 @@
 package com.bridgelabz.objectorientedprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin StockCompanyApplication.java
+ *  Execution:    java -cp bin com.bridgelabz.objectorientedprograms.StockCompanyApplication
+ *  
+ *  Purpose: Write a program to read in Stock Names, Number of Share, Share Price.  
+ *           Print a Stock Report with total value of each Stock and the total value of Stock.
+ *           and Create InventoryManager to manage the Inventory. The Inventory Manager will 
+ *           use InventoryFactory to create Inventory Object from JSON. The InventoryManager
+ *            will call each Inventory Object in its list to calculate the Inventory Price and 
+ *            then call the Inventory Object to return the JSON String. The main program will be
+ *             with InventoryManager
+
+
+
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   19-01-2019
+ *
+ ******************************************************************************/
 import java.io.IOException;
 
 import com.bridgelabz.utility.OopsUtility;

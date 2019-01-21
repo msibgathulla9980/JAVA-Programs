@@ -1,4 +1,16 @@
 package com.bridgelabz.objectorientedprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin Regex.java
+ *  Execution:    java -cp bin com.bridgelabz.objectorientedprograms.InventoryJson
+ *  
+ *  Purpose: Create a JSON file having Inventory Details for Rice, 
+ *           Pulses and Wheats with properties name, weight, price per kg.
+
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   1-01-2019
+ *
+ ******************************************************************************/
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

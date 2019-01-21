@@ -15,22 +15,22 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.FunctionalUtility;
 
-import java.util.Arrays;
 
 public class Permutation {
 
 	public static void main(String[] args) {
 		int t=0;
 		do{
-		  FunctionalUtility fu = new FunctionalUtility();
-	        Scanner sc = new Scanner(System.in);
+		 
+	        @SuppressWarnings("resource")
+			Scanner sc = new Scanner(System.in);
 	        System.out.println("enter a string");
 	        String str = sc.next();
 	        int len = str.length();
 	        System.out.println("recursion of a string is ");
-	        fu.recursion(str, 0, len);
+	        FunctionalUtility.recursion(str, 0, len);
 	        System.out.println("iteration of a string is ");
-	        fu.iteration(str);
+	        FunctionalUtility.iteration(str);
 		}while(t<6);
 	}
 

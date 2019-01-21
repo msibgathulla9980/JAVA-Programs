@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin UnOrderedList.java
- *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.UnOrderedList n
+ *  Compilation:  javac -d bin CalendarUsingQueue .java
+ *  Execution:    java -cp bin com.bridgelabz.datastructureprograms.CalendarUsingQueue  n
  *  
  *  Purpose: Create the Week Object having a list of WeekDay objects each 
  *              storing the day (i.e S,M,T,W,Th,..) and the Date (1,2,3..) . 
@@ -15,10 +15,7 @@
  ******************************************************************************/
 
 package com.bridgelabz.datastructureprograms;
-
-import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.DataStructureUtility;
-import com.bridgelabz.utility.FunctionalUtility;
 import com.bridgelabz.utility.QueueLinkedList;
 
 

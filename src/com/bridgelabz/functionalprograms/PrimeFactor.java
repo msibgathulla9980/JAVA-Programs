@@ -12,8 +12,6 @@
 package com.bridgelabz.functionalprograms;
 import com.bridgelabz.utility.*;
 import java.util.Scanner;
-
-import com.bridgelabz.utility.*;
 public class PrimeFactor {
 
 	public static void main(String[] args) {

@@ -1,11 +1,24 @@
 package com.bridgelabz.datastructureprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin TestOrderedListForIntegers.java
+ *  Execution:    java -cp bin com.bridgelabz.datastructure program.TestOrderedListForIntegers n
+ *  
+ *  Purpose: Read a List of Numbers from a file and arrange it ascending Order in a Linked List. 
+ *          Take user input for a number, if found then pop the number out of the list else insert 
+ *           the number in appropriate position
+
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   19-12-2018
+ *
+ ******************************************************************************/
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
+
 import java.util.Scanner;
 
 
@@ -13,14 +26,15 @@ import java.util.Scanner;
 public class TestOrderedListForIntegers  {
     public static void main(String[] args) throws IOException 
     {
-    	Scanner sc=new Scanner(System.in);
+    	@SuppressWarnings("resource")
+		Scanner sc=new Scanner(System.in);
         String str="C:/Users/Mohammed Sibgath/Desktop/newFile.txt";
         FileReader f=new FileReader(str);
-        BufferedReader read=new BufferedReader(f);
+        @SuppressWarnings("resource")
+		BufferedReader read=new BufferedReader(f);
         FileWriter w=new FileWriter("C:/Users/Mohammed Sibgath/Desktop/newFile1.txt",true);
         BufferedWriter writer = new BufferedWriter(w);
         final String DELIMITER=" ";
-        Node nd=null;
         int n=0;
         LinkedList<Integer> li=new LinkedList<>();
         LinkedList<Integer> li2=new LinkedList<>();

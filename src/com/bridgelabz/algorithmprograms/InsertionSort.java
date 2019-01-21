@@ -15,16 +15,16 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.AlgorithmUtility;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
+
 
 public class InsertionSort {
 
 	public static void main(String[] args) {
 		int t=0;
 		do{
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
+		@SuppressWarnings("rawtypes")
 		AlgorithmUtility au=new AlgorithmUtility();
 		System.out.println("Enter the number of elements: ");
 		int n=sc.nextInt();

@@ -1,5 +1,18 @@
 package com.bridgelabz.objectorientedprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin InventoryJson.java
+ *  Execution:    java -cp bin com.bridgelabz.objectorientedprograms.InventoryJson
+ *  
+ *  Purpose:  Read in the following message: Hello <<name>>, We have your full name as <<full name>> in our system. 
+ *            your contact number is 91-xxxxxxxxxx. Please,let us know in case of any clarification 
+ *            Thank you BridgeLabz 01/01/2016. Use Regex to replace name, full name, Mobile#, and Date with proper value.
 
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   16-01-2019
+ *
+ ******************************************************************************/
+import java.io.IOException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

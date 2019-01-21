@@ -14,13 +14,12 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.AlgorithmUtility;
 
-import java.util.Arrays;
-
 
 public class Anagram {
 
 	public static void main(String[] args)
     {
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 		int t=0;
 		do{

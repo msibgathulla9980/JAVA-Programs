@@ -22,10 +22,10 @@ public class GuessNumber {
 	public static void main(String[] args) {
 		int t=0;
 		do{
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 		try
 		{
-			AlgorithmUtility au=new AlgorithmUtility();
 			System.out.println("Enter any Number:");
 			int n=sc.nextInt();
 			int range=(int)(Math.pow(2,n-1));                //range calculation for the number
@@ -35,7 +35,7 @@ public class GuessNumber {
 			int lower=0;
 			int upper=range;
 			int middle=(lower+upper/2);
-			au.binarySearch(lower,upper,middle,count,input,n-1);
+			AlgorithmUtility.binarySearch(lower,upper,middle,count,input,n-1);
 		}
 		catch (ArrayIndexOutOfBoundsException ae)
 		{

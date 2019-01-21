@@ -1,6 +1,16 @@
 package com.bridgelabz.datastructureprograms;
+
+/******************************************************************************
+ *  Compilation:  javac -d bin PallindromeChecker.java
+ *  Execution:    java -cp bin com.bridgelabz.datastructure program.PallindromeChecker n
+ *  
+ *  Purpose: Program to Check Pallindrome Using Queue.
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   4-12-2018
+ *
+ ******************************************************************************/
 import java.util.Scanner;
-import com.bridgelabz.utility.Dequeue;
 import com.bridgelabz.utility.DequeueUtility;
 public class PallindromeChecker {
 
@@ -8,6 +18,7 @@ public class PallindromeChecker {
 	{
 		int t=0;
 		do{
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 	
 		DequeueUtility<Character> utility=new DequeueUtility<Character>();

@@ -18,11 +18,12 @@ public class FlipCoin {
 static int t=0;
 	public static void main(String[] args) {
 	do{
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the number of times the coin is being flipped:");
 		int n=sc.nextInt(); 
-		FunctionalUtility fu=new FunctionalUtility();
-		fu.getCount(n);
+	 
+		 FunctionalUtility.getCount(n);
 	}while(t<6);
 	}
 

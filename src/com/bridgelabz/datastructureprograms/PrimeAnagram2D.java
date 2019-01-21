@@ -1,4 +1,16 @@
 package com.bridgelabz.datastructureprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin PrimeAnagram2D.java
+ *  Execution:    java -cp bin com.bridgelabz.datastructure program.PrimeAnagram2D n
+ *  
+ *  Purpose:Extend the Prime Number Program and store only the numbers in that range that are Anagrams. 
+ *          For e.g. 17 and 71 are both Prime and Anagrams in the 0 to 1000 range. 
+ *          Further store in a 2D Array the numbers that are Anagram and numbers that are not Anagram
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   15-12-2018
+ *
+ ******************************************************************************/
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

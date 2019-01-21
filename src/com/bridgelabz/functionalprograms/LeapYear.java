@@ -20,11 +20,11 @@ public class LeapYear {
 	public static void main(String[] args) {
 		int t=0;
 		do{
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the Year");
 		int r = sc.nextInt();
-		FunctionalUtility fu = new FunctionalUtility();
-		fu.getLeap(r);
+		FunctionalUtility.getLeap(r);
 
 	}while(t<6);
 	}

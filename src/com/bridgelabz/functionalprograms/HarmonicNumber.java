@@ -19,11 +19,11 @@ public class HarmonicNumber {
 	public static void main(String[] args) {
 		int t=0;
 		do{
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the nth Harmonic Number:");
 		int n=sc.nextInt();
-		FunctionalUtility fu=new FunctionalUtility();
-		double m=fu.getHarmonicNumber(n);
+		double m=FunctionalUtility.getHarmonicNumber(n);
 		System.out.println("The Harmonic Value is" +m);
 				
 		}while(t<6);

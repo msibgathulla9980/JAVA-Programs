@@ -14,15 +14,15 @@ package com.bridgelabz.functionalprograms;
 
 import java.util.Scanner;
 
-import com.bridgelabz.utility.*;
 
-import java.lang.Math.*;
+
 
 public class powerof2 {
 
 	public static void main(String[] args) {
 		int t=0;
 		do{
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the power of 2:");
 		int n = sc.nextInt();

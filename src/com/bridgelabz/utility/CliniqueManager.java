@@ -160,29 +160,40 @@ public class CliniqueManager {
 		}
 	}
 
-	public static void takeAppointment() throws IOException {
-		String string = OopsUtility.readJsonFile(appointmentFile);
-		try {
-			listOfAppointments = OopsUtility.userReadValue(string, Appointment.class);
-			System.out.println("File is not empty");
 
-		} catch (Exception e) {
-			System.out.println("File is empty");
+	public static void takeAppointment() throws IOException {
+		String string = OopsUtility.readFile(appointmentFile);
+		System.out.println(string);
+		try {
+		listOfAppointments = OopsUtility.userReadValue(string, Appointment.class);
+		System.out.println(listOfAppointments);
+		System.out.println("File is not empty");
+
+		}
+		catch (Exception e) {
+		System.out.println("File is empty");
 		}
 		Patient patient = Search.searchByPhoneNo();
 		if (patient != null) {
-			operation(patient);
-		} else {
-			CliniqueManager.addPatient();
-			Patient patient2=Search.searchByPhoneNo();
-			operation(patient2);
-		}
+		System.out.println("Patient data already exist!!\nTaking appointment now....");
+		appoint(patient);
 		String json = OopsUtility.userWriteValueAsString(listOfAppointments);
 		OopsUtility.writeFile(json, appointmentFile);
+		} else {
+		System.out.println("Patient data doesnot exist\nPlease first add patient detials on to database");
+		}
+		}
 
-	}
+		public static void displayList(List<Doctor> docList) {
+		for (Doctor doctor : docList) {
+		System.out.println("Doctor's ID: " + doctor.getId());
+		System.out.println("Doctor's name: " + doctor.getName());
+		System.out.println("Doctor's specialization: " + doctor.getSpecialization());
+		System.out.println("Doctor's availability: " + doctor.getAvailability());
+		}
+		}
 
-	public static void displayList(List<Doctor> docList) {
+	public static void displayList1(List<Doctor> docList) {
 		for (Doctor doctor : docList) {
 			System.out.println("Doctor's ID: " + doctor.getId());
 			System.out.println("Doctor's name: " + doctor.getName());
@@ -198,7 +209,7 @@ public class CliniqueManager {
 			for (Doctor doctor : doctorList) {
 				if (id == doctor.getId()) {
 					for (Appointment appointment : listOfAppointments) {
-						if (doctor.getName().equals(appointment.getDocName())) {
+						if (doctor.getName().equals(appointment.getName())) {
 							List<Patient> patientAppointmentList = appointment.getListOfPatients();
 							if (patientAppointmentList.size() < 5) {
 								patientAppointmentList.add(patient);
@@ -213,7 +224,7 @@ public class CliniqueManager {
 						} 
 						else {
 							Appointment newAppointment = new Appointment();
-							newAppointment.setDocName(doctor.getName());
+							newAppointment.setName(doctor.getName());
 							List<Patient> newPatientAppointmentList = new ArrayList<>();
 							newPatientAppointmentList.add(patient);
 							newAppointment.setListOfPatients(newPatientAppointmentList);
@@ -226,7 +237,7 @@ public class CliniqueManager {
 						Appointment appointment2 = new Appointment();
 						List<Patient> patientList1 = new ArrayList<Patient>();
 						patientList1.add(patient);
-						appointment2.setDocName(doctor.getName());
+						appointment2.setName(doctor.getName());
 						appointment2.setListOfPatients(patientList1);
 						listOfAppointments.add(appointment2);
 						System.out.println("Appointment is set");
@@ -269,7 +280,7 @@ public class CliniqueManager {
 			listOfAppointments = OopsUtility.userReadValue(string, Appointment.class);
 			for (int i = 0; i < listOfAppointments.size(); i++) {
 				Appointment appointment = listOfAppointments.get(i);
-				String doctorName = appointment.getDocName();
+				String doctorName = appointment.getName();
 				Integer numberOfAppointments = appointment.getListOfPatients().size();
 				map.put(doctorName, numberOfAppointments);
 			}
@@ -309,10 +320,31 @@ public class CliniqueManager {
 					currKey = key;
 				}
 			}
-			System.out.println("Specialization  "+ currKey +" is famours");
+			System.out.println("Specialization  "+ currKey +" is famous");
 		} catch (Exception e) {
 			System.out.println("There are no doctors in the system");
 		}
 	}
+	public static void appoint(Patient patient) throws IOException {
+		System.out.println("Search doctor by- 1:Name 2:Speciality 3:Availability");
+		int choice = OopsUtility.userInt();
+		switch (choice) {
+		case 1:
+		List<Doctor> doctorList = Search.searchByName();
+		displayList(doctorList);
+		searchDoc(doctorList, patient);
+		break;
+		case 2:
+		List<Doctor> doctorList1 = Search.searchBySpecialization();
+		displayList(doctorList1);
+		searchDoc(doctorList1, patient);
+		break;
+		case 3:
+		List<Doctor> doctorList2 = Search.searchByAvailability();
+		displayList(doctorList2);
+		searchDoc(doctorList2, patient);
+		break;
+		}
+		}
 }
 

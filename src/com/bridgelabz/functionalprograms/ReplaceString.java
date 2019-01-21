@@ -20,10 +20,11 @@ public class ReplaceString {
 		int t=0;
 		do{
 System.out.println("Enter the username:");
+@SuppressWarnings("resource")
 Scanner sc=new Scanner(System.in);
 String s=sc.nextLine();
-FunctionalUtility fu=new FunctionalUtility();
-fu.checkconcate(s);
+
+FunctionalUtility .checkconcate(s);
 }while(t<6);
 	}
 

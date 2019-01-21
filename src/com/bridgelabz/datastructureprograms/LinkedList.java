@@ -1,4 +1,15 @@
 package com.bridgelabz.datastructureprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin LinkedList.java
+ *  Execution:    java -cp bin com.bridgelabz.datastructure program.LinkedList n
+ *  
+ *  Purpose: Program toi implement az linked list
+ *
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   4-12-2018
+ *
+ ******************************************************************************/
 public class LinkedList<T> {
 
     private Node<T> first;
@@ -126,14 +137,11 @@ public class LinkedList<T> {
             temp=temp.getNextRef();
         }
         if (temp == null || temp.getNextRef() == null) 
-                return; 
-            Node<T> next = temp.getNextRef().getNextRef(); 
-      
-            next=temp.getNextRef();
+                return;
     }
     public int [] convInteger(LinkedList<Integer> li,int len)
     {
-        Node nd2 = li.first;
+        Node<Integer> nd2 = li.first;
         int [] arr=new int[len];
         int i=0;
         while (true) {
@@ -193,7 +201,8 @@ public class LinkedList<T> {
 
     public String [] convString(LinkedList<T> li,int len)
     {
-        Node nd2 = li.first;
+        @SuppressWarnings("rawtypes")
+		Node nd2 = li.first;
         String [] str=new String[len];
         int i=0;
         while (true) {
@@ -211,7 +220,7 @@ public class LinkedList<T> {
     }
     public int [] convertInt(LinkedList<Integer> li,int len)
     {
-        Node nd2 = li.first;
+        Node<Integer> nd2 = li.first;
         int [] str=new int[len];
         int i=0;
         while (true) {

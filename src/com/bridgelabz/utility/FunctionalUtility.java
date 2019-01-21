@@ -14,7 +14,7 @@ public class FunctionalUtility<E> {
 	/**
 	 * @param s String as input from the user
 	 */
-	public void checkconcate(String s) {
+	public static void checkconcate(String s) {
 		if (s.length() < 3)
 			System.out.println("Enter the name with atleast 3 characters");
 		else
@@ -26,7 +26,7 @@ public class FunctionalUtility<E> {
 	 * @param count- To get the count of head and tails
 	 * Function to find the Percentage Of Head And Tails
 	 */
-	public void getCount(int count) {
+	public static void getCount(int count) {
 		double head = 0.0; double tail = 0.0;
 		int c = count;
 		Random r = new Random();
@@ -46,7 +46,7 @@ public class FunctionalUtility<E> {
 	/**
 	 * @param x used to get the leap year
 	 */
-	public void getLeap(int x) {
+	public static void getLeap(int x) {
 		if (x % 400 == 0 && x % 100 == 0 && x % 100 == 0) {
 			System.out.println("It is a leap year");
 		} else {
@@ -62,7 +62,7 @@ public class FunctionalUtility<E> {
 		
 	}
 	//////////////////////////////////////
-	public double getHarmonicNumber(int n) {
+	public static double getHarmonicNumber(int n) {
 		double sum = 0.0;
 		if (n == 1)
 			return 1;
@@ -107,7 +107,7 @@ public class FunctionalUtility<E> {
 	/**
 	 * Function to compute No of Wins and Loss
 	 */
-	public void Gambler() {
+	public static void Gambler() {
 		int t = 0;
 		do{
 		Scanner sc = new Scanner(System.in);
@@ -145,7 +145,7 @@ public class FunctionalUtility<E> {
 	 * @param n user input
 	 * @return returns the count 
 	 */
-	public int getcouponNumber(int n) {
+	public static int getcouponNumber(int n) {
 		boolean[] isCollected = new boolean[n];
 		int count = 0;
 		int distinct = 0;
@@ -168,7 +168,7 @@ public class FunctionalUtility<E> {
 	 * @param m rows
 	 * @param n columns
 	 */
-	public void displayarray(E[][] garray,int m,int n) 
+	public  void displayarray(E[][] garray,int m,int n) 
 	{ for(int i=0;i<m;i++)
 	{ for(int j=0;j<n;j++)
 	{ 
@@ -222,7 +222,7 @@ public class FunctionalUtility<E> {
 	/**
 	 * Function to calculate distance = sqrt(x*x + y*y) by using  Math.power function
 	 */
-	public void Distance(){
+	public static void Distance(){
 		int x,y;
 
 		double dis;
@@ -266,20 +266,20 @@ do{
 	}
 	/*Methods to calculate the elapsed time.
 	*//////////////////////////////////////
-	long starttime=0;
-	long endtime=0;
-	long elapsedtime=0;
+	static long starttime=0;
+	static long endtime=0;
+	static long elapsedtime=0;
 
 
-	public void start(){
+	public static void start(){
 		starttime= System.currentTimeMillis();
 		System.out.println("Start time "+starttime);
 	}
-	public void end(){
+	public static void end(){
 		endtime=System.currentTimeMillis();
 		System.out.println("End time " +endtime);
 	}
-	public void elapse(){
+	public static void elapse(){
 		elapsedtime=endtime-starttime;
 		System.out.println("Elapsed time ="+elapsedtime);
 	}
@@ -287,7 +287,7 @@ do{
 	/**
 	 * Function to calculate the roots of the Quadratic Equation
 	 */
-	public void quadratic()
+	public static void quadratic()
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the value of a:");
@@ -311,7 +311,7 @@ do{
 	/////////////////////////////	
 	//Method to Compute The Effective Temperature.
 	
-	public void windChill()
+	public static void windChill()
 	{
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the value of t in Fahrenheit:");

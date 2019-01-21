@@ -1,4 +1,17 @@
 package com.bridgelabz.objectorientedprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin DeckOfCards.java
+ *  Execution:    java -cp bin com.bridgelabz.objectorientedprograms.DeckOfCards
+ *  
+ *  Purpose: Program to create a Player Object having Deck of Cards, 
+ *         and having ability to Sort by Rank and maintain the cards in a Queue implemented using Linked List.
+ *          Do not use any Collection Library. Further the Player are also arranged in Queue. Finally Print the Player and the Cards received by each Player.
+
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   17-01-2019
+ *
+ ******************************************************************************/
 import com.bridgelabz.utility.OopsUtility;
 import com.bridgelabz.utility.QueueLinkedList;
 
@@ -37,6 +50,7 @@ public class DeckQueueLinkedList {
                 queueLinkedList = new QueueLinkedList<String>();
                 continue;
             }
+            //Since ASCII value of space comes after 0, hence the value 10 at first.
       //displaying the cards using queue linked list
             for (int i = 0; i < mainQueue.getSize(); i++) {
                 QueueLinkedList<String> queue2 = mainQueue.dequeue();

@@ -8,7 +8,7 @@ import com.bridgelabz.utility.OopsUtility;
 public class Search {
 
 	public static List<Doctor> searchByName() throws IOException {
-		String string = OopsUtility.readJsonFile(CliniqueManager.doctorFile);
+		String string = OopsUtility.readFile(CliniqueManager.doctorFile);
 		try {
 			CliniqueManager.listOfDoctor = OopsUtility.userReadValue(string, Doctor.class);
 			List<Doctor> list = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Search {
 	}
 
 	public static List<Doctor> searchById() throws IOException {
-		String string = OopsUtility.readJsonFile(CliniqueManager.doctorFile);
+		String string = OopsUtility.readFile(CliniqueManager.doctorFile);
 		try {
 			CliniqueManager.listOfDoctor = OopsUtility.userReadValue(string, Doctor.class);
 			List<Doctor> list = new ArrayList<>();
@@ -50,7 +50,7 @@ public class Search {
 	}
 
 	public static List<Doctor> searchBySpecialization() throws IOException {
-		String string = OopsUtility.readJsonFile(CliniqueManager.doctorFile);
+		String string = OopsUtility.readFile(CliniqueManager.doctorFile);
 		try {
 			CliniqueManager.listOfDoctor = OopsUtility.userReadValue(string, Doctor.class);
 			List<Doctor> list = new ArrayList<>();
@@ -71,7 +71,7 @@ public class Search {
 	}
 
 	public static List<Doctor> searchByAvailability() throws IOException {
-		String string = OopsUtility.readJsonFile(CliniqueManager.doctorFile);
+		String string = OopsUtility.readFile(CliniqueManager.doctorFile);
 		try {
 			CliniqueManager.listOfDoctor = OopsUtility.userReadValue(string, Doctor.class);
 			List<Doctor> list = new ArrayList<>();
@@ -91,7 +91,7 @@ public class Search {
 	}
 
 	public static Patient searchByPatientId() throws IOException {
-		String string = OopsUtility.readJsonFile(CliniqueManager.patientFile);
+		String string = OopsUtility.readFile(CliniqueManager.patientFile);
 		CliniqueManager.listOfPatients = OopsUtility.userReadValue(string, Patient.class);
 		System.out.println("Enter the patient's id to be searched");
 		int id = OopsUtility.userInt();
@@ -104,7 +104,7 @@ public class Search {
 	}
 
 	public static Patient searchByPhoneNo() throws IOException {
-		String string = OopsUtility.readJsonFile(CliniqueManager.patientFile);
+		String string = OopsUtility.readFile(CliniqueManager.patientFile);
 		CliniqueManager.listOfPatients = OopsUtility.userReadValue(string, Patient.class);
 		System.out.println("Enter the patient's phone number to search");
 		long phoneNo = OopsUtility.userLong();

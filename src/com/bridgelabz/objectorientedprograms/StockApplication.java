@@ -1,4 +1,18 @@
 package com.bridgelabz.objectorientedprograms;
+/******************************************************************************
+ *  Compilation:  javac -d bin StockApplication.java
+ *  Execution:    java -cp bin com.bridgelabz.objectorientedprograms.StockApplication
+ *  
+ *  Purpose: Write a program to read in Stock Names, Number of Share, Share Price.  
+ *           Print a Stock Report with total value of each Stock and the total value of Stock.
+
+
+ *  @author  Mohammed Sibgathulla
+ *  @version 1.0
+ *  @since   -01-2019
+ *
+ ******************************************************************************/
+
 import java.io.IOException;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;

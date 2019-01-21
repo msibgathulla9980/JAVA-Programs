@@ -13,15 +13,13 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.AlgorithmUtility;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
 
 public class BubbleSort {
 
 	public static void main(String[] args) {
 		int t=0;
 		do{
+		@SuppressWarnings("resource")
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the no of Elements: ");
 		int n=sc.nextInt();
@@ -31,6 +29,7 @@ public class BubbleSort {
 		{
 			arr[i]=sc.nextInt();
 		}
+		@SuppressWarnings("rawtypes")
 		AlgorithmUtility au=new AlgorithmUtility();
 		au.bubbleSort(arr,n);
 		
