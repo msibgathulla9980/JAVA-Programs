@@ -3,7 +3,7 @@
  *  Execution:    java -cp bin com.bridgelabz.utilitys.Anagram n
  *  
  *  Purpose: Determines The Two Strings are Anagram or not
- *  @author  BridgeLabz
+ *  @author  Mohammed Sibgathulla
  *  @version 1.0
  *  @since   26-12-2018
  *
